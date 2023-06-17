@@ -37,7 +37,7 @@ const version = packageJson.version.slice(0, -1) + getBuildDatetime();
 
 module.exports = merge(commonConfig, {
   entry: {
-    index: path.resolve(__dirname, 'src/js/hexaPlayer.js')
+    index: path.resolve(__dirname, 'src/js/hPlayer.js')
   },
   mode: 'production',
   module: {

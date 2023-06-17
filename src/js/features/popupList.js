@@ -1,7 +1,5 @@
 import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
 import { createButton, createHTMLElement } from '../util/domUtils';
-import HexaglobePlayer from '../hexaPlayer';
-
 /**
  * This feature will be used to add a players list to the UI with all the information configured or provided by the clients.
  * @type {PopUpListPlayerDialog}

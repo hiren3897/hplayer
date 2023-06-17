@@ -1,8 +1,8 @@
-import HexaglobePlayer from './hexaPlayer';
+import HPlayer from './hPlayer';
 
 const video = document.querySelector('#video');
 const videoContainer = document.querySelector('#video-container');
-const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+const hPlayer = new HPlayer(video, videoContainer, {
   basic: {
     source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     chaptersData: {
@@ -57,11 +57,11 @@ const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
   ]
 });
 
-hexaPlayer.init_();
-hexaPlayer.mute();
-window.player = hexaPlayer;
+hPlayer.init_();
+hPlayer.mute();
+window.player = hPlayer;
 
 setTimeout(async() => {
-  console.log(hexaPlayer.player_.getConfiguration());
-  console.log(hexaPlayer.player_.seekRange());
+  console.log(hPlayer.player_.getConfiguration());
+  console.log(hPlayer.player_.seekRange());
 }, 1500);

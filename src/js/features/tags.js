@@ -2,7 +2,8 @@ import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist
 import { NotificationService } from '../notification/notificationService';
 import { createHTMLElement } from '../util/domUtils';
 import { ChapterService } from './services/chapterService';
-import HexaglobePlayer from '../hexaPlayer';
+import Hplayer from '../hPlayer';
+import HPlayer from '../hPlayer';
 
 /**
  * Tags Feature
@@ -35,7 +36,7 @@ const Tags = class extends shaka.ui.Element {
 
       this.createTagContainer();
 
-      this.eventManager.listen(this.controls, HexaglobePlayer.ASSET_LOADED, async() => {
+      this.eventManager.listen(this.controls, HPlayer.ASSET_LOADED, async() => {
         this.tagsConfig_ = this.controls.getPlayer().tags;
         this.tagsData_ = await this.getTagsData(this.tagsConfig_.tagWebVtt, 'en', 'text/vtt');
         this.tagsService_ = new ChapterService(this.tagsData_, this.player, this.controls);

@@ -272,7 +272,7 @@ module.exports = {
           { from: './demo/css', to: './css' },
           { from: './demo/assets', to: 'assets' },
           { from: './dist/index.css', to: './css/index.css' },
-          { from: './dist/HexaglobePlayer.bundle.js', to: './js/HexaglobePlayer.bundle.js' },
+          { from: './dist/HPlayer.bundle.js', to: './js/HPlayer.bundle.js' },
           { from: './cast_receiver', to: './cast_receiver' },
           { from: './docs', to: 'docs' }
           // { from: 'src/yyy.ext', to: 'dist/yyy.ext' }

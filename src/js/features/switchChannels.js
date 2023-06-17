@@ -1,7 +1,6 @@
 import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
-import { returnDrmUrlWithSupportType } from '../drmConfigurations';
 import { createHTMLElement } from '../util/domUtils';
-import HexaglobePlayer from '../hexaPlayer';
+import Hplayer from '../hPlayer';
 
 /**
  * This is a Switch Channel feature that is used to switch live streaming channel's. This feature is mainly designed for Live player.
@@ -144,7 +143,7 @@ const SwitchChannel = class extends shaka.ui.Element {
   }
 
   loadSource(asset) {
-    const loadSourceEvent = new Event(HexaglobePlayer.LOAD_ASSET);
+    const loadSourceEvent = new Event(Hplayer.LOAD_ASSET);
     loadSourceEvent.asset = asset;
     this.controls.dispatchEvent(loadSourceEvent);
   }

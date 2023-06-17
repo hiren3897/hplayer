@@ -1,5 +1,5 @@
 import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
-import HexaglobePlayer from '../hexaPlayer';
+import Hplayer from '../hPlayer';
 import {
   createButton,
   createHTMLElement,
@@ -368,7 +368,7 @@ const PlaylistFeature = class extends shaka.ui.Element {
   }
 
   loadAsset(asset) {
-    const loadAssetEvent = new Event(HexaglobePlayer.LOAD_ASSET);
+    const loadAssetEvent = new Event(Hplayer.LOAD_ASSET);
     loadAssetEvent.asset = asset;
     this.controls.dispatchEvent(loadAssetEvent);
   }

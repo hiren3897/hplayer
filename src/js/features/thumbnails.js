@@ -1,6 +1,6 @@
 import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
 import { createHTMLElement } from '../util/domUtils';
-import HexaglobePlayer from '../hexaPlayer';
+import Hplayer from '../hPlayer';
 
 /**
  * This the Thumbnails feature.
@@ -42,7 +42,7 @@ const Thumbnails = class extends shaka.ui.Element {
     // Timeout to draw next thumbnail
     this.timeoutNextDrawing = null;
 
-    this.eventManager.listen(this.controls, HexaglobePlayer.ASSET_LOADED, e => {
+    this.eventManager.listen(this.controls, Hplayer.ASSET_LOADED, e => {
       this.createDuplicatePlayer();
     });
 
@@ -95,7 +95,7 @@ const Thumbnails = class extends shaka.ui.Element {
     this.videoContainer = createHTMLElement('div');
     this.videoPlayer = createHTMLElement('video');
     this.videoContainer.appendChild(this.videoPlayer);
-    this.duplicatedPlayer = new HexaglobePlayer(
+    this.duplicatedPlayer = new Hplayer(
       this.videoPlayer,
       this.videoContainer,
       { basic: { ...this.controls.options.basic } }

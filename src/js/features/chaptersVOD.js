@@ -1,6 +1,6 @@
 import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
 import {createButton, createHTMLElement} from '../util/domUtils';
-import HexaglobePlayer from '../hexaPlayer';
+import Hplayer from '../hPlayer';
 import {ChapterService} from './services/chapterService';
 import {buildTimeString} from "../util/sharedUtils";
 import {DEFAULT_CHAPTER_TOOLTIPS} from "../const";
@@ -188,7 +188,7 @@ const ChaptersVOD = class extends shaka.ui.Element {
             this.controls.getPlayer().activeChapter = this.chapters.find((chp) => chp.status === 'active')
         })
 
-        this.eventManager.listen(this.controls, HexaglobePlayer.ASSET_LOADED, async (e) => {
+        this.eventManager.listen(this.controls, Hplayer.ASSET_LOADED, async (e) => {
             const newChapterData = e.asset?.chaptersData;
             if (!newChapterData) {
                 this.chapters = []
