@@ -1,0 +1,278 @@
+= Switch Channel (Zapping Feature)
+
+- This is a Zapping feature that is used to switch live-streaming channel's. This feature is mainly designed for Live player.
+
+== How to configure and enable this feature
+
+[source,json]
+----
+  {
+    "advanced_features": [
+      {
+      "name": "switch_channels",
+      "visible": true,
+      "data": {
+        "ui": "list",
+        "channels": [
+          {
+            "name": "Channel one title",
+            "source": "https://urltothisvideo.com/manifest",
+            "livePlugin": true,
+            "drmProtected": true,
+            "availableFormats": ["dashwidevine", "hlsfairplay", "dashplayready", "hls"],
+            "drm_licence": "https://drmUrltothisvideo.com/csdkslsd",
+            "serverCertificate": "https://drmUrltothisvideo.com/csdkslsd",
+            "logo": "https://urltoimge.jpg"
+          }
+        ]
+      }
+     }]
+  }
+
+----
+
+=== Data property
+.Zapping Feature data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|ui   | string  | *"list"* view OR *"circle"* view
+|channels   | Array   | list of channels with appropriate data.
+|=======================
+
+==== Channel properties
+.channels array properties
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|name   | string   | Title of the player.
+|source   | string   | A url of the next channel or video. you can also use our plugins in the source configurations.
+|livePlugin   | boolean   | To tell player to use live plugin activation
+|drmProtected   | boolean   | To tell player that the stream is DRM protected.
+|availableFormats   | Array   | An array of available stream formats.
+|drm_licence   | string   | DRM url of video.
+|serverCertificate   | string   | server certificate if applicable to the video.
+|logo   | string   | Logo of channel
+|=======================
+
+[NOTE]
+You can also configure plugins in the *source* property of the configuration. while using plugin's do not configure the *drm_licence* or *servercertificate* because plugin handles everything for you.
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video')
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+      name: "switch_channels",
+      visible: true,
+      data: {
+        ui: "list",
+        channels: [
+          {
+            name: "Channel one title",
+            source: "https://urltothisvideo.com/manifest",
+            livePlugin: true,
+            drmProtected: true,
+            availableFormats: ["dashwidevine", "hlsfairplay", "dashplayready", "hls"],
+            drm_licence: "https://drmUrltothisvideo.com/csdkslsd",
+            serverCertificate: 'https://serverCertificate.com/csdkslsd',
+            logo: "https://urltoimge.jpg"
+          }
+        ]
+      }
+     }]
+})
+hexaPlayer.init_();
+----
+
+[NOTE]
+To have the loaded stream as an item of the switch channel feature, don't forget to add metadata describing the loaded stream in the switch channel configuration. It will allow you to navigate back to the loaded stream while switching other channel streams.
+For example, the channel stream loaded while initializing the player is BigBunkBunny Channel, then add the metadata data describing BigBunkBunny Channel in the switch channel configuration at first or any position you prefer.
+
+
+=== CSS Customization
+
+- To customise the switch channel UI you can edit the following CSS classes listed in the following snippet.
+
+==== Snippet
+[source,scss]
+----
+.switch-channel-container {
+  display: flex;
+  justify-content: center;
+}
+
+.switch-channel-dropdown {
+  padding: 9px 9px;
+  display: flex;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.switch-channel-dropdown:hover {
+  cursor: pointer;
+}
+
+.switch-channel-dropdown:hover .channel-dropdown_menu-to-right li {
+  display: block;
+  box-sizing: content-box;
+}
+
+.channel-dropdown_menu-to-right {
+  perspective: 1000px;
+  z-index: -1;
+  display: flex;
+  height: 40px;
+  width: 250px;
+}
+.switch-channel-dropdown ul {
+  position: absolute;
+  top: -20%;
+  left: 10px;
+  margin: 10px 0 0 39px;
+  padding: 0 0 0 0;
+}
+
+.channel-dropdown_menu-to-right li {
+  display: none;
+  color: #000000;
+  padding: 9px 9px;
+  opacity: 0;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  background-position: center;
+}
+
+.dropdown_menu-1 .right-1 {
+  transform-origin: top center;
+  animation: rightOut 300ms 60ms ease-in-out forwards;
+}
+
+.dropdown_menu-1 .right-2 {
+  transform-origin: top center;
+  animation: rightOut 300ms 120ms ease-in-out forwards;
+}
+
+.dropdown_menu-1 .right-3 {
+  transform-origin: top center;
+  animation: rightOut 300ms 180ms ease-in-out forwards;
+}
+
+.dropdown_menu-1 .right-4 {
+  transform-origin: top center;
+  animation: rightOut 300ms 240ms ease-in-out forwards;
+}
+
+.dropdown_menu-1 .right-5 {
+  transform-origin: top center;
+  animation: rightOut 300ms 300ms ease-in-out forwards;
+}
+
+.dropdown_menu-1 .right-6 {
+  transform-origin: top center;
+  animation: rightOut 300ms 360ms ease-in-out forwards;
+}
+
+@-moz-keyframes rightOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes rightOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-o-keyframes rightOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rightOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// List view css
+
+.hexa-channel-active-highlight {
+  background: rgba(45, 44, 44, 0.81);
+}
+
+// New Dropdown menu UI
+.hexa-dropdown-layout-container {
+  position: absolute;
+  display: inline-block;
+  top: 60px;
+  left: 0;
+}
+
+.hexa-dropdown-layout-container .hexa-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #3f3e3ebd;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.hexa-dropdown-content .hexa-dropdown-items {
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+}
+.hexa-dropdown-layout-container .hexa-dropdown-items:hover {background-color: rgba(0, 0, 0, 0.3);}
+
+.hexa-show-dropdown-content {display: block !important;}
+
+.hexa-dropdown-layout-button {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.hexa-dropdown-layout-button:hover, .hexa-dropdown-layout-button:focus {
+  background-color: #2980B9;
+}
+
+----

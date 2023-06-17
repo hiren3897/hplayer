@@ -1,0 +1,53 @@
+= Player Live Statistics
+
+- Now you can display the live player statistics on the player.
+- You just have to configure the settings under the *ui_configuration* in the options.
+- You can also configure the required statistics properties in the player.
+
+
+== How to configure the statistics with custom stats properties
+
+[source,js]
+----
+const options = {
+  basic: {
+    source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    poster: 'https://alchetron.com/cdn/big-buck-bunny-6636a6ca-0538-4211-a422-2b82ba76d7e-resize-750.jpeg'
+  },
+  ui_configuration: {
+    addBigPlayButton: true,
+    controlPanelElements: [
+      'play_pause',
+      'time_and_duration',
+      'spacer',
+      'mute',
+      'volume',
+      'fullscreen',
+      'overflow_menu' // add overflow menu to display stats option
+    ],
+    statisticsList: [ // configure the required statistics properties
+      'width',
+      'height',
+      'corruptedFrames',
+      'decodedFrames',
+      'droppedFrames',
+      'drmTimeSeconds',
+      'licenseTime',
+      'liveLatency',
+      'loadLatency',
+      'bufferingTime',
+      'manifestTimeSeconds',
+      'estimatedBandwidth',
+      'streamBandwidth',
+      'maxSegmentDuration',
+      'pauseTime',
+      'playTime',
+      'completionPercent'
+    ],
+    overflowMenuButtons: [ // configure the statistics button in the overflow menu
+      'statistics'
+    ]
+  }
+};
+----
+

@@ -1,0 +1,22 @@
+= Make Volume bar Vertical
+
+- You can customize the volume bar of the player from horizontal (default) to vertical.
+
+
+== How to configure?
+[source,js]
+----
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#video-container');
+const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+  basic: {
+    source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    poster: 'https://alchetron.com/cdn/big-buck-bunny-6636a6ca-0538-4211-a422-2b82ba76d7e-resize-750.jpeg'
+  },
+  ui_configuration: {
+    verticalVolumeBar: true
+  }
+});
+
+hexaPlayer.init_();
+----

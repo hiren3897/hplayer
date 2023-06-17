@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  web:
+    container_name: hexa_player_demo
+    image: ${WEB_IMAGE_NAME}:${WEB_IMAGE_VERSION}
+    ports:
+      - "$PORT_NGINX:80"
+    restart: unless-stopped
+

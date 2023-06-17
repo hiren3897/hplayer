@@ -1,0 +1,17 @@
+{
+  "backward-btn-title": "Revenir en arrière {seconds}",
+  "forward-btn-title": "Avancer {seconds}",
+  "express-mode-btn-title": "Mode express {status}",
+  "live-btn-title": "Retour au direct",
+  "playlist-btn-title": "Ouvrir la liste de lecture",
+  "popup-btn-title": "Ouvrir la liste des popups",
+  "screenshot-btn-title": "Prendre une capture d'écran",
+  "share-btn-title": "URL de partage",
+  "switch-channel-btn-title": "Changer de liste de chaînes",
+  "dvr-mode-btn-title": "Mode DVR {status}",
+  "next-chp-btn-title": "Chapitre suivant",
+  "previous-chp-btn-title": "Chapitre précédent",
+  "on": "Activé",
+  "off": "Désactivé",
+  "custom-audio-language-title": "Sélectionnez Audio"
+}

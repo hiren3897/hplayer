@@ -1,0 +1,41 @@
+= Previous Chapter Button
+
+- To navigate to the previous chapter in the video player. If the video is live then it will be used to navigate to the previous available chapter in the video player.
+
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "previous_chapter_button",
+        "visible": true
+      }]
+  }
+
+----
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video')
+const hexaPlayer = new HexaglobePlayer(video, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        "name": "previous_chapter_button",
+        "visible": true
+      }]
+})
+
+document.addEventListener('shaka-ui-loaded', () => hexaPlayer.init_());
+
+document.addEventListener('shaka-ui-load-failed', () => hexaPlayer.initFailed());
+----
+

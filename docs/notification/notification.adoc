@@ -1,0 +1,104 @@
+= Hexaglobe Player Notification
+
+- Send notifications to the player.
+- It has builtin notification types ready to use for the player.
+** Types:
+*** ERROR: 'hexa-notification-error'
+*** WARNING: 'hexa-notification-warning'
+*** SUCCESS: 'hexa-notification-success'
+*** INFO: 'hexa-notification-info'
+- You can also create your own customised notification's. See *CSS Customisation Section*.
+
+== How to create a notification.
+[source,js]
+----
+const notificationConfig = {
+      title: 'ERROR',
+      style: 'hexa-notification-error', // a css class
+      message: 'errorMessage',
+      actions: ['close'],
+      seconds: 10
+}
+hexaPlayer.showNotification(notificationConfig)
+----
+
+=== How to create custom notification buttons
+[source, javascript]
+----
+const notificationConfig = {
+          title: 'ALERT!!!',
+          style: 'hexa-notification-info',
+          message: 'Are you still watching stream',
+          actions: ['close', {
+            btnName: 'Yes',
+            callback: () => {
+              // write you code here
+            }
+          }]
+  }
+hexaPlayer.showNotification(notificationConfig)
+----
+
+=== CSS Customisation
+- The style property have builtin types as explained above in the description.
+- To create your own type, create a CSS Class with name following *hexa-notification-YOURTYPE* and encapsulate it with *shaka-video-container* & *hexa-notifications-container* CSS class.
+- Don't forget to configure your style name while configuring notification.
+[source,css]
+----
+.shaka-video-container .hexa-notifications-container .hexa-notification-YOURTYPE {
+ // add your custom css
+}
+----
+
+==== Base CSS classes
+[source,scss]
+----
+// Base class
+.hexa-notification {
+
+}
+
+.hexa-notification-position {
+
+}
+
+
+.hexa-notification-header {
+
+}
+
+.hexa-notification-message-type {
+
+}
+
+.hexa-notification-close-button {
+
+}
+
+.hexa-notification-body {
+
+}
+
+.hexa-notification-show {
+
+}
+
+.hexa-notification-hide {
+
+}
+
+/*Default Types*/
+.hexa-notification-info {
+  border-left-color: #5bc0de;
+}
+.hexa-notification-warning {
+  border-left-color: #ffef45;
+}
+.hexa-notification-error {
+  border-left-color: #e50a0a;
+}
+.hexa-notification-success {
+  border-left-color: #67f065;
+}
+
+----

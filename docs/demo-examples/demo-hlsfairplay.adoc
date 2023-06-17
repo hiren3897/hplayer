@@ -1,0 +1,53 @@
+= Demo HLSFairPlay player setup
+
+- If you are setting up a player for *MacOS* Apple devices that use Safari as a browser then you must set up the DRM license and serverCertificate url to set up the player running perfectly.
+
+== Tutorial1
+
+[source, javascript]
+----
+const videoContainer = document.querySelector('.hexa-container')
+const video = document.querySelector('.hexa-player');
+const options = {
+                  basic: {
+                    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                    drm_licence: "http:/drm/license",
+                    serverCertificate: "http:/serverCertificate.cer"
+                  },
+                };
+
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, options);
+hexaPlayer.init_();
+
+
+----
+[NOTE]
+As soon as the player recognise the serverCertificate it will convert the server certificate to Uint8Array cert and configure it with the player to play the safe content on apple device.
+
+== Tutorial2
+
+[source, javascript]
+----
+const videoContainer = document.querySelector('.hexa-container')
+const video = document.querySelector('.hexa-player');
+const options = {
+                  basic: {
+                    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                    drm_licence: "http:/drm/license",
+                  },
+                  player_configurations: {
+                    drm: {
+                        advanced: {
+                                serverCertificateUri: "https://your/serverCert.cer"
+                            }
+                        }
+                    }
+                },
+
+              };
+
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, options);
+hexaPlayer.init_();
+
+
+----

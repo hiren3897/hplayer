@@ -1,0 +1,68 @@
+= Live stream settings
+
+== Dash
+
+=== Startup settings
+
+- These settings help to start the stream quickly.
+
+
+[NOTE]
+If you want to start the stream quickly, you need to set this following settings, but it is only for the test purpose now.
+
+
+[source,js]
+----
+{
+    "player_configurations": {
+            "drm": {
+    // This settings will handle the unwanted behavior of the player.
+                "advanced": {
+                    "com.widevine.alpha": {
+                        "audioRobustness": "SW_SECURE_CRYPTO",
+                        "videoRobustness": "SW_SECURE_CRYPTO"
+                    }
+                }
+            },
+            "streaming": {
+                "inaccurateManifestTolerance": 0, // doesn't download the previous segment.
+                "rebufferingGoal": 0.01 // starts the stream on first segment download.
+            },
+            "manifest": {
+                "dash": {
+                    "ignoreMinBufferTime": true // ignore the min buffer time of the stream.
+                }
+            },
+            "restrictions": {
+                "maxHeight": 144 // if required start the stream at lowest quality. Follow the code below to upscale the stream after the live stream video is stable after some seconds.
+            }
+    }
+}
+----
+
+[source, javascript]
+----
+// Upscale the stream on auto ABR.
+setTimeout(() => {
+    hexaPlayer.player_.configure({
+        restrictions: {
+            maxHeight: 720
+        }
+    })
+}, //REPLAY_WITH_YOUR_SECONDS
+10000);
+----
+
+== HLS
+- To display a seekbar timeline on Chrome and Firefox browser.
+Configure the following settings in the player.
+[source,javascript]
+----
+{
+    "player_configurations": {
+        "manifest": {
+          "availabilityWindowOverride": Infinity // Have the timeline be in the availability window.
+        }
+      }
+}
+----

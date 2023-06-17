@@ -1,0 +1,197 @@
+/**
+ * Multiplayer Example
+ */
+.parent-multiplayer-container {
+    width: 700px;
+    height: 650px;
+    margin-top: 50px;
+}
+
+.parent-multiplayer-container .hexa-fullscreen-btn {
+    position: absolute;
+    right: 0;
+    left:0px;
+    top: -40px;
+
+    margin: auto;
+    line-height: 0px;
+    border: none;
+}
+
+.parent-multiplayer-container:-webkit-full-screen {
+    background-color: black !important
+}
+
+.parent-multiplayer-container .multiplayer-container {
+    height: 60%;
+    width: 100%;
+    display: inline-flex;
+    position: relative;
+    vertical-align: top;
+}
+
+/**
+ * bottom UI for 4 player
+ */
+.parent-multiplayer-container .bottomFlux4 {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 33.33%;
+    height: 33.33%;
+}
+
+.parent-multiplayer-container .bottomFlux4.flux0 {
+    cursor: auto !important;
+    left: 0 !important;
+    width: 100%;
+    height: 100% !important;
+}
+.parent-multiplayer-container .bottomFlux4.flux1 {
+    top: 100%;
+}
+.parent-multiplayer-container .bottomFlux4.flux2 {
+    top: 100%;
+    left: 33.33%;
+}
+.parent-multiplayer-container .bottomFlux4.flux3 {
+    top: 100%;
+    left: 66.66%;
+}
+
+.hexa-onfullscreen .multiplayer-container {
+    height: 75vh !important;
+}
+
+.hexa-onfullscreen .bottomFlux4 {
+    width: 32%;
+    height: 25vh;
+}
+
+.hexa-onfullscreen .bottomFlux4.flux1 {
+    left: 1%;
+}
+
+.hexa-onfullscreen .bottomFlux4.flux2 {
+    left: 34%;
+}
+.hexa-onfullscreen .bottomFlux4.flux3 {
+    left: 67%;
+}
+
+/**
+ * For 3 players
+ */
+.parent-multiplayer-container .bottomFlux3 {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    height: 50%;
+}
+
+.parent-multiplayer-container .bottomFlux3.flux0 {
+    cursor: auto !important;
+    left: 0 !important;
+    width: 100%;
+    height: 100% !important;
+}
+.parent-multiplayer-container .bottomFlux3.flux1 {
+    top: 100%;
+}
+.parent-multiplayer-container .bottomFlux3.flux2 {
+    top: 100%;
+    left: 50%;
+}
+
+/*.hexa-onfullscreen .multiplayer-container {*/
+/*    height: 620px !important;*/
+/*}*/
+
+.hexa-onfullscreen .bottomFlux3 {
+    width: 50%;
+    height: 33vh;
+}
+
+.hexa-onfullscreen .bottomFlux3.flux1 {
+    left: 0%;
+}
+
+.hexa-onfullscreen .bottomFlux3.flux2 {
+    left: 50%;
+}
+
+
+/**
+ * For 2 players
+ */
+.parent-multiplayer-container .bottomFlux2 {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    height: 50%;
+}
+
+.parent-multiplayer-container .bottomFlux2.flux0 {
+    cursor: auto !important;
+    left: 0 !important;
+    width: 100%;
+    height: 100% !important;
+}
+.parent-multiplayer-container .bottomFlux2.flux1 {
+    top: 100%;
+    left: 25%;
+}
+
+/*.hexa-onfullscreen .multiplayer-container {*/
+/*    height: 620px !important;*/
+/*}*/
+
+.hexa-onfullscreen .bottomFlux2 {
+    width: 30%;
+    height: 33vh;
+}
+
+.hexa-onfullscreen .bottomFlux2.flux1 {
+    left: 35%;
+}
+
+.parent-multiplayer-container .small-video-container .shaka-bottom-controls {
+    display: none;
+}
+.parent-multiplayer-container .small-video-container .shaka-controls-container {
+    pointer-events: none;
+}
+
+.parent-multiplayer-container:-webkit-full-screen  {
+    width: 100%;
+    height: 100%;
+}
+
+
+@media only screen and (min-width: 1024px) {
+    .parent-multiplayer-container {
+        width: 824px;
+        height: 765px;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1023px) {
+    .parent-multiplayer-container {
+        width: 550px;
+        height: 511px;
+    }
+}
+@media only screen and (min-width: 401px) and (max-width: 768px) {
+    .parent-multiplayer-container {
+        width: 366px;
+        height: 340px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .parent-multiplayer-container {
+        width: 321px;
+        height: 298px;
+    }
+}
+

@@ -1,0 +1,296 @@
+= Thumbnails Track Feature
+
+== Thumbnails Track
+
+- To preview thumbnail on the timeline scrubbing
+- We support thumbnail track preview for both VOD and live.
+- Our player is capable of handling both tiled images and single frame/sec layout.
+- we recommend to use single frame/sec layout.
+
+[NOTE]
+This Feature works only with the Dash and HLS manifest VOD or Live Formats.
+All the thumbnail URL should be present in the provided manifest or playlist at the time of setting up the player.
+
+=== Thumbnail Standard Format
+
+link:https://nightly-dot-shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.Thumbnail[shaka.extern.Thumbnail]
+
+=== How to configure and enable this feature
+
+==== VOD
+- In VOD, we support thumbnails form source as well as WebVTT.
+- To use the source feature set *withWebVtt* to *false*. It will direct the player to use the thumbnail from the manifest (DASH) or playlist (HLS).
+- If you are using WebVtt then *withWebVtt* to *true* and provide the required configuration of WebVTT. see *webVttInfo* config below.
+
+[NOTE]
+The link:https://www.w3.org/TR/webvtt1/[RFC] implementation of WebVTT thumbnails is very strict.
+
+** link:https://test-drm.hexaglobe.net/hrathod/thumbtest/webvtt/thumbs.vtt[WEVTT SAMPLE]
+[source,json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "thumbnail_track_vod",
+        "visible": true,
+        "data": {
+          "withWebVtt": true,
+            "webVttInfo": {
+              "url": "https://path/to/thumbs.vtt",
+              "mimeType": "text/vtt",
+              "tilesLayout": "1x1"
+            }
+          }
+      }]
+  }
+----
+
+=== Data property
+.Thumbnail Track VOD data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description | Default
+|withWebVtt   |Boolean  | To indicate the player to use WebVTT or Source thumbnails. | false
+|webVttInfo   |JSON  | includes WebVTT url, lang, mimeType, tilesLayout | -
+|=======================
+
+==== LIVE
+- In LIVE, we support thumbnails form source only
+
+[source,json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "thumbnail_track_live",
+        "visible": true
+      }]
+  }
+----
+
+- We also support thumbnails with DVR of 3 hours. `ONLY FOR LIVE`
+** Configure the following settings in the player.
+[source,json]
+----
+{
+  "player_configurations": {
+    "manifest": {
+      "dash": {
+        "initialSegmentLimit": 10800 // seconds equivalent to 3 hours.
+      }
+    }
+  }
+}
+----
+
+=== Dash manifest content
+
+==== VOD
+https://dash.akamaized.net/akamai/bbb_30fps/bbb_with_4_tiles_thumbnails.mpd
+
+- An example of thumbnails with tiles.
+
+[source,xml]
+----
+<MPD mediaPresentationDuration="PT634.566S" minBufferTime="PT2.00S" profiles="urn:hbbtv:dash:profile:isoff-live:2012,urn:mpeg:dash:profile:isoff-live:2011" type="static" xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011 DASH-MPD.xsd">
+ <BaseURL>./</BaseURL>
+ <Period>
+  <AdaptationSet id="1" mimeType="video/mp4" contentType="video" subsegmentAlignment="true" subsegmentStartsWithSAP="1" par="16:9">
+   <SegmentTemplate duration="120" timescale="30" media="$RepresentationID$/$RepresentationID$_$Number$.m4v" startNumber="1" initialization="$RepresentationID$/$RepresentationID$_0.m4v"/>
+   <Representation id="bbb_30fps_1024x576_2500k" codecs="avc1.64001f" bandwidth="3134488" width="1024" height="576" frameRate="30" sar="1:1" scanType="progressive"/>
+   <Representation id="bbb_30fps_1280x720_4000k" codecs="avc1.64001f" bandwidth="4952892" width="1280" height="720" frameRate="30" sar="1:1" scanType="progressive"/>
+   <Representation id="bbb_30fps_1920x1080_8000k" codecs="avc1.640028" bandwidth="9914554" width="1920" height="1080" frameRate="30" sar="1:1" scanType="progressive"/>
+   <Representation id="bbb_30fps_320x180_200k" codecs="avc1.64000d" bandwidth="254320" width="320" height="180" frameRate="30" sar="1:1" scanType="progressive"/>
+   <Representation id="bbb_30fps_320x180_400k" codecs="avc1.64000d" bandwidth="507246" width="320" height="180" frameRate="30" sar="1:1" scanType="progressive"/>
+   <Representation id="bbb_30fps_480x270_600k" codecs="avc1.640015" bandwidth="759798" width="480" height="270" frameRate="30" sar="1:1" scanType="progressive"/>
+   <Representation id="bbb_30fps_640x360_1000k" codecs="avc1.64001e" bandwidth="1254758" width="640" height="360" frameRate="30" sar="1:1" scanType="progressive"/>
+   <Representation id="bbb_30fps_640x360_800k" codecs="avc1.64001e" bandwidth="1013310" width="640" height="360" frameRate="30" sar="1:1" scanType="progressive"/>
+   <Representation id="bbb_30fps_768x432_1500k" codecs="avc1.64001e" bandwidth="1883700" width="768" height="432" frameRate="30" sar="1:1" scanType="progressive"/>
+   <Representation id="bbb_30fps_3840x2160_12000k" codecs="avc1.640033" bandwidth="14931538" width="3840" height="2160" frameRate="30" sar="1:1" scanType="progressive"/>
+  </AdaptationSet>
+  <AdaptationSet id="2" mimeType="audio/mp4" contentType="audio" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
+   <Accessibility schemeIdUri="urn:tva:metadata:cs:AudioPurposeCS:2007" value="6"/>
+   <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main"/>
+   <SegmentTemplate duration="192512" timescale="48000" media="$RepresentationID$/$RepresentationID$_$Number$.m4a" startNumber="1" initialization="$RepresentationID$/$RepresentationID$_0.m4a"/>
+   <Representation id="bbb_a64k" codecs="mp4a.40.5" bandwidth="67071" audioSamplingRate="48000">
+    <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2"/>
+   </Representation>
+  </AdaptationSet>
+
+  <AdaptationSet id="3" mimeType="image/jpeg" contentType="image">
+    <SegmentTemplate media="$RepresentationID$/tile_$Number$.jpg" duration="158.642" startNumber="1"/>
+    <Representation bandwidth="12000" id="thumbnails_205x115" width="2048" height="115">
+      <EssentialProperty schemeIdUri="http://dashif.org/thumbnail_tile" value="10x1"/>
+    </Representation>
+  </AdaptationSet>
+
+
+ </Period>
+</MPD>
+----
+
+==== Live
+https://livesim.dashif.org/livesim/testpic_2s/Manifest_thumbs.mpd
+
+- An example of Live thumbnail with one image per 2 seconds.
+[source,xml]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" availabilityStartTime="1970-01-01T00:00:00Z" id="Config part of url maybe?" maxSegmentDuration="PT2S" minBufferTime="PT2S" minimumUpdatePeriod="P100Y" profiles="urn:mpeg:dash:profile:isoff-live:2011,urn:com:dashif:dash264" publishTime="2022-05-10T09:52:46Z" timeShiftBufferDepth="PT5M" type="dynamic" xsi:schemaLocation="urn:mpeg:dash:schema:mpd:2011 DASH-MPD.xsd">
+   <ProgramInformation>
+      <Title>Media Presentation Description by MobiTV. Powered by MDL Team@Sweden.</Title>
+   </ProgramInformation>
+   <BaseURL>https://livesim.dashif.org/livesim/sts_1652176365/sid_43ebd52b/testpic_2s/</BaseURL>
+<Period id="p0" start="PT0S">
+      <AdaptationSet contentType="audio" lang="eng" mimeType="audio/mp4" segmentAlignment="true" startWithSAP="1">
+         <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+         <SegmentTemplate duration="2" initialization="$RepresentationID$/init.mp4" media="$RepresentationID$/$Number$.m4s" startNumber="0" />
+         <Representation audioSamplingRate="48000" bandwidth="48000" codecs="mp4a.40.2" id="A48">
+            <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+         </Representation>
+      </AdaptationSet>
+      <AdaptationSet contentType="video" maxFrameRate="60/2" maxHeight="360" maxWidth="640" mimeType="video/mp4" minHeight="360" minWidth="640" par="16:9" segmentAlignment="true" startWithSAP="1">
+         <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+         <SegmentTemplate duration="2" initialization="$RepresentationID$/init.mp4" media="$RepresentationID$/$Number$.m4s" startNumber="0" />
+         <Representation bandwidth="300000" codecs="avc1.64001e" frameRate="60/2" height="360" id="V300" sar="1:1" width="640" />
+      </AdaptationSet>
+      <AdaptationSet contentType="image" mimeType="image/jpeg">
+         <SegmentTemplate duration="2" media="$RepresentationID$/$Number$.jpg" startNumber="0" />
+         <Representation bandwidth="10000" height="90" id="thumbs" width="160">
+           <EssentialProperty schemeIdUri="http://dashif.org/guidelines/thumbnail_tile" value="1x1" />
+         </Representation>
+      </AdaptationSet>
+   </Period>
+</MPD>
+----
+
+=== HLS Manifest Content
+==== VOD
+https://test-drm.hexaglobe.net/hrathod/playlist/test.m3u8
+
+- Example of thumbnails per 10 seconds one image frame.
+[source]
+----
+//MASTER PLAYLIST
+#EXTM3U
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=551000,RESOLUTION=512x288,CODECS="avc1.66.30, mp4a.40.2",CLOSED-CAPTIONS=NONE
+index_0.m3u8
+
+#EXT-X-IMAGE-STREAM-INF:BANDWIDTH=551000,RESOLUTION=380x160,CODECS="JPEG",URI="image.m3u8"
+----
+===== image.m3u8
+[source]
+----
+//SUB IMAGE PLAYLIST
+#EXTM3U
+#EXT-X-TARGETDURATION:2
+#EXT-X-ALLOW-CACHE:YES
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:1
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXT-X-IMAGES-ONLY
+#EXTINF:2.000
+#EXT-X-TILES:RESOLUTION=360x180,LAYOUT=1x1,DURATION=2.000
+images/image_1.jpg
+#EXTINF:2.000
+#EXT-X-TILES:RESOLUTION=360x180,LAYOUT=1x1,DURATION=2.000
+images/image_2.jpg
+#EXTINF:2.000
+#EXT-X-TILES:RESOLUTION=360x180,LAYOUT=1x1,DURATION=2.000
+images/image_3.jpg
+.
+.
+.
+#EXTINF:2.000
+#EXT-X-TILES:RESOLUTION=360x180,LAYOUT=1x1,DURATION=2.000
+images/image_4.jpg
+----
+
+[NOTE]
+At the time of configuration it is important to configure the following setting for Mac (Safari, Chrome) and iPad (Safari, Chrome) to force player to use MSE to enable the thumbnails from the HLS playlist.
+
+==== HLS Settings
+[source, json]
+----
+{
+ "player_configurations": {
+    "streaming": {
+      "useNativeHlsOnSafari": false
+    },
+    "manifest": {
+      "hls": {
+        "useFullSegmentsForStartTime": true
+      }
+    }
+  }
+}
+----
+
+=== CSS Customization
+
+- To customise your own UI for the thumbnail track you can edit and override the CSS by editing the CSS classed from the following snippet.
+
+
+==== Snippet VOD
+[source,scss]
+----
+/**
+   * Thumbnail Track VOD
+   */
+.thumbnail-vod-container {
+  position: absolute;
+  bottom: 75px;
+  height: 120px;
+  width: 220px;
+  pointer-events: none;
+  z-index: 10000;
+  text-align: center;
+
+  .hexa-vod-thumbnail-image {
+    position: relative;
+    background-size: cover;
+    max-height: 120px;
+    max-width: 220px;
+  }
+
+  .seekbar-thumb-tooltip {
+    color: white;
+    font-size: 15px;
+    z-index: 100;
+    line-height: 1;
+    text-shadow: #000000 0 0 4px;
+  }
+
+}
+----
+
+
+==== Snippet LIVE
+[source,scss]
+----
+/**
+   * Thumbnail Track LIVE
+   */
+.thumbnail-live-container {
+  position: absolute;
+  bottom: 75px;
+  pointer-events: none;
+  z-index: 10000;
+  text-align: center;
+  text-indent: -30px;
+
+  .hexa-live-thumbnail-image {
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .seekbar-thumb-tooltip {
+    color: white;
+    font-size: 15px;
+    z-index: 100;
+    line-height: 1;
+    text-shadow: #000000 0 0 4px;
+  }
+}
+----

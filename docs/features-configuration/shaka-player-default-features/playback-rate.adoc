@@ -1,0 +1,75 @@
+= Playback Rate Feature
+
+- Adds a button that controls the playback rate selection.
+
+- This feature is used to manage the video playback speed without a customised playback-speed configuration.
+- Configure the required playback rates(speeds). By default, it takes *[0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]*.
+- You can configure the playback button on the control panel bar or also in the overflow menu. Choose wisely don't configure both at the same time.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+{
+  "ui_configuration": {
+    "controlPanelElements": [
+      "playback_rate", // appears on control panel bar
+      "overflow_menu"
+    ],
+    "overflowMenuButtons": [
+      "playback_rate" // appears in overflow menu
+    ],
+    "playbackRates": [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
+
+  }
+}
+----
+
+=== Example
+
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hexa Player</title>
+<!-- Hexaglobe Player compiled CSS library: -->
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<!-- Container for the UI overlay-->
+<div class="hexa-container">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
+    <video class="hexa-player" style="width:100%;height:100%"></video>
+</div>
+<!-- Hexaglobe Player compiled JS library: -->
+<script src="js/HexaglobePlayer.bundle.js"></script>
+<script>
+const videoContainer = document.querySelector('.hexa-container')
+const video = document.querySelector('.hexa-player');
+const options = {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  ui_configuration: {
+    controlPanelElements: [
+      "playback_rate", // appears on control panel bar
+      "overflow_menu"
+    ],
+    overflowMenuButtons: [
+      "playback_rate" // appears in overflow menu
+    ],
+    playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
+  }
+};
+
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, options);
+hexaPlayer.init_();
+</script>
+</body>
+
+</html>
+
+----

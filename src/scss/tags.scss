@@ -1,0 +1,30 @@
+.hexa-tags-container {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:0;
+  padding:0;
+
+  .hexa-tag-marker {
+    width: 2px;
+    transform: translateX(-50%);
+    height: 23px !important;
+  }
+
+  .hexa-tag-marker::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    padding: 5px 0 10px 0;
+    border-radius: 50px;
+    border-left:  var(--before-border-left); /* Replace #f00 with your desired flag color */
+  }
+
+  .hexa-tag-marker::after {
+    transform: var(--after-translate-x);
+    left: 0;
+    z-index: 99999999;
+  }
+}

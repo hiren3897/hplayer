@@ -1,0 +1,166 @@
+= Live Chapter's Feature
+
+- A live chapter feature is used to display the chapter's on the timeline during the live event.
+- A live chapter has a predefined format of configuration that you can read in the next section.
+- The *startTime* and the *endTime* property of the chapters should be accurate in seconds that relay's between the range of the seekBar for the live player. For example, if the seek range is of 3 hours then the chapter start and end time should be accurate enough between that range.
+- You can also modify the player seek bar color by using *seekBarColors* config in the data. if not it will use the default value.
+
+[NOTE]
+You can get the seekRange (start, end) from the player using the code below. Remember that the start and end times of the chapter should be between this range so the player can mark the chapter's on the timeline.
+
+[source,js]
+----
+hexaPlayer.player_.seekRange();
+----
+
+== How to configure and enable this feature
+
+[source,json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "chapters_live",
+        "visible": true,
+        "data": {
+          "chapterMarkerColor": "#099b74",
+          "startOverChapterOnClick": false,
+          "seekBarColors": {
+            "base": "rgba(169,164,164,0.58)",
+            "buffered": "rgba(152,152,152,0.83)",
+            "played": "rgba(255,0,23,0.44)"
+          },
+          "chapters": [
+          {
+            "title": "Chapter 1",
+            "startTime": 28300,
+            "startTimeAsUnitFormat": "16:43:43",
+            "endTime": 29650
+          },
+          {
+            "title": "Chapter 2",
+            "startTime": 30403,
+            "startTimeAsUnitFormat": "16:43:43",
+            "endTime": 32840
+          },
+          {
+            "title": "Chapter 2",
+            "startTime": 33300,
+            "startTimeAsUnitFormat": "16:43:43",
+            "endTime": 34650
+          }
+        ]
+        }
+      }]
+  }
+
+----
+
+=== Data property
+.Live Chapter's Feature data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|chapterMarkerColor |string    | A color for chapter marker. Accepts: [colorName, hex, RGB]
+|startOverChapterOnClick |Boolean    | to start over chapter on click [Default: false]
+|chapters |Array    | An array of chapters with appropriate details of chapters in pre-defined format.
+|=======================
+
+=== Chapter's property
+.Chapter's Configuration property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|title |String    | A chapter title
+|startTime |Number    | A start time of the chapter in seconds. it should be a number in seconds between the range of the seek bar.
+|endTime |Number    | An end time of the chapter in seconds. it should be a number in seconds between the range of the seek bar.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+    advanced_features: [
+      {
+        name: "chapters_live",
+        visible: true,
+        data : {
+          chapterMarkerColor: '#099b74',
+          startOverChapterOnClick: false,
+          seekBarColors: {
+              base: 'rgba(169,164,164,0.58)',
+              buffered: 'rgba(152,152,152,0.83)',
+              played: 'rgba(255,0,23,0.44)'
+          },
+          chapters: [
+          {
+            title: 'Chapter 1',
+            startTime: 28300,
+            startTimeAsUnitFormat: '16:43:43',
+            endTime: 29650,
+          },
+          {
+            title: 'Chapter 2',
+            startTime: 30403,
+            startTimeAsUnitFormat: '16:43:43',
+            endTime: 32840
+          },
+          {
+            title: 'Chapter 2',
+            startTime: 33300,
+            startTimeAsUnitFormat: '16:43:43',
+            endTime: 34650
+          }
+        ]
+        }
+      }]
+})
+hexaPlayer.init_();
+----
+
+=== Update the live chapter's
+You can update the chapter on the timeline using *updateLiveChapters* that accepts an array of new chapters and a boolean to tell the player to keep the old chapter's or not. By default, we keep the old chapter's in the array. To disable it set is too *false*.
+
+[NOTE]
+You have to update the chapters on *timeandseekrangeupdated* event on *hexaplayer.controls_* to update the position of the chapter's as time passes.
+
+==== How to update chapters?
+
+[source,js]
+----
+  hexaPlayer.updateLiveChapters([
+          {
+            title: 'Chapter 1',
+            startTime: 28300,
+            startTimeAsUnitFormat: '16:43:43',
+            endTime: 29650
+          },
+          {
+            title: 'Chapter 2',
+            startTime: 30403,
+            startTimeAsUnitFormat: '16:43:43',
+            endTime: 32840
+          },
+          {
+            title: 'Chapter 2',
+            startTime: 33300,
+            startTimeAsUnitFormat: '16:43:43',
+            endTime: 34650
+          }
+  ], true);
+----
+
+==== Get active chapter?
+- It is possible to get the active chapter from the player.
+- If no active chapter it will return an empty object.
+[source,js]
+----
+hexaPlayer.getActiveChapter()
+----

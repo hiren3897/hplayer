@@ -1,0 +1,42 @@
+/**
+   * Thumbnail Track VOD
+   */
+.thumbnail-vod-container {
+  position: absolute;
+  bottom: 136px;
+  pointer-events: none;
+  z-index: 10000;
+  text-align: center;
+
+  .hexa-vod-thumbnail-image {
+    position: relative;
+    max-height: 120px;
+    max-width: 220px;
+  }
+
+  .seekbar-thumb-tooltip {
+    color: white;
+    font-size: 15px;
+    z-index: 100;
+    line-height: 1;
+    text-shadow: #000000 0 0 4px;
+  }
+
+}
+
+.image-size-single-frame {
+  max-width: 180px;
+  max-height: 110px;
+  background-size: cover;
+}
+.image-size-tiled-frame {
+  max-width: 180px;
+  max-height: 110px;
+  background-size: cover;
+}
+
+@media all and (display-mode: fullscreen) {
+  .thumbnail-vod-container {
+    bottom: 100px;
+  }
+}

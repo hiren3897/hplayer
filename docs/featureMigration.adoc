@@ -1,0 +1,272 @@
+= Advanced features migration doc
+
+- #Backward Button#
+- #Forward Button#
+
+Before, the data properties was declared inside the array
+
+[source,json]
+----
+      {
+        "advanced_features": [
+          {
+            "name": "backward_button",
+            "visible": true,
+            "data": [{
+             "backwardSeconds": 20,
+             "color": "yellow"
+            }]
+          }]
+      }
+----
+
+Now (LATEST), remove the array and directly declare the properties outside the array as shown below.
+
+[source,json]
+----
+      {
+        "advanced_features": [
+          {
+            "name": "backward_button",
+            "visible": true,
+            "data": {
+             "backwardSeconds": 20,
+             "color": "yellow"
+            }
+          }]
+      }
+----
+
+- #Auto PIP# (PICTURE_IN_PICTURE)
+
+Before, the data properties was declared inside the array
+
+[source,json]
+----
+      {
+        "advanced_features": [
+            {
+              "name": "auto_pip",
+              "visible": true,
+              "data": [
+                {
+                  "threshold": "80%"
+                }
+              ]
+            }
+        ]
+      }
+----
+
+Now (LATEST), remove the array and directly declare the properties outside the array as shown below.
+
+[source,json]
+----
+      {
+        "advanced_features": [
+            {
+              "name": "auto_pip",
+              "visible": true,
+              "data": {
+                "threshold": "80%"
+              }
+            }
+        ]
+      }
+----
+
+- #Express Mode#
+
+Before, the data properties was declared inside the array
+
+[source,json]
+----
+      {
+        "advanced_features": [
+           {
+              "name": "express_mode",
+              "visible": true,
+              "data": [
+                {
+                "begin": "5%",
+                "express_speed": 3.5,
+                "end": "15%"
+                }
+              ]
+           }
+        ]
+      }
+----
+
+Now (LATEST), remove the array and directly declare the properties outside the array as shown below.
+
+[source,json]
+----
+      {
+        "advanced_features": [
+           {
+              "name": "express_mode",
+              "visible": true,
+              "data": {
+                "begin": "5%",
+                "express_speed": 3.5,
+                "end": "15%"
+              }
+           }
+        ]
+      }
+----
+
+- #Share Button#
+
+Before, the data properties was declared inside the array
+
+
+[source,json]
+----
+{
+  "name": "share",
+  "visible": true,
+  "data": [
+    {
+      "medias": [
+        {
+          "name": "facebook",
+          "contents": {
+            "url": "https://your/url/to/share.com",
+            "quote": "your quotes to share",
+            "hashtag": "#your tag name"
+          }
+        },
+        {
+          "name": "twitter",
+          "contents": {
+            "url": "https://your/url/to/share.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+----
+
+Now (LATEST), remove the array and directly declare the properties outside the array as shown below.
+
+[source,json]
+----
+{
+  "name": "share",
+  "visible": true,
+  "data": {
+      "medias": [
+        {
+          "name": "facebook",
+          "contents": {
+            "url": "https://your/url/to/share.com",
+            "quote": "your quotes to share",
+            "hashtag": "#your tag name"
+          }
+        },
+        {
+          "name": "twitter",
+          "contents": {
+            "url": "https://your/url/to/share.com"
+          }
+        }
+      ]
+    }
+}
+----
+
+- #Popup List#
+
+Before, the data properties was declared inside the array
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "popup_list",
+        "visible": true,
+        "data": [{
+        "popup_title": "Table Name",
+        "popup_desc": "Enter your description",
+        "list": [
+          {
+            "avatar_url": "https://your.avatar./photo.png",
+            "title": "Enter your title",
+            "description": "Description"
+          }
+        ]
+        }]
+      }]
+  }
+----
+
+Now (LATEST), remove the array and directly declare the properties outside the array as shown below.
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "popup_list",
+        "visible": true,
+        "data": {
+        "popup_title": "Table Name",
+        "popup_desc": "Enter your description",
+        "list": [
+          {
+            "avatar_url": "https://your.avatar./photo.png",
+            "title": "Enter your title",
+            "description": "Description"
+          }
+        ]
+        }
+      }]
+  }
+----
+
+- #Image Overlay#
+
+Before, the data properties was declared inside the array
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "image_overlay",
+        "visible": true,
+        "data": [{
+         "imageUrls": [
+            "https//path.to/your/image.jpg",
+            "https//path.to/your/image.jpg",
+            "..."
+         ]
+        }]
+      }]
+  }
+----
+
+Now (LATEST), remove the array and directly declare the properties outside the array as shown below.
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "image_overlay",
+        "visible": true,
+        "data": {
+         "imageUrls": [
+            "https//path.to/your/image.jpg",
+            "https//path.to/your/image.jpg",
+            "..."
+         ]
+        }
+      }
+    ]
+  }
+----

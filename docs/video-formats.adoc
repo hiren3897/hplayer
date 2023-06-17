@@ -1,0 +1,82 @@
+== Video Formats Supported
+
+=== Includes video formats for both live and VOD
+
+This video formats can be passed to `video_url` while setting up the hexaglobe player.
+
+.Formats
+[options="header,footer"]
+|=======================
+|Format |File extension     |Description | Others
+|MPEG-4 Part 14 (MP4)
+MPEG-2 TS |  *.mp4*  | The player will detect the file format and behave as a *VOD* Player | -
+
+| WebM  |*.webm*  | The player will detect the file format and behave as a *VOD* Player | -
+
+|DASH   |*.mpd*  | Depend on your manifest content the player will behave as a VOD player OR a Live Player. |  *DASH features supported:*
+
+VOD, Live, and In-Progress Recordings (dynamic VOD content)
+
+MPD@timeShiftBufferDepth for seeking backward in Live streams
+
+Multi-period content (static and dynamic)
+Xlink elements (actuate=onLoad only,
+resolve-to-zero, fallback content)
+
+All forms of segment index info: SegmentBase@indexRange, SegmentTimeline, SegmentTemplate@duration, SegmentTemplate@index, SegmentList
+
+Multi-codec/multi-container manifests (we will negotiate support with the browser and choose the best ones)
+
+Encrypted content (including custom ContentProtection schemas, PSSH in the manifest)
+
+Key rotation
+
+Trick mode tracks
+
+WebVTT and TTML
+
+CEA-608/708 captions
+
+|HLS   |*.m3u8*  | Depend on your manifest content the player will behave as a VOD player OR a Live Player. | *HLS features supported:*
+
+VOD, Live, and Event types
+
+Low-latency streaming with partial segments, preload hints, and delta updates
+Discontinuity
+
+ISO-BMFF / MP4 / CMAF support
+
+MPEG-2 TS support (transmuxing provided by mux.js v5.7.0+, must be separately included)
+
+WebVTT and TTML
+
+CEA-608/708 captions
+
+Encrypted content with PlayReady and Widevine
+
+Encrypted content with FairPlay (Safari on macOS and iOS 12+ only)
+
+|=======================
+
+[NOTE]
+¹: We support FairPlay through Apple's native HLS player.
+
+=== Manifest format support matrix
+.Matrix
+[options="header,footer"]
+|=======================
+|Format |Video On-Demand   |LIVE | EVENT | In-Progress Recording
+
+| DASH | Y | Y | - | Y
+| HLS | Y | Y | Y | -
+|=======================
+
+=== DRM support matrix
+.Matrix
+[options="header,footer"]
+|=======================
+|Manifest |Widevine  |PlayReady | FairPlay | ClearKey
+
+| DASH | Y | Y | - | Y
+| HLS | Y | Y | Y | -
+|=======================

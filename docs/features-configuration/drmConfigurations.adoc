@@ -1,0 +1,54 @@
+= Hexaglobe DRM configuration
+
+DRM configuration are important and obligatory to set up if your video is DRM protected.
+
+- link:https://shaka-player-demo.appspot.com/docs/api/tutorial-drm-config.html)[How to configure DRM? - shaka player tutorial]
+
+
+== Two way DRM configuration in Hexaglobe Player.
+
+* Either we can configure the DRM directly using a shaka-player default drm config  `player_configurations.drm` object.
+
+=== Example
+
+[source,javascript]
+----
+const video = document.querySelector('#video');
+const hexaPlayer = new HexaglobePlayer(video, {
+      basic: {
+        source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+      },
+      player_configurations: {
+        drm: {
+          advanced: {
+            'com.widevine.alpha': {
+              audioRobustness: 'SW_SECURE_CRYPTO',
+              videoRobustness: 'SW_SECURE_CRYPTO'
+            }
+          },
+          servers: {
+               "com.widevine.alpha": "https://drm.license",
+        }
+      },
+    }
+});
+
+hexaPlayer.init_()
+----
+
+* OR we can set up it by using a basic option, where you have to just add the drm license url and other things it does automatically for you.
+
+[source,json]
+----
+{
+    "basic": {
+        "source": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "drm_licence": "https://drm.license"
+    }
+}
+----
+
+[NOTE]
+If your video is VOD or Live secured with a DRM protection then, it is important to pass correct DRM configurations, only
+then the player will be setup perfectly and load the contents.
+

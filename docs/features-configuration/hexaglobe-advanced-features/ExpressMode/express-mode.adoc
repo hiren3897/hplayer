@@ -1,0 +1,106 @@
+= Express Mode Feature
+
+- Express-mode feature is used to run the video in express-mode between the start point and end point predefined in the player configurations.
+
+== How to configure and enable this feature
+
+[source,json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "express_mode",
+        "visible": true,
+        "data": {
+          "begin": "10%",
+          "express_speed": 3.5,
+          "end": "5%"
+        },
+        "position": 3
+      }]
+  }
+
+----
+
+=== Data property
+.Express Mode Feature data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|begin   |string  | express mode start point, accepts *XXX% or seconds(XXXs)*
+|express_speed   |number  | playback speed between points
+|end   |string  | express mode end point, accepts *XXX% , seconds(XXXs)*
+|color   |string   | Button color.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        "name": "express_mode",
+        "visible": true,
+        "data": {
+          "begin": "10%", // or '25s' for seconds
+          "express_speed": 3.5,
+          "end": "5%", // or '45s' for seconds
+        },
+        "position": 3
+      }]
+})
+hexaPlayer.init_();
+----
+
+=== CSS Customization
+
+- To customise the express-mode activation mark you can directly edit the css class named "*.express-mode-active*".
+
+
+==== Snippet
+[source,scss]
+----
+// Express Mode Button Class
+.express-mode-active {
+  border: solid thin white;
+  border-radius: 50%;
+  color: lightgreen;
+}
+
+// Express mode start tag class
+.hexa-express-start-tag {
+  position: absolute;
+  margin: auto;
+  bottom: -11px;
+  height: fit-content;
+  width: fit-content;
+  color: lightgreen;
+}
+
+// Express mode end tag class
+.hexa-express-end-tag {
+  position: absolute;
+  margin: auto;
+  bottom: -13px;
+  height: fit-content;
+  width: fit-content;
+  color: lightgreen;
+}
+
+// Express Mode speed label
+.hexa-express-speed-label {
+  position: absolute;
+  color: white;
+  bottom: 60px;
+  background: #00000096;
+  padding: 4px;
+  display: none;
+}
+----

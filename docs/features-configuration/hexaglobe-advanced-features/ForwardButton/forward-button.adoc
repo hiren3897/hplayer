@@ -1,0 +1,82 @@
+= Forward Button Feature.
+
+- Forward button feature is used to skip forward the video X seconds with custom seconds configurable to be skipped.
+- Yes, we can configure the skip seconds in this feature.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "forward_button",
+        "visible": true,
+        "data": {
+         "forwardSeconds": 20,
+         "color": "yellow"
+        },
+        "position": 3
+      }]
+  }
+
+----
+
+=== Data property
+.Forward button data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|forwardSeconds   |Number    | Skip second to video.
+|color   |string   | Button color.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        "name": "forward_button",
+        "visible": true,
+        "data": {
+         "forwardSeconds": 20,
+         "color": "yellow"
+        },
+        "position": 3
+      }]
+})
+hexaPlayer.init_();
+----
+
+
+=== CSS Customization
+
+- To customise the forward button you can directly edit the class named "*.forward-button*"
+
+- To customise the forward seconds displayed on the player UI you can edit class named *".forward-seconds*"
+
+==== Snippet
+[source,scss]
+----
+.forward-button {
+  // add your css properties
+}
+
+// add your css properties
+.forward-seconds {
+  font-size: 8px;
+  text-align: center;
+  position: absolute;
+  margin-left: -17px;
+  margin-top: 11px;
+}
+----
+

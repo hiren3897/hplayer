@@ -1,0 +1,102 @@
+= Chapters VOD
+
+This feature will be used to overlay chapters of the particular video on the video timeline.
+
+It accepts a WebVtt *.vtt* file that contains the information about the chapters.
+
+We accept this file on the fly and accordingly populate the information provided on the timeline.
+
+User can navigate between the chapters using *next*, *previous* and *last* navigation buttons.
+
+You can also modify the player seek bar color by using *seekBarColors* config in the data. if not it will use the default value *transparent*.
+
+== How to configure and enable this feature
+
+[source,json]
+----
+{
+  "basic": {
+    "source": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "poster": "https://picsum.photos/640/360",
+    "chaptersData": {
+      "url": "https://your,file/chapterVtt/bigBunkBunny.vtt",
+      "lang": "en",
+      "mimeType": ""
+    }
+  },
+  "advanced_features": [
+    {
+      "name": "chapters_vod",
+      "visible": true,
+      "data": {
+        "chapterMarkerColor": "#000000",
+        "chapterToolTips": {
+          "noNextChapter": "No Next Chapter",
+          "noPreviousChapter": "No Previous Chapter",
+          "nextChapterPrefix": "Next Chapter: ",
+          "previousChapterPrefix": "Previous Chapter: ",
+          "lastChapterPrefix": "Last Chapter: "
+        },
+         "seekBarColors": {
+            "base": "rgba(169,164,164,0.58)",
+            "buffered": "rgba(152,152,152,0.83)",
+            "played": "rgba(255,0,23,0.44)"
+        }
+      }
+    }
+  ]
+}
+----
+
+=== link:https://test-drm.hexaglobe.net/hrathod/chapterVtt/bigBunkBunny.vtt[Sample Chapter WebVTT File]
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+  "basic": {
+    "source": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "poster": "https://picsum.photos/640/360",
+    "chaptersData": {
+      "url": "https://your,file/chapterVtt/bigBunkBunny.vtt",
+      "lang": "en",
+      "mimeType": ""
+    }
+  },
+  "advanced_features": [
+    {
+      "name": "chapters_vod",
+      "visible": true,
+      "data": {
+        "chapterMarkerColor": "#000000",
+        // replace with your preferred language default 'en'
+        "chapterToolTips": {
+          "noNextChapter": "No Next Chapter",
+          "noPreviousChapter": "No Previous Chapter",
+          "nextChapterPrefix": "Next Chapter: ",
+          "previousChapterPrefix": "Previous Chapter: ",
+          "lastChapterPrefix": "Last Chapter: "
+        },
+        "seekBarColors": {
+            "base": "rgba(169,164,164,0.58)",
+            "buffered": "rgba(152,152,152,0.83)",
+            "played": "rgba(255,0,23,0.44)"
+        }
+      }
+    }
+  ]
+});
+hexaPlayer.init_();
+----
+
+==== Get active chapter?
+- It is possible to get the active chapter from the player.
+- If no active chapter it will return an empty object.
+[source,js]
+----
+hexaPlayer.getActiveChapter()
+----

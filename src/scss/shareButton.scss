@@ -1,0 +1,23 @@
+/**
+   * Share Button
+   *  - you can adjust the css properties to change the position of the button and container
+   *  - the property marked with YES is editable
+   *  - the property marked with NO is NOT editable (if you does it will break the dependency)
+   */
+.share-button {
+  position: absolute; /* NO */
+  margin: auto; /* NO */
+  top: 8px; /* YES */
+  left: 8px; /* YES */
+}
+
+.share-container {
+  position: absolute; /* NO */
+  background-color: #00000091; /* YES */
+  padding: 8px; /* YES */
+  box-shadow: 0 4rem 6rem rgb(0 0 0 / 30%); /* YES */
+  z-index: 1000; /* YES */
+  width: 100px; /* YES */
+  border-radius: 1rem; /* YES */
+  pointer-events: none;
+}

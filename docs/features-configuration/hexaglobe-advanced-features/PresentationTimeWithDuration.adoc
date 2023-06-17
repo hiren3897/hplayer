@@ -1,0 +1,41 @@
+= Filter Duplicate Resolution
+
+- add presentationTimeWithDuration to display the presentation time with /duration(/00:00:00) or not.
+
+
+== Property
+- `presentationTimeWithDuration`
+
+=== Default (True)
+- Presentation Time: 00:00:00/00:00:00 => With duration
+
+when set to false,
+
+- Presentation time => -00:00:00
+
+== Snippet
+To add in control panel
+[source,json]
+----
+"ui_configuration": {
+    "presentationTimeWithDuration": false, // default true
+}
+----
+
+=== Example
+
+[source,javascript]
+----
+
+const video = document.querySelector('#video')
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+  basic: {
+    source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
+  "ui_configuration": {
+      "presentationTimeWithDuration": false, // default true
+    }
+})
+hexaPlayer.init_();
+----

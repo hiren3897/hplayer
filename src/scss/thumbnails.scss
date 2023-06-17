@@ -1,0 +1,23 @@
+.thumbnails-container {
+  display: none;
+  position: absolute;
+  padding-bottom: 2.5%;
+  bottom: 53px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 160px;
+  height: 90px;
+
+  .thumbnail {
+    opacity: 0.8;
+    width: 160px;
+    height: 90px;
+    border: solid thin white;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

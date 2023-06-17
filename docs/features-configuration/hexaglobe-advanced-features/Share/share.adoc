@@ -1,0 +1,263 @@
+= Share Button
+
+This feature is used to share you player URL on several social media platforms.
+
+You can share it on following social medias:
+
+* Facebook
+* Twitter
+* Reddit
+* Pinterest
+* LinkedIn
+* Telegram
+* VK (vkontakte)
+* Whatsapp
+
+== How to configure and enable this feature?
+
+[source,json]
+----
+{
+  "name": "share",
+  "visible": true,
+  "data": {
+      "medias": [
+        {
+          "name": "facebook",
+          "contents": {
+            "url": "https://your/url/to/share.com",
+            "quote": "your quotes to share",
+            "hashtag": "#your tag name"
+          }
+        },
+        {
+          "name": "twitter",
+          "contents": {
+            "url": "https://your/url/to/share.com"
+          }
+        }
+      ]
+    }
+}
+----
+
+=== Data property
+.Share button feature data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|css  |   | includes a button color settings.
+|medias   | Array[]  | settings of all required and available social media buttons with sharable contents on various social media platforms.
+|=======================
+
+=== Sub property
+.Medias property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|name  | string | name of social media.
+|contents   | {}  | mainly includes the *url* to be shared on the social media platform. [*other options* depends on what social media platform you want to share on.]
+|=======================
+
+=== How to configure for different social medias.
+
+==== Facebook
+
+[source, json]
+----
+"medias": [
+  {
+    "name": "facebook",
+    "contents": {
+      "url": "https://your/url/to/share.com",
+      "quote": "your quotes to share",
+      "hashtag": "#your tag name"
+    }
+  }
+]
+----
+
+==== Twitter
+
+[source, json]
+----
+"medias": [
+  {
+    "name": "twitter",
+    "contents": {
+      "url": "https://your/url/to/share.com",
+      "title": "your title to share",
+      "hashtags": "#your tag name"
+      "via": "yourUserNameOfTwitter"
+    }
+  }
+]
+----
+
+==== Reddit
+
+[source, json]
+----
+"medias": [
+  {
+    "name": "reddit",
+    "contents": {
+      "url": "https://your/url/to/share.com",
+      "title": "your title to share",
+    }
+  }
+]
+----
+
+==== Pinterest
+
+[source, json]
+----
+"medias": [
+  {
+    "name": "pinterest",
+    "contents": {
+      "url": "https://your/url/to/share.com",
+      "title": "your title to share",
+      "media": "https://URL of an image that overrides the image in the Pin Create form"
+    }
+  }
+]
+----
+
+==== LinkedIn
+
+[source, json]
+----
+"medias": [
+  {
+    "name": "linkedin",
+    "contents": {
+      "url": "https://your/url/to/share.com"
+    }
+  }
+]
+----
+
+==== Telegram
+
+[source, json]
+----
+"medias": [
+  {
+    "name": "telegram",
+    "contents": {
+      "url": "https://your/url/to/share.com",
+      "title": "your title to be shared."
+    }
+  }
+]
+----
+
+==== VK
+
+[source, json]
+----
+"medias": [
+  {
+    "name": "vkontakte",
+    "contents": {
+      "url": "https://your/url/to/share.com",
+      "title": "your title to be shared.",
+      "image": "https://url.of.your.image.com/200/400",
+      "comment": "you comments for the post."
+    }
+  }
+]
+----
+
+==== Whatsapp
+
+[source, json]
+----
+"medias": [
+  {
+    "name": "whatsapp",
+    "contents": {
+      "url": "https://your/url/to/share.com",
+      "title": "your title to be shared."
+    }
+  }
+]
+----
+
+
+=== Example
+
+[source,javascript]
+----
+
+const video = document.querySelector('#video')
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+  basic: {
+    source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
+  advanced_features: [
+      {
+          "name": "share",
+          "visible": true,
+          "data": {
+              "medias": [
+                {
+                  "name": "facebook",
+                  "contents": {
+                    "url": "https://your/url/to/share.com",
+                    "quote": "your quotes to share",
+                    "hashtag": "#your tag name"
+                  }
+                },
+                {
+                  "name": "twitter",
+                  "contents": {
+                    "url": "https://your/url/to/share.com",
+                    "title": "your title to share",
+                    "hashtags": "#your tag name",
+                    "via": "yourUserNameOfTwitter",
+                  }
+                }]
+            }
+        }
+     ]
+})
+hexaPlayer.init_();
+----
+
+
+=== CSS Customization
+
+==== Snippet
+
+*  You can adjust the css properties to change the position of the button and container
+*  The property marked with YES is editable
+*  The property marked with NO is NOT editable (if you do it will break the dependency)
+[source,scss]
+----
+/**
+   * Share Button
+   */
+.share-button {
+  position: absolute; /* NO */
+  margin: auto; /* NO */
+  top: 8px; /* YES */
+  left: 8px; /* YES */
+}
+
+.share-container {
+  position: absolute; /* NO */
+  background-color: #00000091; /* YES */
+  padding: 8px; /* YES */
+  box-shadow: 0 4rem 6rem rgb(0 0 0 / 30%); /* YES */
+  z-index: 1000; /* YES */
+  width: 100px; /* YES */
+  border-radius: 1rem; /* YES */
+  pointer-events: none; /* NO */
+}
+----
+
+

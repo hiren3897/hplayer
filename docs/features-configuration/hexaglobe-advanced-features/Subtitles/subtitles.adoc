@@ -1,0 +1,124 @@
+= Subtitles
+
+Display subtitles.
+Choose subtitles languages if multiple tracks available.
+
+It accepts a WebVtt *.vtt* file.
+
+Use the overflow menu to select a subtitles track
+
+== How to configure and enable this feature
+
+[source,javascript]
+----
+  const options = {
+  basic: {
+    source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
+  ui_configuration: {
+    controlPanelElements: [
+      'play_pause',
+      'time_and_duration',
+      'spacer',
+      'mute',
+      'volume',
+      'fullscreen',
+      'overflow_menu' // Required to display the subtitles select (captions)
+    ]
+  },
+  advanced_features: [
+    {
+      name: 'subtitles',
+      visible: true,
+      data: [// list of subtitles track
+        {
+          url: 'https://my-website.com/my-own-subtitles-en.vtt',
+          language: 'en',
+          mimeType: 'text/vtt',
+        },
+        {
+          url: 'https://my-website.com/my-own-subtitles-en.vtt',
+          language: 'fr',
+          mimeType: 'text/vtt',
+        }
+      ]
+    }
+  ]
+};
+
+----
+
+=== Data property
+
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|url | string    | Url to WebVTT file.
+Relative or absolute
+|language | string | Language of subtitles
+| mimeType | string | File format.
+Will be use in the future to manage other format than webvtt(maybe)
+|=======================
+
+== Default subtitles on load
+To have a subtitles track load by default, refere to the settings below.
+[source,javascript]
+----
+setTimeout(() => {
+  const tracks = hexaPlayer.player_.getTextTracks();
+  const enTrack = tracks.find(track => track.language === "en");
+  hexaPlayer.player_.selectTextTrack(enTrack);
+  hexaPlayer.player_.setTextTrackVisibility(true);
+}, 500);
+----
+
+== Styling
+
+Example of how to apply styling to the subtitles
+
+subtitles.vtt
+[source, text]
+
+----
+
+WEBVTT
+lang=fr
+
+00:00.000 --> 00:02.000
+<Olivier>Bonjour, je suis Olivier Jourdan
+
+00:02.000 --> 00:04.000
+<v Jerome>Bonjour, je suis Jérôme Calentier
+
+00:04.000 --> 00:06.000
+<v Olivier>Hee! Jerome</v> <i>laughter</i>
+
+00:06.000 --> 00:08.000
+<v.loud Jerome>Hi Olivier! That’s awesome!
+
+----
+
+style.css
+
+[source,css]
+----
+video::cue {
+background-image: linear-gradient(to bottom, dimgray, lightgray);
+color: white;
+font-size: 80%;
+padding: 5px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+::cue(v[voice="Olivier"]) {
+color: rgb(26, 0, 173)
+}
+::cue(v[voice="Jerome"]) {
+color: #c12026
+}
+::cue(i) {
+font-style: italic
+}
+::cue(.loud) {
+font-size: 2em
+}
+----

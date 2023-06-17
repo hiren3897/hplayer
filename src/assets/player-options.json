@@ -1,0 +1,169 @@
+{
+  "player_configurations": {
+    "drm": {
+      "advanced": {
+        "com.widevine.alpha": {
+          "audioRobustness": "SW_SECURE_CRYPTO",
+          "distinctiveIdentifierRequired": false,
+          "individualizationServer": "",
+          "persistentStateRequired": false,
+          "serverCertificate": "Uint8Array []",
+          "sessionType": "",
+          "videoRobustness": "SW_SECURE_CRYPTO"
+        },
+        "com.apple.fps.1_0": {
+          "serverCertificate": "Uint8Array",
+          "audioRobustness": "SW_SECURE_CRYPTO",
+          "videoRobustness": "SW_SECURE_CRYPTO"
+        },
+        "clearKeys": {},
+        "servers": {
+          "com.widevine.alpha": "server DRM licence URL"
+        }
+      }
+    },
+    "manifest": {
+      "availabilityWindowOverride": ""
+    },
+    "offline": {},
+    "playRangeEnd": "0",
+    "playRangeStart": 0,
+    "preferForcedSubs": false,
+    "preferredAudioChannelCount": 2,
+    "preferredAudioLanguage": "",
+    "preferredTextLanguage": "",
+    "preferredTextRole": "",
+    "preferredVariantRole": "",
+    "restictions": {},
+    "streaming": {},
+    "textDisplayFactory": "function()",
+    "useMediaCapabilities": true
+  },
+  "ui_configuration": {
+    "addBigPlayButton": false,
+    "addSeekBar": true,
+    "castReceiverAppId": "",
+    "clearBufferOnQualityChange": true,
+    "controlPanelElements": [
+      "play_pause",
+      "time_and_duration",
+      "spacer",
+      "mute",
+      "volume",
+      "fullscreen"
+    ],
+    "doubleClickForFullscreen": true,
+    "enableFullscreenOnRotation": true,
+    "enableKeyboardPlaybackControls": true,
+    "fadeDelay": 0,
+    "forceLandscapeOnFullscreen": true,
+    "overflowMenuButtons": [
+        "captions",
+        "quality",
+        "language",
+        "picture_in_picture",
+        "cast",
+        "playback_rate"
+    ],
+    "seekBarColors": {
+      "adBreaks": "rgb(255, 204, 0)",
+      "base": "rgba(255, 255, 255, 0.3)",
+      "buffered": "rgba(255, 255, 255, 0.54)",
+      "played": "rgb(255, 255, 255)"
+    },
+    "showUnbufferedStart": false,
+    "trackLabelFormat": 0,
+    "volumeBarColors": {
+      "base": "rgba(255, 255, 255, 0.54)",
+      "level": "rgb(255, 255, 255)"
+    }
+  },
+  "advanced_features": [
+    {
+      "name": "expressmode",
+      "visible": true,
+      "data": [{
+        "begin": "10%",
+        "express_speed": 3.5,
+        "end": "5%"
+      }]
+    },
+    {
+      "name": "playbackspeed",
+      "visible": false,
+      "data": [
+        {
+          "4x": 4,
+          "2x": 2,
+          "0.5x": 0.5
+        }
+      ],
+      "position": "top-left",
+      "button_color": "black"
+    },
+    {
+      "name": "player_list",
+      "visible": true,
+      "data-url": "here/paste/data/api/url.json",
+      "position": ""
+    },
+    {
+      "name": "zapping",
+      "visible": true,
+      "data": [{
+        "url": "",
+        "thumbnail_url": "",
+        "time": "2:24"
+      },
+        {
+          "url": "",
+          "thumbnail_url": "",
+          "time": "1:24"
+        }
+      ],
+      "position": "top center",
+      "animation": "down"
+    },
+    {
+      "name": "nextChapterButton",
+      "visible": true,
+      "buttonColor": "#343244"
+    },
+    {
+      "name": "previousChapterButton",
+      "visible": false,
+      "buttonColor": "#343244"
+    },
+    {
+      "name": "lastChapterButton",
+      "visible": true,
+      "buttonColor": "#343244"
+    },
+    {
+      "name": "backToliveSmallButton",
+      "visible": false,
+      "buttonColor": "#343244"
+    },
+    {
+      "name": "backToLiveBigButton",
+      "visible": false,
+      "buttonColor": "#343244"
+    },
+    {
+      "name": "screenshot",
+      "visible": true,
+      "buttonColor": "#343244"
+    },
+    {
+      "name": "autoplay",
+      "visible": false,
+      "buttonColor": "#343244"
+    }
+  ],
+  "basic": {
+    "video_url": "",
+    "drm_licence": "",
+    "serverCertificate": "",
+    "json_url": ""
+  }
+}

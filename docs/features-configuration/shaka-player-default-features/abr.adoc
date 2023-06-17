@@ -1,0 +1,71 @@
+= ABR (Adaptive Bitrate Streaming)
+
+This document speaks about the management of *ABR (Adaptive Bitrate Streaming)* in player using player configurations.
+
+== AbrConfiguration
+
+*   enabled: boolean,
+*   useNetworkInformation: boolean,
+*   defaultBandwidthEstimate: number,
+*   restrictions: shaka.extern.Restrictions,
+*   switchInterval: number,
+*   bandwidthUpgradeTarget: number,
+*   bandwidthDowngradeTarget: number,
+*   advanced: shaka.extern.AdvancedAbrConfiguration
+
+=== Data property
+.AbrConfiguration
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+| enabled |  boolean | If true, enable adaptation by the current AbrManager. Defaults to true.
+| useNetworkInformation |  boolean | If true, use Network Information API in the current AbrManager. Defaults to true.
+| defaultBandwidthEstimate |  number | The default bandwidth estimate to use if there is not enough data, in bit/sec.
+| restrictions |  link:https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.Restrictions[shaka.extern.Restrictions]| The restrictions to apply to ABR decisions. These are "soft" restrictions. Any track that fails to meet these restrictions will not be selected automatically, but will still appear in the track list and can still be selected via selectVariantTrack(). If no tracks meet these restrictions, AbrManager should not fail, but choose a low-res or low-bandwidth variant instead. It is the responsibility of AbrManager implementations to follow these rules and implement this behavior.
+| switchInterval |  number |The minimum amount of time that must pass between switches, in seconds. This keeps us from changing too often and annoying the user.
+| bandwidthUpgradeTarget |  number |The fraction of the estimated bandwidth which we should try to use when upgrading.
+| bandwidthDowngradeTarget|  number |The largest fraction of the estimated bandwidth we should use. We should downgrade to avoid this.
+|=======================
+
+=== How to manage the ABR from player configuration.
+
+==== Snippet
+[source,json]
+----
+{
+  "player_configurations": {
+    "abr": {
+      "bandwidthDowngradeTarget": 0.85,
+      "bandwidthUpgradeTarget": 0.15,
+      "restrictions": {
+        "maxBandwidth": 3011310,
+        "minBandwidth": 323233
+      },
+      "switchInterval": 5
+    }
+  }
+}
+----
+
+==== How to set ABR resolution range on fly?
+- You have to provide accurate bitrate as min and max bandwidth to set the ABR(Auto Resolution) range.
+
+[source,js]
+----
+    /**
+   * Set the minBandwidth and maxBandwidth in ABR (Adaptive Bitrate Streaming).
+   * Auto Resolution Management.
+   * @param minBandwidth - The minimum bandwidth of a variant track, in bit/sec.
+   * @param maxBandwidth - The maximum bandwidth of a variant track, in bit/sec.
+   * @param bandwidthUpgradeTarget - The fraction of the estimated bandwidth which we should try to use when upgrading.
+   * @param bandwidthDowngradeTarget - The largest fraction of the estimated bandwidth we should use. We should downgrade to avoid this.
+   * @param switchInterval - The minimum amount of time that must pass between switches, in seconds. This keeps us from changing too often and annoying the user.
+   */
+  setPlayerAbrResolutionRange(minBandwidth = Infinity,
+                              maxBandwidth = Infinity,
+                              bandwidthUpgradeTarget = 0.85,
+                              bandwidthDowngradeTarget = 0.95,
+                              switchInterval= 8)
+----
+
+include::../../demo-examples/abr-tutorial.adoc[]

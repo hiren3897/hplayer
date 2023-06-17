@@ -1,0 +1,30 @@
+.express-mode-active {
+  color: lightgreen;
+}
+
+.hexa-express-start-tag {
+  position: absolute;
+  margin: auto;
+  bottom: -11px;
+  height: fit-content;
+  width: fit-content;
+  color: lightgreen;
+}
+
+.hexa-express-end-tag {
+  position: absolute;
+  margin: auto;
+  bottom: -13px;
+  height: fit-content;
+  width: fit-content;
+  color: lightgreen;
+}
+
+.hexa-express-speed-label {
+  position: absolute;
+  color: white;
+  bottom: 60px;
+  background: #00000096;
+  padding: 4px;
+  display: none;
+}

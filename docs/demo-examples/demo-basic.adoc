@@ -1,0 +1,5 @@
+= Demo Basic example
+
+include::basic-player-integration-example.adoc[]
+
+include::../video-formats.adoc[]

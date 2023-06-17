@@ -1,0 +1,113 @@
+/* Mobile devices (landscape tablets, 812px and down) */
+@media only screen and (max-device-width: 812px) {
+  .playlist-dialog-container {
+    height: 270px;
+    width: 200px;
+  }
+
+  .hexa-highlight-current-video {
+    width: 192px;
+  }
+  .playlist-video-card {
+    height: 30px;
+    width: 73px;
+  }
+
+  .playlist-video-title {
+    width: 80px
+  }
+  /*Redirect*/
+  .redirect-container .redirect-video-card {
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    height: 50px;
+    left: 0;
+    margin: auto;
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    top: -53px;
+    width: 89px;
+  }
+
+  .redirect-video-card .hexa-redirect-message {
+    bottom: 0;
+    font-size: smaller;
+    font-weight: 700;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: -11px;
+  }
+
+  .redirect-video-card .redirect-video-card-title {
+    font-size: smaller;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 106px;
+    margin-top: -4px;
+  }
+
+  .redirect-video-card #hexa-redirect-clock {
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    bottom: 0;
+    height: 20px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+  }
+
+  .redirect-video-card #hexa-redirect-seconds {
+    display: block;
+    font-size: smaller;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .redirect-play-button {
+    left: 108px;
+    right: 47px;
+    width: 60px;
+  }
+
+  .redirect-play-button {
+    font-size: xx-small;
+    height: 20px;
+    line-height: 20px;
+    top: 55px;
+  }
+
+  .redirect-stop-button {
+    font-size: xx-small;
+    height: 20px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    top: 55px;
+  }
+
+  .redirect-stop-button {
+    left: 44px;
+    right: 107px;
+    width: 60px;
+  }
+
+  .previous-chapter-button .previous-chapter-button-tooltip {
+    visibility: hidden !important;
+  }
+
+  .last-chapter-button .last-chapter-button-tooltip {
+    visibility: hidden !important;
+  }
+
+  .next-chapter-button .next-chapter-button-tooltip {
+    visibility: hidden !important;
+  }
+}

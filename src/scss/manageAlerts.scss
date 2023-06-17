@@ -1,0 +1,79 @@
+.hexa-notification-wrapper {
+  overflow: hidden;
+  position: absolute;
+  width: 50%;
+  top: 8px;
+  right: 5px;
+  pointer-events: none;
+}
+
+.notification-container {
+  position: absolute;
+  background: #ffffff;
+  opacity: 0.5;
+  line-height: 30px;
+  right: 0;
+  border: black 1px solid;
+  box-sizing: content-box;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.hexa-alert-label {
+  opacity: 1;
+  color: black;
+  font-weight: bolder;
+  padding: 4px;
+}
+
+.hexa-display {
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+}
+
+.hexa-destroy {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes slide-out {
+  0% {
+    -webkit-transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+  }
+}

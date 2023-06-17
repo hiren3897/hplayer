@@ -1,0 +1,45 @@
+= Set Video Metadata
+
+- You can set the video metadata in the player.
+
+== How to set video metadata?
+
+=== By using config
+
+[source, json5]
+----
+{
+    basic: {
+    source: 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8',
+    poster: 'https://api.hexaglobe.net/posters/poster.png'
+  },
+  video_metadata: {
+    videoName: 'Test',
+    videoXYZ: '',
+    ...
+  },
+}
+----
+
+=== By using Js
+[source,javascript]
+----
+const videoMetaData = {
+    videoName: 'XYZ',
+    videoType: 'XYZ',
+    videoPlace: 'XYZ',
+    ...
+}
+
+const loadVideoMetadata = new Event('loadmetadata');
+loadVideoMetadata.videoMetaData = videoMetaData;
+document.dispatchEvent(loadVideoMetadata);
+----
+
+== How to get the metadata.
+[source,javascript]
+----
+document.addEventListener('loadmetadata_success', (event) => {
+    console.log(event.videoMetaData) // you have your video metadata information.
+})
+----

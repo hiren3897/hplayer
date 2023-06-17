@@ -1,0 +1,17 @@
+= iOS Features
+
+- Trick play video on fullscreen exit.
+- These features are should only be used for iOS, iPad etc.
+- It is important to configure *playsinline* attribute on HTMLVideoElement tag.
+- Hexaglobe player fullscreen button uses the webkitFullscreen to enter fullscreen mode.
+
+== HTML
+[source,html]
+----
+<div id="video-container" class="hexa-mini-player" style="max-width:50em;">
+    <video autoplay playsinline id="video" style="width:100%;height:100%">
+        <track default srclang="en">
+    </video>
+</div>
+----
+

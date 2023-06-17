@@ -1,0 +1,36 @@
+= Airplay Feature (Shaka Player Inbuilt)
+
+*airplay: adds a button that opens a AirPlay dialog. The button is visible only if the browser supports AirPlay.*
+
+== Snippet
+To add in control panel
+[source,json]
+----
+ "ui_configuration": {
+    "controlPanelElements": [
+      "play_pause",
+      "time_and_duration",
+      "spacer",
+      "airplay"
+    ],
+----
+
+=== Example
+
+[source,javascript]
+----
+
+const video = document.querySelector('#video')
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+  basic: {
+    source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
+  "ui_configuration": {
+        "controlPanelElements": [
+          "airplay"
+        ]
+    }
+})
+hexaPlayer.init_();
+----

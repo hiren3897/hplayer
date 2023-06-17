@@ -1,0 +1,69 @@
+= Hexaglobe Player Functions
+
+- Some advanced hexaglobe player function's to manage the player on fly.
+
+== Mute and Unmute the player.
+- You can directly mute and unmute the video player using following function.
+
+=== Example
+[source,js]
+----
+// to mute
+hexaPlayer.mute();
+// to unmute
+hexaPlayer.unmute();
+----
+
+== Change video quality.
+- You can change the resolution of the video on fly to lowest, highest and auto using following methods.
+
+=== Example
+[source,js]
+----
+// To set the lowest quality resolution.
+hexaPlayer.setLowQualityResolution();
+// To set the highest quality resolution.
+hexaPlayer.setHighQualityResolution();
+// To set auto quality
+hexaPlayer.setAutoQuality()
+----
+
+[NOTE]
+You can set/select your preferred resolution using *hexaPlayer.setLowQualityResolution();* or *hexaPlayer.setHighQualityResolution();* by passing argument *qualityVariantIndex* (you get from the *hexaPlayer.player_.getVariantTracks();*)
+
+== Show/Hide Controls UI.
+- You can hide and display controls UI of the player.
+
+=== Example
+[source,js]
+----
+// Display UI all controls panel
+hexaPlayer.showUiControls();
+// Hide UI all controls panel
+hexaPlayer.hideUiControls();
+----
+
+== Change Button Tooltips.
+- You can change the button tooltips dynamically in your own language.
+
+=== Example
+[source,js]
+----
+// Change tooltip
+hexaPlayer.changeButtonTooltipContext('YourButtonClassName', 'YourContext');
+----
+
+== Apply Start and End range (VOD)
+* Applies playRangeStart and playRangeEnd to the given timeline. This will only affect non-live content.
+
+=== Example
+[source,js]
+----
+// Apply the setting's
+const options = {
+    player_configurations: {
+        playRangeStart: 20,
+        playRangeEnd: 80
+    }
+}
+----

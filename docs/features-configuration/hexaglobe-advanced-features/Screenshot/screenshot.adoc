@@ -1,0 +1,50 @@
+= Screen Shot Feature
+
+== Only for VOD Player
+
+- Take a screenshot of the video live and it auto downloads the captured screenshot in just one click.
+
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "snapshot",
+        "visible": true,
+        "position": 2
+      }]
+  }
+
+----
+
+=== Data property
+.ScreenShot data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|color   | string    | button color in HEX or RBG or name.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video')
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        "name": "snapshot",
+        "visible": true,
+        "position": 3,
+      }]
+})
+hexaPlayer.init_();
+----

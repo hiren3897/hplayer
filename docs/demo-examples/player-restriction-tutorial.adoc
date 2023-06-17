@@ -1,0 +1,58 @@
+== How to set player restriction tutorial
+
+=== Example
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hexa Player</title>
+    <!-- Hexaglobe Player compiled CSS library: -->
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<!-- Container for the UI overlay-->
+<div class="hexa-container" style="max-width:50em;">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
+    <video class="hexa-player" style="width:100%;height:100%"></video>
+</div>
+<!-- Hexaglobe Player compiled JS library: -->
+    <script src="js/HexaglobePlayer.bundle.js"></script>
+    <!-- For hls support -->
+<script>
+const videoContainer = document.querySelector('.hexa-container')
+const video = document.querySelector('.hexa-player');
+const options = {
+  basic: {
+    source: 'hexaglobe:http://client/stream_info.php',
+  },
+  player_configurations: {
+    restrictions: {
+        maxBandwidth: 2997507,
+        minBandwidth: 700000
+    },
+  },
+}
+
+
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, options);
+hexaPlayer.init_();
+
+setTimeout(() => {
+  const tracks = hexaPlayer.player_.getVariantTracks();
+  const fullScreenButton = hexaPlayer.getControlPanelButtons('shaka-fullscreen-button');
+  fullScreenButton.addEventListener('click', () => {
+    if (hexaPlayer.isFullScreenEnabled()) {
+      hexaPlayer.setPlayerResolutionRange(tracks[tracks.length - 1].bandwidth);
+    } else {
+      hexaPlayer.setPlayerResolutionRange(tracks[tracks.length - 1].bandwidth, tracks[0].bandwidth);
+    }
+  });
+}, 400);
+</script>
+</body>
+
+</html>
+----

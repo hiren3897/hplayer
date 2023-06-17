@@ -1,0 +1,56 @@
+= Hexaglobe Player Configurations
+
+link:../../src/assets/player-options.json[Global JSON]
+
+== Configuration
+The Configurations include all property types that will be used to set up the player like
+DRM configurations, Customised UI config and advanced hexaglobe features.
+
+== Player Config
+link:https://shaka-player-demo.appspot.com/docs/api/tutorial-config.html[Shaka Player Config]: It will be the part of our first parameter in *options.player_configurations*  that is basically the object of shaka-player configurations.
+
+=== Snippet
+The *player_configurations* will hold all the default configurations of the *Shaka Player* in Hexaglobe Player configurations.
+[source, json]
+----
+{
+  "player_configurations": {
+    "drm": {
+      "advanced": {
+        "com.widevine.alpha": {
+          "audioRobustness": "SW_SECURE_CRYPTO",
+          "distinctiveIdentifierRequired": false,
+          "individualizationServer": "",
+          "persistentStateRequired": false,
+          "serverCertificate": "Uint8Array []",
+          "sessionType": "",
+          "videoRobustness": "SW_SECURE_CRYPTO"
+        },
+        "com.apple.fps.1_0": {
+          "serverCertificate": "Uint8Array",
+          "audioRobustness": "SW_SECURE_CRYPTO",
+          "videoRobustness": "SW_SECURE_CRYPTO"
+        },
+        "clearKeys": {},
+        "servers": {
+          "com.widevine.alpha": "server DRM licence URL"
+        }
+      }
+    },
+    "manifest": {},
+    "offline": {},
+    "playRangeEnd": "0",
+    "playRangeStart": 0,
+    "preferForcedSubs": false,
+    "preferredAudioChannelCount": 2,
+    "preferredAudioLanguage": "",
+    "preferredTextLanguage": "",
+    "preferredTextRole": "",
+    "preferredVariantRole": "",
+    "restrictions": {},
+    "streaming": {},
+    "textDisplayFactory": "function()",
+    "useMediaCapabilities": true
+  }
+}
+----

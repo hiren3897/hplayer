@@ -1,0 +1,70 @@
+= Manage Alerts Feature.
+
+- ManageAlerts feature is designed to notify users about new events triggered from the server side.
+- It uses a link:https://en.wikipedia.org/wiki/Server-sent_events[Server Sent Events] (SSE) technology enabling a client to receive automatic updates from a server via an HTTP connection (They are commonly used to send message updates or continuous data streams to a browser client and designed to enhance native, cross-browser streaming through a JavaScript API called EventSource.)
+- We manage to subscribe to those events in our player and notify the user about events.
+- The best example of this use case can be found link:https://mercure.rocks[here.]
+
+== How to configure and enable this feature
+Configure your server (Hub) URL with the topics (The canonical URL for the topic to which subscribers are expected to use for subscriptions) and onScreenTime to keep the notification on hold.
+
+[source,json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "manage_alerts",
+        "visible": true,
+        "data": {
+            "serverUrl": "https://yourserver/url/paste/here",
+            "topics": [
+              "http://example.com/books/{id}",
+              "http://example.com/books/{id}",
+              "http://example.com/books/{id}"
+            ],
+            "onScreenTime": 5
+        }
+      }]
+  }
+
+----
+
+=== Data property
+.Manage alerts data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|serverUrl  |string | a hub url of server.
+|topics  |string[] | the topic urls to which subscribers are expected to use for subscriptions
+|onScreenTime  |number | declare number in seconds to hold the notification on screen.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#video-container')
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        name: "manage_alerts",
+        visible: true,
+        data: {
+            serverUrl: "https://yourserver/url/paste/here",
+            topics: [
+              "http://example.com/books/{id}",
+              "http://example.com/books/{id}",
+              "http://example.com/books/{id}"
+            ],
+            onScreenTime: 5
+        }
+      }]
+})
+hexaPlayer.init_();
+----
+

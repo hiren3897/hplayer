@@ -1,0 +1,17 @@
+{
+  "backward-btn-title": "Go Back {seconds}",
+  "forward-btn-title": "Go Ahead {seconds}",
+  "express-mode-btn-title": "Express Mode {status}",
+  "live-btn-title": "Go back to live",
+  "playlist-btn-title": "Open Playlist",
+  "popup-btn-title": "Open Popup list",
+  "screenshot-btn-title": "Take a screenshot",
+  "share-btn-title": "Share Url",
+  "switch-channel-btn-title": "Switch channels list",
+  "dvr-mode-btn-title": "DVR mode {status}",
+  "next-chp-btn-title": "Next Chapter",
+  "previous-chp-btn-title": "Previous Chapter",
+  "on": "ON",
+  "off": "OFF",
+  "custom-audio-language-title": "Select Audio"
+}

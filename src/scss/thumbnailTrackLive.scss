@@ -1,0 +1,70 @@
+
+/**
+   * Thumbnail Track
+   */
+.thumbnail-live-container {
+  position: absolute;
+  bottom: 75px;
+  height: 120px;
+  width: 220px;
+  pointer-events: none;
+  z-index: 10000;
+  text-align: center;
+  text-indent: -30px;
+
+  .hexa-live-thumbnail-image {
+    position: relative;
+    background-size: cover;
+    max-height: 120px;
+    max-width: 220px;
+  }
+
+  .seekbar-thumb-tooltip {
+    color: white;
+    font-size: 15px;
+    z-index: 100;
+    line-height: 1;
+    text-shadow: #000000 0 0 4px;
+  }
+
+}
+
+
+.thumbnail-container-fullscreen {
+  position: absolute;
+  bottom: 220px;
+  max-height: 200px;
+  max-width: 300px;
+  z-index: 10000;
+  pointer-events: none;
+  box-sizing: content-box;
+
+  .seekbar-thumb-tooltip-on-fullscreen {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    z-index: 100;
+    margin: auto;
+    left: 140px;
+    top: 150px;
+    line-height: 1;
+    text-shadow: #000000 0 0 4px;
+  }
+}
+
+.image-size-single-frame {
+  max-width: 180px;
+  max-height: 110px;
+  background-size: cover;
+}
+.image-size-tiled-frame {
+  max-width: 180px;
+  max-height: 110px;
+  background-size: cover;
+}
+
+@media all and (display-mode: fullscreen) {
+  .thumbnail-live-container {
+    bottom: 100px;
+  }
+}

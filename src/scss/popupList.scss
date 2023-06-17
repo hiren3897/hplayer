@@ -1,0 +1,131 @@
+
+/****
+Player PopUp list
+***/
+
+.player-popup-list-button {
+  top: 50px;
+  right: 0;
+  display: flex;
+  position: absolute;
+}
+
+.popup-list-container {
+  position: absolute;
+  top: 4px;
+  right: -3px;
+  background-color: #00000091;
+  padding: 8px;
+  box-shadow: 0 4rem 6rem rgb(0 0 0 / 30%);
+  z-index: 1000;
+  width: 200px;
+  height: 100%;
+  max-height: 82%;
+  overflow-x: hidden;
+  display: block;
+  pointer-events: none;
+  cursor: initial;
+  box-sizing: content-box;
+
+  h2,h3 {
+    font-family: system-ui, serif;
+    font-size: 16px;
+    color: white;
+    max-width: 6.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1;
+  }
+
+  img {
+    max-height: 3rem;
+    max-width: 3rem;
+    padding-bottom: 8px;
+  }
+
+  .popup-list--close-button {
+    font-family: inherit;
+    color: white;
+    position: absolute;
+    top: 0.5rem;
+    right: 0rem;
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .popup-list--row {
+    padding: 0.01rem 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .popup-list--data {
+    margin-left: 10px;
+    display: inline-flex;
+  }
+
+  .popup-list--index {
+    background: black;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    position: absolute;
+    border-radius: 57%;
+    text-align: center;
+  }
+
+  .popup-list-avatar--desc {
+    position: absolute;
+    font-size: 14px;
+    padding-top: 20px;
+    color: #ffffffa3;
+    line-height: 1;
+  }
+
+  .popup-list--desc {
+    font-size: 14px;
+    width: 12em;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 8px;
+    text-overflow: ellipsis;
+  }
+
+  .popup-list--desc:hover {
+    overflow: initial;
+    white-space: pre-line;
+    line-height: 16px;
+  }
+
+  span {
+    position: absolute;
+    right: 10px;
+    margin-top: 25px;
+    box-sizing: content-box;
+
+    .arrow-up {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #37ff00;
+      position: absolute;
+      left: -10px;
+    }
+
+    .arrow-down {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #f00;
+      position: absolute;
+      left: -10px;
+    }
+  }
+
+}
+

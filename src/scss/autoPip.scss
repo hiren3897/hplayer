@@ -1,0 +1,44 @@
+$features: forward-button,
+shaka-current-time,
+shaka-volume-bar-container,
+shaka-fullscreen-button,
+shaka-overflow-menu-button,
+shaka-rewind-button,
+shaka-fast-forward-button,
+shaka-pip-button,
+shaka-spacer,
+shaka-loop-button,
+shaka-airplay-button,
+playlist-container,
+backward-button,
+big-player-live-button,
+player-live-button,
+express-mode-button,
+playback-button,
+snapshot-button,
+switch-channel-container,
+thumbnails-container,
+thumbnail-container,
+share-button,
+redirect-container,
+chapter-vod-container;
+
+/**
+ * Auto Picture-in-picture
+ */
+.shaka-video-container.hexa-fixed-piped-video {
+  position: fixed;
+  width: 300px;
+  height: auto;
+  bottom: 15px;
+  top: auto;
+  right: 15px;
+  left: auto;
+  z-index: 1000;
+
+  @each $feature in $features {
+    .#{$feature} {
+      display: none
+    }
+  }
+}

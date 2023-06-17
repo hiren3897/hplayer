@@ -1,0 +1,63 @@
+= Start Over A Tagged Content Feature.
+
+- To play the video over a tagged content.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "tagged_content",
+        "visible": true,
+        "data": [{
+          "title": "Title goes here",
+          "icon_url": "url",
+          "time": "230"
+        }]
+      }]
+  }
+
+----
+
+=== Data property
+.Tagged Content Feature data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|title   |string  | title of the tag.
+|icon_url?   |string  | url to icon to be used as a tag, OR it uses the default tag from the assets. link:../../../../src/assets/images/tags/icons8-iron-man-100.png[default demo tag.]
+|time   |number  | time to start the video on it and position the tag on the timeline.
+|=======================
+
+[NOTE]
+For *icon_url* it will use the icon url configured by the user. if not then it will use the default icon from the assets configured by default.
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video')
+const hexaPlayer = new HexaglobePlayer(video, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        "name": "tagged_content",
+        "visible": true,
+        "data": [{
+          "title": "Title goes here",
+          "icon_url": "https://img.icons8.com/emoji/48/000000/label-emoji.png",
+          "time": "230"
+        }]
+      }]
+})
+
+document.addEventListener('shaka-ui-loaded', () => hexaPlayer.init_());
+
+document.addEventListener('shaka-ui-load-failed', () => hexaPlayer.initFailed());
+----
+

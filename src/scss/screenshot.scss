@@ -1,0 +1,94 @@
+/**
+   * Screenshot feature
+   */
+
+.snapshot-button {
+}
+
+.snapshot-button .tooltip-screenshot {
+  visibility: hidden;
+  width: 113px;
+  background-color: #000000c4;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  margin-left: -65px;
+  bottom: 67px;
+}
+
+.snapshot-button:hover .tooltip-screenshot {
+  visibility: visible;
+}
+
+.screenshot-modal {
+  position: absolute;
+  bottom: 100px;
+  background-color: #00000091;
+  padding: 8px;
+  margin-left: -300px;
+  box-shadow: 0 4rem 6rem rgb(0 0 0 / 30%);
+  z-index: 1000;
+  width: 300px;
+  height: 170px;
+  // border-radius: 1rem;
+}
+
+.screenshot-modal-fullscreen {
+  position: absolute;
+  bottom: 130px;
+  background-color: #00000091;
+  padding: 8px;
+  margin-left: -400px;
+  box-shadow: 0 4rem 6rem rgb(0 0 0 / 30%);
+  z-index: 1000;
+  width: 300px;
+  height: 170px;
+  // border-radius: 1rem;
+}
+
+.snapshot {
+  width: 100%;
+  height: 100%;
+}
+
+.screenshot-download {
+  position: absolute;
+  display: flex;
+  bottom: -30px;
+  right: 0;
+  border: solid thin white;
+  border-radius: 2%;
+  background: #fefefe;
+  color: #000000;
+  padding: 4px;
+  text-decoration: none;
+}
+
+.screenshot-close {
+  position: absolute;
+  display: flex;
+  bottom: -30px;
+  right: 122px;
+  border: solid thin white;
+  border-radius: 2%;
+  background: #fefefe;
+  color: #000000;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.screenshot-copy-clipboard {
+  position: absolute;
+  display: flex;
+  bottom: -30px;
+  right: 91px;
+  border: solid thin white;
+  border-radius: 2%;
+  background: #fefefe;
+  color: #000000;
+  padding: 4px;
+  cursor: pointer;
+}

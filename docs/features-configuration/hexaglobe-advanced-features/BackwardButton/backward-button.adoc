@@ -1,0 +1,80 @@
+= Backward Button Feature
+
+- Backward button feature is used to skip backward the video X seconds with custom seconds configurable to be skipped.
+- Yes, we can configure the skip seconds in this feature.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "backward_button",
+        "visible": true,
+        "data": {
+         "backwardSeconds": 20,
+         "color": "yellow"
+        },
+        "position": 3
+      }]
+  }
+
+----
+
+=== Data property
+.Backward button data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|backwardSeconds   |Number    | Skip second to video.
+|color   |string   | Button color.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        "name": "backward_button",
+        "visible": true,
+        "data": {
+         "backwardSeconds": 20,
+         "color": "yellow"
+        },
+        "position": 3
+      }]
+})
+hexaPlayer.init_();
+----
+
+=== CSS Customization
+
+- To customise the backward button you can directly edit the class named "*.backward-button*"
+
+- To customise the backward seconds displayed on the player UI you can edit class named *".backward-seconds*"
+
+==== Snippet
+[source,scss]
+----
+.backward-button {
+  // add your css properties
+}
+
+// add your css properties
+.backward-seconds {
+  font-size: 8px;
+  text-align: center;
+  position: absolute;
+  margin-left: -17px;
+  margin-top: 11px;
+}
+----

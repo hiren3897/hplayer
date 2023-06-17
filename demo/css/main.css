@@ -1,0 +1,14 @@
+body {
+    padding-top: 70px;
+}
+
+.video-container{
+    background-color: #131413;
+}
+
+/**
+ * CUSTOM NOTIFICATION
+ */
+.shaka-video-container .hexa-notifications-container .hexa-notification-custom {
+    border-left-color: #fa0cd2;
+}

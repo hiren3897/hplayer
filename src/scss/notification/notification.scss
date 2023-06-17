@@ -1,0 +1,133 @@
+/**
+ * When we have multiple notification, we default to vertically stacking them in a readable manner.
+ */
+@mixin stack {
+  @for $i from 1 through 5 {
+    $px: $i * 100 - 100;
+    &:nth-last-child(#{$i}) {
+      margin-top: #{$px}px;
+    }
+  }
+}
+
+.hexa-notifications-container {
+  // Base class
+  .hexa-notification {
+    display: grid;
+    max-width: 250px;
+    overflow: hidden;
+    font-size: .875rem;
+    background-color: rgba(255, 255, 255, .85);
+    background-clip: padding-box;
+    border: 3px solid rgba(0, 0, 0, .1);
+    border-radius: .25rem;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    pointer-events: all;
+    @include stack
+  }
+
+  .hexa-notification-position {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+
+  .hexa-notification-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .25rem .75rem;
+    color: #6c757d;
+    background-color: rgba(255, 255, 255, .85);
+    background-clip: padding-box;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    box-sizing: border-box;
+
+    .hexa-notification-message-type {
+      margin-right: auto !important;
+    }
+
+    .hexa-notification-close-button {
+      padding: 0;
+      background-color: transparent;
+      border: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin-left: 0.5rem !important;
+      margin-bottom: 0.25rem !important;
+      float: right;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #000;
+      text-shadow: 0 1px 0 #fff;
+      opacity: .5;
+      cursor: pointer;
+      display: none;
+    }
+  }
+
+  .hexa-notification-body {
+    padding: 0.75rem;
+  }
+
+  .hexa-notification-show {
+    display: block;
+    opacity: 1;
+  }
+
+  .hexa-notification-hide {
+    display: none;
+    opacity: 0;
+  }
+
+
+  .hexa-notification-button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    padding: 0.25rem 0.8rem;
+    font-size: .875rem;
+    border-radius: 0.2rem;
+    user-select: none;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #0d6efd;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-appearance: button;
+  }
+  .hexa-notification-buttons-container {
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #dee2e6;
+  }
+
+
+  // Modifier classes
+  .hexa-notification-info {
+    border-left-color: #5bc0de;
+  }
+
+  .hexa-notification-warning {
+    border-left-color: #ffef45;
+  }
+
+  .hexa-notification-error {
+    border-left-color: #e50a0a;
+  }
+
+  .hexa-notification-success {
+    border-left-color: #67f065;
+  }
+}

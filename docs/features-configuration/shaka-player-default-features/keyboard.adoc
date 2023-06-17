@@ -1,0 +1,52 @@
+= Keyboard Control
+
+- Now control your player with your keyboard.
+**  Play/pause
+**  Volume
+**  mute/unmute
+**  forward/backward
+
+- To configure just enable the *enableKeyboardPlaybackControls* settings in the player.
+
+
+[source,js]
+----
+const options = {
+  basic: {
+    source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+  },
+  // Below is an example, everything is optional
+  ui_configuration: {
+    enableKeyboardPlaybackControls: true //default is true
+  }
+};
+
+----
+
+
+== Keyboard Accessibility
+- When the user is using keyboard to navigate inside the overflow settings  menu (pressing Tab key to go forward, or pressing Shift + Tab keys to go backward), make sure it's focused only on the elements of the overflow panel.
+- Blue outline for focused elements.
+- Allow exiting overflow settings menus by pressing Esc key.
+- When navigating on overflow settings menu by pressing Tab
+key or Shift+Tab keys keep the focus inside overflow menu.
+
+.keyboard shortcuts
+[options="header,footer"]
+|=======================
+|Key | Description
+|Tab   | Advanced to the next focusable item
+|Shift + Tab   | Advanced to the previous focusable item
+|Space/Enter  | On focused element *play/pause*, *mute/unmute*, *Enter/Exit Fullscreen and Settings Menu*, and *Turn on/off captions*
+|Space  | play/pause presentation when not focused on specific element
+|Home   | Start of the video
+|End   |End of the video
+|Arrow Left/Right   | backward/forward video
+|Arrow Up/Down   | increase/decrease volume
+|Esc   | Escape the settings menu on open
+|p   | Play/Pause presentation
+|f   | Enter/Exit Fullscreen
+|c   | On/Off Captions
+|m   | Mute/Unmute presentation
+|0-9   | Quick Seek the video.
+|=======================

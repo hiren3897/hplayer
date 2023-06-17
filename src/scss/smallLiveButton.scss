@@ -1,0 +1,28 @@
+/**
+  Live button
+  */
+.player-live-button::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  vertical-align: 4%;
+  margin-right: 5px;
+  background: #757575;
+  content: "";
+  border-radius: 6px;
+}
+
+.player-live-button-red::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  vertical-align: 4%;
+  margin-right: 5px;
+  content: "";
+  border-radius: 6px;
+  background: #ed0808;
+}
+
+.player-live-button {
+  font-weight: bold;
+}

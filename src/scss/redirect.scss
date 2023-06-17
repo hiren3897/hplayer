@@ -1,0 +1,147 @@
+/**
+   * Redirect Feature
+   */
+.redirect-container {
+  pointer-events: none;
+}
+
+.redirect-video-card #hexa-redirect-clock {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.redirect-container .redirect-video-card {
+  width: 200px;
+  height: 100px;
+  padding: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.redirect-video-card .redirect-video-card-title {
+  font-weight: bold;
+  white-space: nowrap;
+  width: 110px;
+  text-overflow: ellipsis;
+  font-size: small;
+}
+
+.redirect-stop-button {
+  top: 171px;
+  bottom: 0;
+  right: 144px;
+  left: 17px;
+  position: absolute;
+  margin: auto;
+  height: 30px;
+  width: 110px;
+  font-size: 1rem;
+  line-height: 30px;
+  background-color: #ff7070;
+  border: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 2px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.redirect-play-button {
+  top: 171px;
+  bottom: 0;
+  right: 0;
+  left: 108px;
+  position: absolute;
+  margin: auto;
+  height: 30px;
+  width: 120px;
+  font-size: 1rem;
+  line-height: 30px;
+  background-color: #6fc77d;
+  border: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 2px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.redirect-video-card #hexa-redirect-seconds {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  font-size: 17px;
+}
+
+.redirect-video-card .hexa-redirect-message {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: -16px;
+  bottom: 0;
+  right: 0;
+  font-size: small;
+  font-weight: bold;
+}
+
+.redirect-video-card #hexa-redirect-clock .pie {
+  width: 50%;
+  height: 100%;
+  transform-origin: 100% 50%;
+  position: absolute;
+  background: transparent;
+  border: 5px solid rgb(254 254 254 / 75%);;
+  margin: auto;
+  left: -5px;
+  right: 30px;
+  bottom: -4px;
+}
+
+.redirect-video-card #hexa-redirect-clock .spinner {
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  z-index: 0;
+  border-right: none;
+  -webkit-animation: rota 3s linear infinite;
+}
+
+#hexa-redirect-clock:hover .spinner,
+#hexa-redirect-clock:hover .filler,
+#hexa-redirect-clock:hover .mask {
+  animation-play-state: running;
+}
+
+@-webkit-keyframes rota {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg);
+    z-index: 0;
+  }
+}
+
+@-webkit-keyframes opa {
+  0% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}

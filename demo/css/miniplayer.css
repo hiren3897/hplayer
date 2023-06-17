@@ -1,0 +1,60 @@
+.shaka-video-container.hexa-mini-player {
+    position: fixed;
+    width: 300px;
+    height: auto;
+    bottom: 15px;
+    top: auto;
+    right: 15px;
+    left: auto;
+    z-index: 1000;
+}
+
+.hexa-open-mini-player-button {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    right: 0;
+    left: auto;
+    z-index: 1000;
+    line-height: 0;
+}
+
+.shaka-video-container.hexa-mini-player .shaka-controls-button-panel>*.hexa-minimize-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.shaka-video-container.hexa-mini-player .hexa-dropdown-layout-container {
+    top: -27px;
+    left: -6px
+}
+
+/*
+Example for hiding other video controls and feature in the mini player UI
+.shaka-video-container.hexa-mini-player .forward-button,
+.shaka-current-time,
+.shaka-volume-bar-container,
+.shaka-fullscreen-button,
+.shaka-overflow-menu-button,
+.shaka-rewind-button,
+.shaka-fast-forward-button,
+.shaka-pip-button,
+.shaka-spacer,
+.shaka-loop-button,
+.shaka-airplay-button,
+.playlist-container,
+.backward-button,
+.big-player-live-button,
+.player-live-button,
+.express-mode-button,
+.playback-button,
+.snapshot-button,
+.thumbnails-container,
+.thumbnail-container,
+.share-button,
+.redirect-container,
+.chapter-vod-container {
+    display: none;
+}
+*/
