@@ -1,6 +1,6 @@
 import { UAParser } from 'ua-parser-js';
 import { drmServerTypes, mimeTypes } from './const';
-import shaka from '@advanced-suite/front-shaka-player/dist/shaka-player.ui';
+import shaka from 'shaka-player/dist/shaka-player.ui';
 
 /**
  *

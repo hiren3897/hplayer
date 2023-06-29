@@ -9,8 +9,8 @@ import {
     getFairPlayCert,
     selectStreamFormat
 } from './drmConfigurations';
-import shaka from '../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
-import '../../node_modules/@advanced-suite/front-shaka-player/dist/controls.css';
+import shaka from 'shaka-player/dist/shaka-player.ui';
+import 'shaka-player/dist/controls.css';
 import '../scss/style.scss';
 import {advancedFeatures, errors} from './const';
 import {UAParser} from 'ua-parser-js';

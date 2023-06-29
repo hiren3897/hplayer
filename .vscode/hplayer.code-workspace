@@ -1,0 +1,28 @@
+{
+    "folders": [
+      {
+        "name": "hplayer",
+        "path": "../"
+      },
+      {
+        "name": "shaka-player",
+        "path": "packages/shaka-player"
+      },
+    ],
+    "settings": {
+      "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+      "eslint.alwaysShowStatus": true, 
+      "files.exclude": {
+        "shaka-player": true,
+      },
+      "yaml.customTags": [
+        "!reference sequence"
+      ]
+    },
+    "extensions": {
+      "recommendations": [
+        "editorconfig.editorconfig",
+      ]
+    },
+  }
+  

@@ -1,4 +1,4 @@
-import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
+import shaka from 'shaka-player/dist/shaka-player.ui';
 
 /**
  * Fast-Forward button feature is used to forward the video X seconds with custom seconds configurable to be skipped.

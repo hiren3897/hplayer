@@ -1,4 +1,4 @@
-import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
+import shaka from 'shaka-player/dist/shaka-player.ui';
 
 /**
  * This feature have a same functionality as small live button have but with a different appearance.

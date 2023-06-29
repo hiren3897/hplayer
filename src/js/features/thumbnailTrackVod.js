@@ -1,4 +1,4 @@
-import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
+import shaka from 'shaka-player/dist/shaka-player.ui';
 import { createHTMLElement } from '../util/domUtils';
 import {UAParser} from "ua-parser-js";
 import {ThumbnailService} from "./services/thumbnailService";

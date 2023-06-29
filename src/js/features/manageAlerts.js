@@ -1,5 +1,5 @@
 import { createHTMLElement } from '../util/domUtils';
-import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
+import shaka from 'shaka-player/dist/shaka-player.ui';
 import { NotificationService } from '../notification/notificationService';
 /**
  * This is a ManageAlerts feature will be used to push and display the alerts in the video player if any new content has been available.

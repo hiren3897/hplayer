@@ -1,4 +1,4 @@
-import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
+import shaka from 'shaka-player/dist/shaka-player.ui';
 /**
  * This is a small live button on the edge of seekbar to go back to live stream. it is only for Live player.
  * @type {SmallLiveButton}

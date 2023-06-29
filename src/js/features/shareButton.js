@@ -1,4 +1,4 @@
-import shaka from '../../../node_modules/@advanced-suite/front-shaka-player/dist/shaka-player.ui';
+import shaka from 'shaka-player/dist/shaka-player.ui';
 import '../../../node_modules/ilyabirman-likely/release/likely.css';
 import likely from '../../../node_modules/ilyabirman-likely/release/likely';
 
