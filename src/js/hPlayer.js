@@ -31,7 +31,7 @@ import {checkAdvanceFeatureConfig, getSourceInfo} from "./hPlayerService";
 import {Localization} from "./localization";
 
 /**
- * Hexaglobe Player Main Class.
+ * HPlayer Main Class.
  * It will implement all functions and methods to setup, configure the ui
  * and player configuration's and advance UI features customisation using player.json
  * @type {HPlayer}
@@ -459,6 +459,7 @@ export default class HPlayer {
                 }
             }
             this.player_.configure(playerConfig);
+            // TODO: Other DRM setup to be done;
             if (regexTest('ezdrm', asset.drm_licence)) {
                 applyFairplayEZDRMSettings(this.player_)
             }
