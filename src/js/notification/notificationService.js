@@ -22,13 +22,13 @@ export class NotificationService {
     notifications_;
 
     /**
-     * Hexaglobe Player video container
+     * HPlayer video container
      * @private
      */
     videoContainer_
 
     /**
-     * Hexaglobe Player controls
+     * HPlayer controls
      * @private
      */
     controls_

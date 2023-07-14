@@ -1,6 +1,6 @@
-= Hexaglobe Player Functions
+= HPlayer Functions
 
-- Some advanced hexaglobe player function's to manage the player on fly.
+- Some advanced hplayer function's to manage the player on fly.
 
 == Mute and Unmute the player.
 - You can directly mute and unmute the video player using following function.

@@ -5,9 +5,9 @@
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <title>HPlayer: <%= title %></title>
 
-    <!-- START HexaPlayer css -->
+    <!-- START Hplayer css -->
     <link rel="stylesheet" href="css/index.css">
-    <!-- END HexaPlayer css -->
+    <!-- END Hplayer css -->
 
     <!-- START Documentation for demo css and javascript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/asciidoctor.js/1.5.5-5/asciidoctor.min.js"
@@ -32,7 +32,7 @@
 
 <nav class="navbar navbar-light bg-light fixed-top ">
     <div class="container">
-        <h1 class="h1">Hexaglobe Player</h1>
+        <h1 class="h1">HPlayer</h1>
         <h2 class="h2"><%= title %></h2>
         <a class="fixed-button" href="./index.html">Back</a>
     </div>
@@ -41,12 +41,12 @@
     <div class="row">
         <div class="col">
             <div>
-                <!-- START HexaPlayer need a html video element inside a div behaving as a container -->
+                <!-- START Hplayer need a html video element inside a div behaving as a container -->
                 <div class="video-container" id="video-container"> <!--Some Features are using id -->
                     <video autoplay playsinline class="video" style="width: 100%; height: 100%;">
                     </video>
                 </div>
-                <!-- END HexaPlayer need a html video element inside a div behaving as a container -->
+                <!-- END Hplayer need a html video element inside a div behaving as a container -->
                 <!--<br>
                 <h5 class="card-title">iOS Fullscreen Testing</h5>
                 <button id="iOS-enterfullscreen" class="btn btn-primary">Enter Fullscreen</button>-->
@@ -89,7 +89,7 @@
 </script>
 <!-- END Documentation container for demo -->
 
-<!-- START HexaPlayer javascript -->
+<!-- START Hplayer javascript -->
 <!-- Chromecast SDK (if you want Chromecast support for your app): -->
 <script defer src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
 
@@ -99,7 +99,7 @@
 <script type="text/javascript" src="js/HPlayer.bundle.js"></script>
 <script>
     /**
-     * START HexaPlayer initialisation
+     * START Hplayer initialisation
      */
     const video = document.querySelector('.video');
     const videoContainer = document.querySelector('.video-container');
@@ -107,10 +107,10 @@
     hplayer.init_();
     hplayer.mute()
     /**
-     * END HexaPlayer initialisation
+     * END Hplayer initialisation
      */
 </script>
-<!-- END HexaPlayer javascript -->
+<!-- END Hplayer javascript -->
 
 <script type="text/javascript" src="<%= js %>"></script>
 </body>

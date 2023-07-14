@@ -14,9 +14,7 @@ RUN sudo apt-get install -y nodejs git
 COPY . /app
 
 RUN git config --global --add safe.directory /app
-
-RUN npm install -y @advanced-suite/front-shaka-player --registry https://lofn.hexaglobe.net
-
+#TODO: add submodule install first
 # Install global dependencies
 RUN npm install -y
 

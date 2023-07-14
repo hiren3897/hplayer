@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HPlayer</title>
-    <!-- Hexaglobe Player compiled CSS library: -->
+    <!-- HPlayer compiled CSS library: -->
     <link rel="stylesheet" href="css/index.css">
 
 </head>
@@ -23,7 +23,7 @@
     <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
     <video class="hexa-player" style="width:100%;height:100%"></video>
 </div>
-<!-- Hexaglobe Player compiled JS library: -->
+<!-- HPlayer compiled JS library: -->
     <script src="js/HPlayer.bundle.js"></script>
     <!-- For hls support -->
 <script>

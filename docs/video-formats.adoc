@@ -2,7 +2,7 @@
 
 === Includes video formats for both live and VOD
 
-This video formats can be passed to `video_url` while setting up the hexaglobe player.
+This video formats can be passed to `video_url` while setting up the hplayer.
 
 .Formats
 [options="header,footer"]

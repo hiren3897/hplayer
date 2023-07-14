@@ -11,11 +11,6 @@ $ git clone https://github.com/hiren3897/hplayer.git
 ```bash
 cd hplayer
 ```
-<!-- TODO: Replace with shaka-player-hcore -->
-<!-- - ### Install Hexaglobe Dependencies
-```bash
-npm install @advanced-suite/front-shaka-player --registry https://lofn.hexaglobe.net
-``` -->
 
 - ### Install Global Dependencies
 ```bash
@@ -32,13 +27,13 @@ npm start
 
 ```bash
 # BUILD THE IMAGE
-docker build -f Dockerfile.dev . -t hexa-player:dev
+docker build -f Dockerfile.dev . -t hplayer:dev
 
 # RUN THE DOCKER CONTAINER
-docker run -p 127.0.0.1:8081:8081 hexa-player:dev
+docker run -p 127.0.0.1:8081:8081 hplayer:dev
 
 # This will start the container and map port 3000 on the host to port 8081 in the container. The "-v" flag mounts the current working directory on the host to the "/app" directory inside the container, which allows for live reloading of changes made in the project.
-docker run -it --rm -p 8081:8081 -v $(pwd):/app hexa-player:dev
+docker run -it --rm -p 8081:8081 -v $(pwd):/app hplayer:dev
 ```
     
 ### Build the project

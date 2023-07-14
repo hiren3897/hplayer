@@ -373,7 +373,7 @@ export default class HPlayer {
 
     /**
      * Reconfigure and load the player with new configurations.
-     * @param options - hexaglobe player options.
+     * @param options - hplayer options.
      */
     loadAssets_(options) {
         if (!options.basic?.source) {
@@ -469,7 +469,7 @@ export default class HPlayer {
         this.options_.basic = {...asset};
 
         /**
-         * Fixme have a default poster with hexaglobe player branding.
+         * Fixme have a default poster with hplayer branding.
          * If no poster is set in options or directly on the video element.
          */
         if (asset.poster) {

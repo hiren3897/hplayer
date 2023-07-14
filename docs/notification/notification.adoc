@@ -1,4 +1,4 @@
-= Hexaglobe Player Notification
+= HPlayer Notification
 
 - Send notifications to the player.
 - It has builtin notification types ready to use for the player.
