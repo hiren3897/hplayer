@@ -1,11 +1,11 @@
-= Hexaglobe DRM configuration
+= DRM configuration
 
 DRM configuration are important and obligatory to set up if your video is DRM protected.
 
 - link:https://shaka-player-demo.appspot.com/docs/api/tutorial-drm-config.html)[How to configure DRM? - shaka player tutorial]
 
 
-== Two way DRM configuration in Hexaglobe Player.
+== Two way DRM configuration in HPlayer.
 
 * Either we can configure the DRM directly using a shaka-player default drm config  `player_configurations.drm` object.
 

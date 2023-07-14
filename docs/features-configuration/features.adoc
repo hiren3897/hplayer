@@ -1,13 +1,13 @@
 = Player Features Configurations
 
 == Common Notes
-There are two types of features in the Hexaglobe Player features.
+There are two types of features in the HPlayer features.
 
 === Shaka-Player default configuration.
-- link:shaka-player-default-features/[how to configure?] In Hexaglobe Player.
+- link:shaka-player-default-features/[how to configure?] In HPlayer.
 - link:https://shaka-player-demo.appspot.com/docs/api/tutorial-ui-customization.html[Take a look at shaka-player default config and feature list!]
 
-=== Hexaglobe player advanced features.
+=== Hplayer advanced features.
 link:hexaglobe-advanced-features[How to configure advanced features?]
 
 Advanced features are developed with the same methodology but with unique functionalities other than shaka player default features.

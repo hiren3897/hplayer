@@ -11,11 +11,6 @@ $ git clone https://github.com/hiren3897/hplayer.git
 ```bash
 cd hplayer
 ```
-<!-- TODO: Replace with shaka-player-hcore -->
-<!-- - ### Install Hexaglobe Dependencies
-```bash
-npm install @advanced-suite/front-shaka-player --registry https://lofn.hexaglobe.net
-``` -->
 
 - ### Install Global Dependencies
 ```bash

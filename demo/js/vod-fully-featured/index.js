@@ -163,7 +163,7 @@ const options = {
             name: 'twitter',
             contents: {
               url: 'https://www.hexaglobe.com/en',
-              title: 'hello from hexaglobe player',
+              title: 'hello from hplayer',
               via: 'hiren03',
               hashtags: 'IT, Telecom'
             }
@@ -172,14 +172,14 @@ const options = {
             name: 'reddit',
             contents: {
               url: 'https://www.hexaglobe.com/en',
-              title: 'hello from hexaglobe player'
+              title: 'hello from hplayer'
             }
           },
           {
             name: 'pinterest',
             contents: {
               url: 'https://www.hexaglobe.com/en',
-              title: 'hello from hexaglobe player',
+              title: 'hello from hplayer',
               media: 'https://static.iquesta.com/logo/iquesta/Hexaglobe.gif'
             }
           },
@@ -193,14 +193,14 @@ const options = {
             name: 'telegram',
             contents: {
               url: 'https://www.hexaglobe.com',
-              title: 'hello from hexaglobe player.'
+              title: 'hello from hplayer.'
             }
           },
           {
             name: 'vkontakte',
             contents: {
               url: 'https://www.hexaglobe.com',
-              title: 'hello from hexaglobe player.',
+              title: 'hello from hplayer.',
               image: 'https://static.iquesta.com/logo/iquesta/Hexaglobe.gif',
               comment: 'you comments for the post.'
             }
@@ -209,7 +209,7 @@ const options = {
             name: 'whatsapp',
             contents: {
               url: 'https://www.hexaglobe.com',
-              title: 'hello from hexaglobe player.'
+              title: 'hello from hplayer.'
             }
           }
         ]
@@ -228,7 +228,7 @@ const options = {
 const notificationConfig = {
   title: 'Success',
   style: 'hexa-notification-success',
-  message: 'Hexaglobe player Loaded',
+  message: 'Hplayer Loaded',
   actions: ['close'],
   seconds: 5
 };

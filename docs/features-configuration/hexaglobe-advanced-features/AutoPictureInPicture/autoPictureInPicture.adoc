@@ -56,7 +56,7 @@ hplayer.init_();
 ----
 
 [NOTE]
-Don't forget to disable the default picture-in-picture under the *ui_configurations* (options) of hexaglobe player configuration while enabling this feature.
+Don't forget to disable the default picture-in-picture under the *ui_configurations* (options) of hplayer configuration while enabling this feature.
 
 === CSS Customization
 

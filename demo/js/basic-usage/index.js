@@ -28,7 +28,7 @@ const options = {
 const notificationConfig = {
   title: 'Success',
   style: 'hexa-notification-success',
-  message: 'Hexaglobe player Loaded',
+  message: 'Hplayer Loaded',
   actions: ['close'],
   seconds: 5
 };

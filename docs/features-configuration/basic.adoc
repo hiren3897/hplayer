@@ -1,10 +1,10 @@
-= Hexaglobe player Basic Usage
+= Hplayer Basic Usage
 
 - For basic usage of the player or testing use *option.basic* to load & play contents in the player.
-- Using basic property in hexaglobe player options, you can set video_url, drm license, poster, json_url?, server certificate.
+- Using basic property in hplayer options, you can set video_url, drm license, poster, json_url?, server certificate.
 
 == Basic Configuration
-.hexaglobe player basic config
+.hplayer basic config
 [options="header,footer"]
 |=======================
 |Property |Value     |Description

@@ -1,4 +1,4 @@
-= Hexaglobe Player Configurations
+= HPlayer Configurations
 
 link:../../src/assets/player-options.json[Global JSON]
 
@@ -10,7 +10,7 @@ DRM configurations, Customised UI config and advanced hexaglobe features.
 link:https://shaka-player-demo.appspot.com/docs/api/tutorial-config.html[Shaka Player Config]: It will be the part of our first parameter in *options.player_configurations*  that is basically the object of shaka-player configurations.
 
 === Snippet
-The *player_configurations* will hold all the default configurations of the *Shaka Player* in Hexaglobe Player configurations.
+The *player_configurations* will hold all the default configurations of the *Shaka Player* in HPlayer configurations.
 [source, json]
 ----
 {

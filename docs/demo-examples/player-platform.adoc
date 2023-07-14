@@ -1,4 +1,4 @@
-== PlayerPlatform Integration of Hexaglobe Player
+== PlayerPlatform Integration of HPlayer
 
 Link to the playerPlatform have a lifespan of 24h , player on the left will not work.
 But the code example is functional.
@@ -12,7 +12,7 @@ But the code example is functional.
 <head>
     <meta charset="UTF-8">
     <title>HPlayer</title>
-    <!-- Hexaglobe Player compiled CSS library: -->
+    <!-- HPlayer compiled CSS library: -->
     <link rel="stylesheet" href="css/index.css">
 
 </head>
@@ -22,7 +22,7 @@ But the code example is functional.
     <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
     <video class="hexa-player" style="width:100%;height:100%"></video>
 </div>
-<!-- Hexaglobe Player compiled JS library: -->
+<!-- HPlayer compiled JS library: -->
     <script src="js/HPlayer.bundle.js"></script>
     <!-- For hls support -->
     <script defer src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
