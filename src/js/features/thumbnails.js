@@ -26,7 +26,7 @@ const Thumbnails = class extends shaka.ui.Element {
 
     // the canvas element in the dialog on with the image will be rendered
     // FIXME use the duplicated player, video might not be the same size resolution
-    // Wait for duplicated player to be ready and use it rather than the original hexaPlayer
+    // Wait for duplicated player to be ready and use it rather than the original hplayer
     this.canvas_ = createCanvas(this.controls.getVideo());
     this.thumbnailsContainer_.appendChild(this.canvas_);
     // Get a handle on the 2d context of the canvas element
@@ -88,7 +88,7 @@ const Thumbnails = class extends shaka.ui.Element {
   }
 
   /**
-   * Create a hexaPlayer duplicate, to be able to change its currentTime and generate thumbnails from it.
+   * Create a hplayer duplicate, to be able to change its currentTime and generate thumbnails from it.
    * TODO, check if when changing source the ole duplicatePlayer is completely destroyed
    */
   createDuplicatePlayer() {

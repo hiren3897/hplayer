@@ -11,7 +11,7 @@ But the code example is functional.
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hexa Player</title>
+    <title>HPlayer</title>
     <!-- Hexaglobe Player compiled CSS library: -->
     <link rel="stylesheet" href="css/index.css">
 
@@ -23,7 +23,7 @@ But the code example is functional.
     <video class="hexa-player" style="width:100%;height:100%"></video>
 </div>
 <!-- Hexaglobe Player compiled JS library: -->
-    <script src="js/HexaglobePlayer.bundle.js"></script>
+    <script src="js/HPlayer.bundle.js"></script>
     <!-- For hls support -->
     <script defer src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
 <script>
@@ -64,8 +64,8 @@ const options = {
 }
 
 
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, options);
-hexaPlayer.init_();
+const hplayer = new HPlayer(video,videoContainer, options);
+hplayer.init_();
 </script>
 </body>
 
@@ -79,8 +79,8 @@ To change video displayed without reloading the whole player.
 
 [source,javascript]
 ----
-// This will use the hexa_configurations.player_platform configuration given when doing new HexaglobePlayer()
-hexaPlayer.loadAssets_({
+// This will use the hexa_configurations.player_platform configuration given when doing new HPlayer()
+hplayer.loadAssets_({
   basic: {
       source : 'player-platform:MY_VIDEO_ID'
   }

@@ -6,7 +6,7 @@
 
 [source, javascript]
 ----
-const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+const hplayer = new HPlayer(video, videoContainer, {
   basic: {
     source: 'https://path/to/videos/info/en_lang_video.mp4?v=0',
   },

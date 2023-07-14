@@ -16,11 +16,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <title>Hexa Player: multiplayer</title>
+    <title>HPlayer: multiplayer</title>
 
-    <!-- START HexaPlayer css -->
+    <!-- START hplayer css -->
     <link rel="stylesheet" href="index.css">
-    <!-- END HexaPlayer css -->
+    <!-- END hplayer css -->
 
     <!-- START MULTIPLAYER css -->
     <link rel="stylesheet" href="multiplayer.css">
@@ -47,13 +47,13 @@
     </div>
 </div>
 <!-- START Multiplayer HTML -->
-    <!-- START HexaPlayer javascript -->
+    <!-- START hplayer javascript -->
     <!-- For hls support -->
     <script defer src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
-    <script type="text/javascript" src="HexaglobePlayer.bundle.js"></script>
+    <script type="text/javascript" src="HPlayer.bundle.js"></script>
     <script>
         /**
-         * START HexaPlayer initialisation
+         * START hplayer initialisation
          */
         const video = document.querySelector('.video');
         const video1 = document.querySelector('.video1');
@@ -64,45 +64,45 @@
         const videoContainer2 = document.getElementById('video-container2');
         const videoContainer3 = document.getElementById('video-container3');
 
-        const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+        const hplayer = new HPlayer(video, videoContainer, {
             basic: {
                 source: 'hexaglobe:https://stream_info.php'
             }
         });
-        hexaPlayer.init_();
+        hplayer.init_();
 
-        const hexaPlayer1 = new HexaglobePlayer(video1, videoContainer1, {
+        const hplayer1 = new HPlayer(video1, videoContainer1, {
             basic: {
                 source: 'hexaglobe:https://stream_info.php'
             }
         });
-        hexaPlayer1.init_();
-        hexaPlayer1.video_.play();
-        hexaPlayer1.video_.muted=true
+        hplayer1.init_();
+        hplayer1.video_.play();
+        hplayer1.video_.muted=true
 
 
-        const hexaPlayer2 = new HexaglobePlayer(video2, videoContainer2, {
+        const hplayer2 = new HPlayer(video2, videoContainer2, {
             basic: {
                 source: 'hexaglobe:https://stream_info.php'
             }
         });
-        hexaPlayer2.init_();
-        hexaPlayer2.video_.play();
-        hexaPlayer2.video_.muted=true
+        hplayer2.init_();
+        hplayer2.video_.play();
+        hplayer2.video_.muted=true
 
-        const hexaPlayer3 = new HexaglobePlayer(video3, videoContainer3, {
+        const hplayer3 = new HPlayer(video3, videoContainer3, {
             basic: {
                 source: 'hexaglobe:https://stream_info.php'
             }
         });
-        hexaPlayer3.init_();
-        hexaPlayer3.video_.play();
-        hexaPlayer3.video_.muted=true
+        hplayer3.init_();
+        hplayer3.video_.play();
+        hplayer3.video_.muted=true
         /**
-         * END HexaPlayer initialisation
+         * END hplayer initialisation
          */
     </script>
-    <!-- END HexaPlayer javascript -->
+    <!-- END hplayer javascript -->
 
     <!-- For multiplayer javascript -->
     <script type="text/javascript" src="multiplayer.js"></script>
@@ -113,11 +113,11 @@
 ==== How to configure 3 and 2 layered multiplayer.
 ===== For 3 layered multiplayer
 - Configure only 3 video container in *multiplayer-container* and their initialization JS *<script>* accordingly in *Multiplayer4.html*
-- From the *Multiplayer4.js* remove *hexaPlayer3* references from *players* and *hexaPlayer3.setLowQualityResolution();*.
+- From the *Multiplayer4.js* remove *hplayer3* references from *players* and *hplayer3.setLowQualityResolution();*.
 
 ===== For 2 layered multiplayer
 - Configure only 2 video container in *multiplayer-container* and their initialization JS *<script>* accordingly in *Multiplayer4.html*
-- From the *Multiplayer4.js* remove *hexaPlayer3* & *hexaPlayer2* references from *players* and *hexaPlayer3.setLowQualityResolution();* & *hexaPlayer2.setLowQualityResolution();*.
+- From the *Multiplayer4.js* remove *hplayer3* & *hplayer2* references from *players* and *hplayer3.setLowQualityResolution();* & *hplayer2.setLowQualityResolution();*.
 
 === Multiplayer4.js
 - Link *multiplayer.js* script in your index.html page.
@@ -147,18 +147,18 @@ const tokens = ['flux1', 'flux2', 'flux3'];
 // awaits for the player to be loaded
 setTimeout(() => {
   const players = {
-      // replace all hexaPlayer with your player instance name
-    video: hexaPlayer,
-    video1: hexaPlayer1,
-    video2: hexaPlayer2,
-    video3: hexaPlayer3
+      // replace all hplayer with your player instance name
+    video: hplayer,
+    video1: hplayer1,
+    video2: hplayer2,
+    video3: hplayer3
   };
 
-  // replace all hexaPlayer with your player instance name
+  // replace all hplayer with your player instance name
   // pre-set the resolution for small video containers
-  hexaPlayer1.setLowQualityResolution();
-  hexaPlayer2.setLowQualityResolution();
-  hexaPlayer3.setLowQualityResolution();
+  hplayer1.setLowQualityResolution();
+  hplayer2.setLowQualityResolution();
+  hplayer3.setLowQualityResolution();
 
   const allVideoContainer = document.querySelectorAll('.shaka-video-container');
   for (const container of allVideoContainer) {

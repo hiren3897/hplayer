@@ -194,7 +194,7 @@ You can share it on following social medias:
 
 const video = document.querySelector('#video')
 const videoContainer = document.querySelector('#videoContainer')
-const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+const hplayer = new HPlayer(video, videoContainer, {
   basic: {
     source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
   },
@@ -225,7 +225,7 @@ const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
         }
      ]
 })
-hexaPlayer.init_();
+hplayer.init_();
 ----
 
 

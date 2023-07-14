@@ -1,6 +1,6 @@
-= Hexa Player Error Events
+= HPlayer Error Events
 
-== Hexa Player Error Event
+== HPlayer Error Event
 
 === Properties
 [options="header,footer"]
@@ -20,7 +20,7 @@
 }
 ----
 
-== Hexa Player Geo-Blocking Error Event
+== HPlayer Geo-Blocking Error Event
 
 === Properties
 [options="header,footer"]

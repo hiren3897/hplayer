@@ -184,7 +184,7 @@ const ChaptersVOD = class extends shaka.ui.Element {
                     ${this.chapters[this.chapters.length - 1]?.title}`; // update previous button label as a last chapter title.
             }
 
-            // for hexaPlayer.getActiveChapter()
+            // for hplayer.getActiveChapter()
             this.controls.getPlayer().activeChapter = this.chapters.find((chp) => chp.status === 'active')
         })
 

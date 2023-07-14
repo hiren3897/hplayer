@@ -56,7 +56,7 @@ If you set the *maxBandwidth* and *minBandwidth* it will only display the option
    * @param minBandwidth
    * @param maxBandwidth
    */
-hexaPlayer.setPlayerResolutionRange(minBandwidth, maxBandwidth)
+hplayer.setPlayerResolutionRange(minBandwidth, maxBandwidth)
 ----
 
 include::../../demo-examples/player-restriction-tutorial.adoc[]

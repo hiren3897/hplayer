@@ -40,7 +40,7 @@
 // How to implement the player
 const video = document.querySelector('#video');
 const videoContainer = document.querySelector('#videoContainer')
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+const hplayer = new HPlayer(video,videoContainer, {
   basic: {
     source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
   },
@@ -56,7 +56,7 @@ const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
         "position": 3
       }]
 })
-hexaPlayer.init_();
+hplayer.init_();
 ----
 
 === CSS Customization

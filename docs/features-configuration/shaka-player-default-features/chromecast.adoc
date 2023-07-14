@@ -5,7 +5,7 @@ Requirements:
 - Chromecast Id
 - Third party library cast_sender.js
 
-If you'd like to take advantage of Hexaplayer (Shaka's) built-in Chromecast support, you will need to provide us with your cast receiver application id.
+If you'd like to take advantage of hplayer (Shaka's) built-in Chromecast support, you will need to provide us with your cast receiver application id.
 
 
 
@@ -44,7 +44,7 @@ If you want to track cast status changes, you should also set up a listener for 
 
 [source,javascript]
 ----
-  hexaPlayer.controls_.addEventListener('caststatuschanged', onCastStatusChanged);
+  hplayer.controls_.addEventListener('caststatuschanged', onCastStatusChanged);
 
   function onCastStatusChanged(event) {
     const newCastStatus = event['newStatus'];

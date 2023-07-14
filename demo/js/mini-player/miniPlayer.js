@@ -22,18 +22,18 @@ openMiniPlayerButton.setAttribute('title', 'Open Mini Player');
 
 setTimeout(() => {
 // Append minimize button in shaka controls button panel
-  const controlButtonPanel = hexaPlayer.controls_.getControlsContainer().children[2].children[1];
+  const controlButtonPanel = hplayer.controls_.getControlsContainer().children[2].children[1];
   controlButtonPanel.appendChild(minimizeButton);
 
   // On minimize hide the video, should we pause or mute the player??
   minimizeButton.onclick = () => {
-    hexaPlayer.controls_.getVideoContainer().style.display = 'none';
+    hplayer.controls_.getVideoContainer().style.display = 'none';
     document.body.appendChild(openMiniPlayerButton);
   };
 
   // On open display the mini player and remove the open button.
   openMiniPlayerButton.onclick = () => {
-    hexaPlayer.controls_.getVideoContainer().style.display = 'block';
+    hplayer.controls_.getVideoContainer().style.display = 'block';
     document.body.removeChild(openMiniPlayerButton);
   };
 });

@@ -53,7 +53,7 @@ module.exports = {
     new ESLintPlugin({
       extensions: ['**/*js'],
       exclude: ['/node_modules/'],
-      useEslintrc: true
+      useEslintrc: false
     }),
     new webpack.DefinePlugin({
       'process.env.VERSION': JSON.stringify(version),
@@ -61,7 +61,7 @@ module.exports = {
     }),
     new webpack.BannerPlugin({
       banner: () => {
-        return `HexaPlayer 
+        return `HPlayer 
   Version: ${version}  
   commitHash: ${gitRevisionPlugin.commithash()}`;
       },

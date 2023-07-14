@@ -9,9 +9,9 @@
 [source,js]
 ----
 // to mute
-hexaPlayer.mute();
+hplayer.mute();
 // to unmute
-hexaPlayer.unmute();
+hplayer.unmute();
 ----
 
 == Change video quality.
@@ -21,15 +21,15 @@ hexaPlayer.unmute();
 [source,js]
 ----
 // To set the lowest quality resolution.
-hexaPlayer.setLowQualityResolution();
+hplayer.setLowQualityResolution();
 // To set the highest quality resolution.
-hexaPlayer.setHighQualityResolution();
+hplayer.setHighQualityResolution();
 // To set auto quality
-hexaPlayer.setAutoQuality()
+hplayer.setAutoQuality()
 ----
 
 [NOTE]
-You can set/select your preferred resolution using *hexaPlayer.setLowQualityResolution();* or *hexaPlayer.setHighQualityResolution();* by passing argument *qualityVariantIndex* (you get from the *hexaPlayer.player_.getVariantTracks();*)
+You can set/select your preferred resolution using *hplayer.setLowQualityResolution();* or *hplayer.setHighQualityResolution();* by passing argument *qualityVariantIndex* (you get from the *hplayer.player_.getVariantTracks();*)
 
 == Show/Hide Controls UI.
 - You can hide and display controls UI of the player.
@@ -38,9 +38,9 @@ You can set/select your preferred resolution using *hexaPlayer.setLowQualityReso
 [source,js]
 ----
 // Display UI all controls panel
-hexaPlayer.showUiControls();
+hplayer.showUiControls();
 // Hide UI all controls panel
-hexaPlayer.hideUiControls();
+hplayer.hideUiControls();
 ----
 
 == Change Button Tooltips.
@@ -50,7 +50,7 @@ hexaPlayer.hideUiControls();
 [source,js]
 ----
 // Change tooltip
-hexaPlayer.changeButtonTooltipContext('YourButtonClassName', 'YourContext');
+hplayer.changeButtonTooltipContext('YourButtonClassName', 'YourContext');
 ----
 
 == Apply Start and End range (VOD)

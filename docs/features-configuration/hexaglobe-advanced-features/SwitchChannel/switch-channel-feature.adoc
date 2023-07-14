@@ -65,7 +65,7 @@ You can also configure plugins in the *source* property of the configuration. wh
 // How to implement the player
 const video = document.querySelector('#video')
 const videoContainer = document.querySelector('#videoContainer')
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+const hplayer = new HPlayer(video,videoContainer, {
   basic: {
     source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
   },
@@ -90,7 +90,7 @@ const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
       }
      }]
 })
-hexaPlayer.init_();
+hplayer.init_();
 ----
 
 [NOTE]

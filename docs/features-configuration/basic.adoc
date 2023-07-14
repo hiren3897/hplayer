@@ -21,7 +21,7 @@
 // How to implement the player
 const video = document.querySelector('#video')
 const videoContainer = document.querySelector('#videoContainer')
-const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+const hplayer = new HPlayer(video, videoContainer, {
         basic: {
           source: "",
           drm_licence: "",
@@ -30,6 +30,6 @@ const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
         }
 })
 
-hexaPlayer.init_()
+hplayer.init_()
 ----
 

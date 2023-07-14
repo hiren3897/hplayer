@@ -18,7 +18,7 @@ To add in control panel
 
 const video = document.querySelector('#video')
 const videoContainer = document.querySelector('#videoContainer')
-const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+const hplayer = new HPlayer(video, videoContainer, {
   basic: {
     source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
   },
@@ -26,5 +26,5 @@ const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
       "filterDuplicateResolutions": false, // default true
     }
 })
-hexaPlayer.init_();
+hplayer.init_();
 ----

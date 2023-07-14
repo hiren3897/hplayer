@@ -29,7 +29,7 @@ deploy_demo_develop: # Sync to FTP
   script:
     - lftp -e "debug 5; set sftp:use-full-path no; set sftp:auto-confirm yes; set sftp:connect-program \"ssh -a -x -o 'StrictHostKeyChecking accept-new'\"; open sftp://$SFTP_ADDR:$SFTP_PORT; user $SFTP_USERNAME $SFTP_PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete ./dist/demo $TARGET_DIRECTORY ; bye"
     - sshpass -p "$CDN_PREPROD_PASS" ssh -o StrictHostKeyChecking=no -v -p 5142  $CDN_PREPROD_USER@$CDN_PREPROD_ADDR "cd $CDN_PREPROD_TARGET_DIRECTORY;/usr/local/bin/deploy_cdn_test.sh $VERSION"
-    - sshpass -p "$CDN_PREPROD_PASS" scp -o StrictHostKeyChecking=no -v -P 5142 dist/HexaglobePlayer.bundle.js $CDN_PREPROD_USER@$CDN_PREPROD_ADDR:$CDN_PREPROD_TARGET_DIRECTORY/$VERSION
+    - sshpass -p "$CDN_PREPROD_PASS" scp -o StrictHostKeyChecking=no -v -P 5142 dist/HPlayer.bundle.js $CDN_PREPROD_USER@$CDN_PREPROD_ADDR:$CDN_PREPROD_TARGET_DIRECTORY/$VERSION
     - sshpass -p "$CDN_PREPROD_PASS" scp -o StrictHostKeyChecking=no -v -P 5142 dist/index.css $CDN_PREPROD_USER@$CDN_PREPROD_ADDR:$CDN_PREPROD_TARGET_DIRECTORY/$VERSION
 
 

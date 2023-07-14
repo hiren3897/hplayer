@@ -102,7 +102,7 @@ export default class HPlayer {
          * Hexa-Player version
          * @type {string}
          */
-        this.player_.hexaPlayerVersion = process.env.VERSION;
+        this.player_.hplayerVersion = process.env.VERSION;
         /**
          * Load Source Asset
          * @type {null}
@@ -491,55 +491,56 @@ export default class HPlayer {
 
             // In case where stream_info is configured and livePlugin is not activated.
             const sourceExtension = getUrlExtension(asset.source);
-            if (sourceExtension === 'php' && !asset.livePlugin && this.noUrlExtension === false) {
-                console.error('Live Plugin not activated. Please configure "livePlugin: true" in player configuration.')
-                return
-            }
-            if (asset.livePlugin && asset.livePlugin !== 'undefined' || undefined) {
-                this.loadSourceAsset_ = await getSourceInfo(this.options_.basic)
-                /**
-                 * Geo-blocking Notification message to the player
-                 * @type {*}
-                 */
-                if (this.loadSourceAsset_?.geoBlockingStatusCode) {
-                    const errorMessage = getErrorMessage(this.loadSourceAsset_?.geoBlockingStatusCode);
-                    const loadNotificationEvent = new Event(NotificationService.LOAD_NOTIFICATION);
-                    loadNotificationEvent.notificationConfig = {
-                        title: 'ERROR',
-                        style: 'hexa-notification-error',
-                        message: `${errorMessage}`,
-                    };
-                    this.controls_.dispatchEvent(loadNotificationEvent);
+            // if (sourceExtension === 'php' && !asset.livePlugin && this.noUrlExtension === false) {
+            //     console.error('Live Plugin not activated. Please configure "livePlugin: true" in player configuration.')
+            //     return
+            // }
+            // REMOVED BELOW TO STAY ONLY ON BASIC
+            // if (asset.livePlugin && asset.livePlugin !== 'undefined' || undefined) {
+            //     this.loadSourceAsset_ = await getSourceInfo(this.options_.basic)
+            //     /**
+            //      * Geo-blocking Notification message to the player
+            //      * @type {*}
+            //      */
+            //     if (this.loadSourceAsset_?.geoBlockingStatusCode) {
+            //         const errorMessage = getErrorMessage(this.loadSourceAsset_?.geoBlockingStatusCode);
+            //         const loadNotificationEvent = new Event(NotificationService.LOAD_NOTIFICATION);
+            //         loadNotificationEvent.notificationConfig = {
+            //             title: 'ERROR',
+            //             style: 'hexa-notification-error',
+            //             message: `${errorMessage}`,
+            //         };
+            //         this.controls_.dispatchEvent(loadNotificationEvent);
 
-                    //Geo blocking event
-                    const hexaPlayerGeoBlockingErrorEvent = new Event(HPlayer.HEXA_PLAYER_GEO_BLOCKING_ERROR);
-                    hexaPlayerGeoBlockingErrorEvent.code = this.loadSourceAsset_?.geoBlockingStatusCode;
-                    hexaPlayerGeoBlockingErrorEvent.message = errorMessage;
-                    hexaPlayerGeoBlockingErrorEvent.ipAddress = this.loadSourceAsset_?.msg
-                    this.controls_.dispatchEvent(hexaPlayerGeoBlockingErrorEvent);
-                    return
-                }
+            //         //Geo blocking event
+            //         const hplayerGeoBlockingErrorEvent = new Event(HPlayer.HEXA_PLAYER_GEO_BLOCKING_ERROR);
+            //         hplayerGeoBlockingErrorEvent.code = this.loadSourceAsset_?.geoBlockingStatusCode;
+            //         hplayerGeoBlockingErrorEvent.message = errorMessage;
+            //         hplayerGeoBlockingErrorEvent.ipAddress = this.loadSourceAsset_?.msg
+            //         this.controls_.dispatchEvent(hplayerGeoBlockingErrorEvent);
+            //         return
+            //     }
 
-                // else continue the player configurations
-                const supportedDrm = selectStreamFormat();
-                const drmServerName = getDrmServerNameForPayload();
-                if (supportedDrm.drmType === 'hlsfairplay') {
-                    await configureHlsFairplayCertificate(this.player_, this.loadSourceAsset_?.primary_cert ?? '');
-                    if (regexTest('ezdrm', this.loadSourceAsset_?.primary_drm)) {
-                        applyFairplayEZDRMSettings(this.player_)
-                    }
-                }
-                const playerConfig = this.player_.getConfiguration();
-                playerConfig.drm = {
-                    servers: getDrmServer(drmServerName, this.loadSourceAsset_?.primary_drm ? this.loadSourceAsset_.primary_drm : this.loadSourceAsset_?.backup_drm ?? '')
-                };
-                await this.player_.configure(playerConfig);
+            //     // else continue the player configurations
+            //     const supportedDrm = selectStreamFormat();
+            //     const drmServerName = getDrmServerNameForPayload();
+            //     if (supportedDrm.drmType === 'hlsfairplay') {
+            //         await configureHlsFairplayCertificate(this.player_, this.loadSourceAsset_?.primary_cert ?? '');
+            //         if (regexTest('ezdrm', this.loadSourceAsset_?.primary_drm)) {
+            //             applyFairplayEZDRMSettings(this.player_)
+            //         }
+            //     }
+            //     const playerConfig = this.player_.getConfiguration();
+            //     playerConfig.drm = {
+            //         servers: getDrmServer(drmServerName, this.loadSourceAsset_?.primary_drm ? this.loadSourceAsset_.primary_drm : this.loadSourceAsset_?.backup_drm ?? '')
+            //     };
+            //     await this.player_.configure(playerConfig);
 
-            } else if (asset.source.startsWith('player-platform')) {
-                this.loadSourceAsset_ = await loadPlayerPlatformPlugin(this.options_.basic,  this.options_.hexa_configurations.player_platform)
-            } else {
-                this.loadSourceAsset_ = asset;
-            }
+            // } else {
+            //     this.loadSourceAsset_ = asset;
+            // }
+
+            this.loadSourceAsset_ = asset;
 
             // Handling too many LOAD_INTERRUPTED #7000
             try {
@@ -564,10 +565,10 @@ export default class HPlayer {
                             e.message  = key
                         }
                     }
-                    const hexaPlayerErrorEvent = new Event(HPlayer.HEXA_PLAYER_ERROR);
-                    hexaPlayerErrorEvent.code = e.code;
-                    hexaPlayerErrorEvent.message = e.message;
-                    this.controls_.dispatchEvent(hexaPlayerErrorEvent);
+                    const hplayerErrorEvent = new Event(HPlayer.HEXA_PLAYER_ERROR);
+                    hplayerErrorEvent.code = e.code;
+                    hplayerErrorEvent.message = e.message;
+                    this.controls_.dispatchEvent(hplayerErrorEvent);
                     this.showErrorNotification(e.code + ": " + e.message)
                 }
             }
@@ -657,16 +658,16 @@ export default class HPlayer {
     onPlayerError_(error) {
         // Handle player error
         console.error('Error code', error.code, 'object', error);
-        const hexaPlayerErrorEvent = new Event(HPlayer.HEXA_PLAYER_ERROR);
-        hexaPlayerErrorEvent.code = error.code;
+        const hplayerErrorEvent = new Event(HPlayer.HEXA_PLAYER_ERROR);
+        hplayerErrorEvent.code = error.code;
         for (const [key, value] of Object.entries(errors)) {
             if (value === error.code) {
                 error.message  = key
             }
         }
-        hexaPlayerErrorEvent.message = error.message;
-        hexaPlayerErrorEvent.object = error;
-        this.controls_.dispatchEvent(hexaPlayerErrorEvent);
+        hplayerErrorEvent.message = error.message;
+        hplayerErrorEvent.object = error;
+        this.controls_.dispatchEvent(hplayerErrorEvent);
     }
 
     onUIErrorEvent_(event) {

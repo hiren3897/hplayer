@@ -46,7 +46,7 @@ Configure your server (Hub) URL with the topics (The canonical URL for the topic
 // How to implement the player
 const video = document.querySelector('#video');
 const videoContainer = document.querySelector('#video-container')
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+const hplayer = new HPlayer(video,videoContainer, {
   basic: {
     source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
   },
@@ -65,6 +65,6 @@ const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
         }
       }]
 })
-hexaPlayer.init_();
+hplayer.init_();
 ----
 

@@ -65,10 +65,10 @@ To have a subtitles track load by default, refere to the settings below.
 [source,javascript]
 ----
 setTimeout(() => {
-  const tracks = hexaPlayer.player_.getTextTracks();
+  const tracks = hplayer.player_.getTextTracks();
   const enTrack = tracks.find(track => track.language === "en");
-  hexaPlayer.player_.selectTextTrack(enTrack);
-  hexaPlayer.player_.setTextTrackVisibility(true);
+  hplayer.player_.selectTextTrack(enTrack);
+  hplayer.player_.setTextTrackVisibility(true);
 }, 500);
 ----
 

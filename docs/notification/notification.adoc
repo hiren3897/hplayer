@@ -19,7 +19,7 @@ const notificationConfig = {
       actions: ['close'],
       seconds: 10
 }
-hexaPlayer.showNotification(notificationConfig)
+hplayer.showNotification(notificationConfig)
 ----
 
 === How to create custom notification buttons
@@ -36,7 +36,7 @@ const notificationConfig = {
             }
           }]
   }
-hexaPlayer.showNotification(notificationConfig)
+hplayer.showNotification(notificationConfig)
 ----
 
 === CSS Customisation

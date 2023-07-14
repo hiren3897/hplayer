@@ -21,16 +21,16 @@ const tokens = ['flux1', 'flux2', 'flux3'];
 // awaits for the player to be loaded
 setTimeout(() => {
   const players = {
-    video: hexaPlayer,
-    video1: hexaPlayer1,
-    video2: hexaPlayer2,
-    video3: hexaPlayer3
+    video: hplayer,
+    video1: hplayer1,
+    video2: hplayer2,
+    video3: hplayer3
   };
 
   // pre-set the resolution for small video containers
-  hexaPlayer1.setLowQualityResolution();
-  hexaPlayer2.setLowQualityResolution();
-  hexaPlayer3.setLowQualityResolution();
+  hplayer1.setLowQualityResolution();
+  hplayer2.setLowQualityResolution();
+  hplayer3.setLowQualityResolution();
 
   const allVideoContainer = document.querySelectorAll('.shaka-video-container');
   for (const container of allVideoContainer) {

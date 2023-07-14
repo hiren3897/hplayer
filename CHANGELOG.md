@@ -96,9 +96,9 @@
 
 - Tooltips on next/previous chapter buttons.
 
-- Add Hexa Player error events DOCS
+- Add HPlayer error events DOCS
 
-- Add Hexa Player Geo-blocking error events. DOCS
+- Add HPlayer Geo-blocking error events. DOCS
 
 - Add error code descriptions on error fired.
 

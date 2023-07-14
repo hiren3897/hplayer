@@ -1,6 +1,6 @@
 {
   "name": "hplayer",
-  "version": "2.1.3",
+  "version": "0.0.1",
   "description": "Video Player",
   "main": "index.html",
   "workspaces": [

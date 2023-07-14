@@ -10,7 +10,7 @@ You can get the seekRange (start, end) from the player using the code below. Rem
 
 [source,js]
 ----
-hexaPlayer.player_.seekRange();
+hplayer.player_.seekRange();
 ----
 
 == How to configure and enable this feature
@@ -83,7 +83,7 @@ hexaPlayer.player_.seekRange();
 // How to implement the player
 const video = document.querySelector('#video');
 const videoContainer = document.querySelector('#videoContainer')
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+const hplayer = new HPlayer(video,videoContainer, {
   basic: {
     source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
   },
@@ -122,20 +122,20 @@ const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
         }
       }]
 })
-hexaPlayer.init_();
+hplayer.init_();
 ----
 
 === Update the live chapter's
 You can update the chapter on the timeline using *updateLiveChapters* that accepts an array of new chapters and a boolean to tell the player to keep the old chapter's or not. By default, we keep the old chapter's in the array. To disable it set is too *false*.
 
 [NOTE]
-You have to update the chapters on *timeandseekrangeupdated* event on *hexaplayer.controls_* to update the position of the chapter's as time passes.
+You have to update the chapters on *timeandseekrangeupdated* event on *hplayer.controls_* to update the position of the chapter's as time passes.
 
 ==== How to update chapters?
 
 [source,js]
 ----
-  hexaPlayer.updateLiveChapters([
+  hplayer.updateLiveChapters([
           {
             title: 'Chapter 1',
             startTime: 28300,
@@ -162,5 +162,5 @@ You have to update the chapters on *timeandseekrangeupdated* event on *hexaplaye
 - If no active chapter it will return an empty object.
 [source,js]
 ----
-hexaPlayer.getActiveChapter()
+hplayer.getActiveChapter()
 ----

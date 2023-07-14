@@ -57,7 +57,7 @@ You can also modify the player seek bar color by using *seekBarColors* config in
 // How to implement the player
 const video = document.querySelector('#video');
 const videoContainer = document.querySelector('#videoContainer')
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
+const hplayer = new HPlayer(video,videoContainer, {
   "basic": {
     "source": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     "poster": "https://picsum.photos/640/360",
@@ -90,7 +90,7 @@ const hexaPlayer = new HexaglobePlayer(video,videoContainer, {
     }
   ]
 });
-hexaPlayer.init_();
+hplayer.init_();
 ----
 
 ==== Get active chapter?
@@ -98,5 +98,5 @@ hexaPlayer.init_();
 - If no active chapter it will return an empty object.
 [source,js]
 ----
-hexaPlayer.getActiveChapter()
+hplayer.getActiveChapter()
 ----

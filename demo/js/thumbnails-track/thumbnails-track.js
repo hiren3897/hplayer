@@ -34,7 +34,7 @@ document.querySelector('.video-list').addEventListener('change', function() {
   const selectedDemo = this.querySelector(`[id='${this.value}']`);
 
   if (this.value.includes('WebVTT')) {
-    hexaPlayer.loadAssets_({
+    hplayer.loadAssets_({
       basic: {
         source: selectedDemo.getAttribute('sourceUrl')
       },
@@ -53,7 +53,7 @@ document.querySelector('.video-list').addEventListener('change', function() {
       ]
     });
   } else {
-    hexaPlayer.loadAssets_({
+    hplayer.loadAssets_({
       basic: {
         source: selectedDemo.getAttribute('sourceUrl')
       },

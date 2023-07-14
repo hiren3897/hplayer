@@ -44,7 +44,7 @@ If you want to start the stream quickly, you need to set this following settings
 ----
 // Upscale the stream on auto ABR.
 setTimeout(() => {
-    hexaPlayer.player_.configure({
+    hplayer.player_.configure({
         restrictions: {
             maxHeight: 720
         }

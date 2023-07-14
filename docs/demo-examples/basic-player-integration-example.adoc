@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hexa Player</title>
+    <title>HPlayer</title>
 <!-- Hexaglobe Player compiled CSS library: -->
     <link rel="stylesheet" href="css/index.css">
 
@@ -18,7 +18,7 @@
     <video class="hexa-player" style="width:100%;height:100%"></video>
 </div>
 <!-- Hexaglobe Player compiled JS library: -->
-<script src="js/HexaglobePlayer.bundle.js"></script>
+<script src="js/HPlayer.bundle.js"></script>
 <script>
 const videoContainer = document.querySelector('.hexa-container')
 const video = document.querySelector('.hexa-player');
@@ -28,8 +28,8 @@ const options = {
                   },
                 };
 
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, options);
-hexaPlayer.init_();
+const hplayer = new HPlayer(video,videoContainer, options);
+hplayer.init_();
 </script>
 </body>
 
@@ -93,8 +93,8 @@ You can enable transmuxing by including mux.js v5.6.3+ in your application. If S
 By adding the configuration `hexa_configurations.player_platform`, it is possible to load other video dynamically using
 [source,javascript]
 ----
-// This will use the hexa_configurations.player_platform configuration given when doing new HexaglobePlayer()
-hexaPlayer.loadAssets_({
+// This will use the hexa_configurations.player_platform configuration given when doing new HPlayer()
+hplayer.loadAssets_({
   basic: {
       source : 'player-platform:MY_VIDEO_ID'
   }
@@ -165,5 +165,5 @@ const options = {
     ]
 }; // put your all configurations here
 
-hexaPlayer.loadAssets_(options);
+hplayer.loadAssets_(options);
 ----

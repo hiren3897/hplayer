@@ -233,5 +233,5 @@ const notificationConfig = {
   seconds: 5
 };
 setTimeout(() => {
-  hexaPlayer.showNotification(notificationConfig);
+  hplayer.showNotification(notificationConfig);
 });

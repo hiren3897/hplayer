@@ -27,7 +27,7 @@ const options = {
               actions: ['close'],
               seconds: 5
             };
-            hexaPlayer.showNotification(notificationConfig);
+            hplayer.showNotification(notificationConfig);
           }
         },
         {
@@ -46,7 +46,7 @@ const options = {
               actions: ['close'],
               seconds: 5
             };
-            hexaPlayer.showNotification(notificationConfig);
+            hplayer.showNotification(notificationConfig);
           }
         }
       ]

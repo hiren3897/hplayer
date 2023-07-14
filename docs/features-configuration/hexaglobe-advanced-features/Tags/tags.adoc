@@ -7,7 +7,7 @@
 
 [source, javascript]
 ----
-const hexaPlayer = new HexaglobePlayer(video, videoContainer, {
+const hplayer = new HPlayer(video, videoContainer, {
   basic: {
     source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
   },

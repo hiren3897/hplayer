@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <title>Hexa Player: <%= title %></title>
+    <title>HPlayer: <%= title %></title>
 
     <!-- START HexaPlayer css -->
     <link rel="stylesheet" href="css/index.css">
@@ -97,15 +97,15 @@
 <!-- For hls support -->
 <script defer src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
 <script type="text/javascript" src="<%= options %>"></script>
-<script type="text/javascript" src="js/HexaglobePlayer.bundle.js"></script>
+<script type="text/javascript" src="js/HPlayer.bundle.js"></script>
 <script>
     /**
      * START HexaPlayer initialisation
      */
     const video = document.querySelector('.video');
     const videoContainer = document.querySelector('.video-container');
-    const hexaPlayer = new HexaglobePlayer(video, videoContainer, options);
-    hexaPlayer.init_();
+    const hplayer = new HPlayer(video, videoContainer, options);
+    hplayer.init_();
     /**
      * END HexaPlayer initialisation
      */
@@ -119,11 +119,11 @@
             'assets/transparent_image2.png',
             'assets/transparent_image3.png'
         ];
-        hexaPlayer.updateOverlayImage(newImages);
+        hplayer.updateOverlayImage(newImages);
     });
 
     document.querySelector('#clear_image').addEventListener('click', () => {
-        hexaPlayer.clearOverlayImage();
+        hplayer.clearOverlayImage();
     });
 
 </script>

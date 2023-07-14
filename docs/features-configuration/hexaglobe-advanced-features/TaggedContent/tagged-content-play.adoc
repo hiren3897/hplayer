@@ -40,7 +40,7 @@ For *icon_url* it will use the icon url configured by the user. if not then it w
 ----
 // How to implement the player
 const video = document.querySelector('#video')
-const hexaPlayer = new HexaglobePlayer(video, {
+const hplayer = new HPlayer(video, {
   basic: {
     source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
   },
@@ -56,8 +56,8 @@ const hexaPlayer = new HexaglobePlayer(video, {
       }]
 })
 
-document.addEventListener('shaka-ui-loaded', () => hexaPlayer.init_());
+document.addEventListener('shaka-ui-loaded', () => hplayer.init_());
 
-document.addEventListener('shaka-ui-load-failed', () => hexaPlayer.initFailed());
+document.addEventListener('shaka-ui-load-failed', () => hplayer.initFailed());
 ----
 

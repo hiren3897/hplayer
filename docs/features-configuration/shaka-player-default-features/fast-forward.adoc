@@ -27,7 +27,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hexa Player</title>
+    <title>HPlayer</title>
 <!-- Hexaglobe Player compiled CSS library: -->
     <link rel="stylesheet" href="css/index.css">
 
@@ -39,7 +39,7 @@
     <video class="hexa-player" style="width:100%;height:100%"></video>
 </div>
 <!-- Hexaglobe Player compiled JS library: -->
-<script src="js/HexaglobePlayer.bundle.js"></script>
+<script src="js/HPlayer.bundle.js"></script>
 <script>
 const videoContainer = document.querySelector('.hexa-container')
 const video = document.querySelector('.hexa-player');
@@ -54,8 +54,8 @@ const options = {
     }
 };
 
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, options);
-hexaPlayer.init_();
+const hplayer = new HPlayer(video,videoContainer, options);
+hplayer.init_();
 </script>
 </body>
 

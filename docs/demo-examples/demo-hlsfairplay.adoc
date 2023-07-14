@@ -16,8 +16,8 @@ const options = {
                   },
                 };
 
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, options);
-hexaPlayer.init_();
+const hplayer = new HPlayer(video,videoContainer, options);
+hplayer.init_();
 
 
 ----
@@ -46,8 +46,8 @@ const options = {
 
               };
 
-const hexaPlayer = new HexaglobePlayer(video,videoContainer, options);
-hexaPlayer.init_();
+const hplayer = new HPlayer(video,videoContainer, options);
+hplayer.init_();
 
 
 ----

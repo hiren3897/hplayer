@@ -46,11 +46,11 @@ const options = {
 };
 
 setTimeout(() => {
-  hexaPlayer.mute();
+  hplayer.mute();
 
-  hexaPlayer.controls_.addEventListener('timeandseekrangeupdated', () => {
-    const seekRange = hexaPlayer.player_.seekRange();
-    hexaPlayer.updateLiveChapters([
+  hplayer.controls_.addEventListener('timeandseekrangeupdated', () => {
+    const seekRange = hplayer.player_.seekRange();
+    hplayer.updateLiveChapters([
       {
         title: 'Chapter 1',
         startTime: Math.round(seekRange.start) + 50,

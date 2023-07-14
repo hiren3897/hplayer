@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <title>Hexa Player: <%= title %></title>
+    <title>HPlayer: <%= title %></title>
 
     <!-- START HexaPlayer css -->
     <link rel="stylesheet" href="css/index.css">
@@ -120,7 +120,7 @@
     <script defer src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
     <script type="text/javascript" src="<%= options %>"></script>
     <script type="text/javascript" src="<%= js %>"></script>
-    <script type="text/javascript" src="js/HexaglobePlayer.bundle.js"></script>
+    <script type="text/javascript" src="js/HPlayer.bundle.js"></script>
     <script>
         /**
          * START HexaPlayer initialisation
@@ -134,36 +134,36 @@
         const videoContainer2 = document.getElementById('video-container2');
         const videoContainer3 = document.getElementById('video-container3');
 
-        const hexaPlayer = new HexaglobePlayer(video, videoContainer, options);
-        hexaPlayer.init_();
+        const hplayer = new HPlayer(video, videoContainer, options);
+        hplayer.init_();
 
-        const hexaPlayer1 = new HexaglobePlayer(video1, videoContainer1, {
+        const hplayer1 = new HPlayer(video1, videoContainer1, {
             basic: {
                 source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
             }
         });
-        hexaPlayer1.init_();
-        hexaPlayer1.video_.play();
-        hexaPlayer1.video_.muted=true
+        hplayer1.init_();
+        hplayer1.video_.play();
+        hplayer1.video_.muted=true
 
 
-        const hexaPlayer2 = new HexaglobePlayer(video2, videoContainer2, {
+        const hplayer2 = new HPlayer(video2, videoContainer2, {
             basic: {
                 source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
             }
         });
-        hexaPlayer2.init_();
-        hexaPlayer2.video_.play();
-        hexaPlayer2.video_.muted=true
+        hplayer2.init_();
+        hplayer2.video_.play();
+        hplayer2.video_.muted=true
 
-        const hexaPlayer3 = new HexaglobePlayer(video3, videoContainer3, {
+        const hplayer3 = new HPlayer(video3, videoContainer3, {
             basic: {
                 source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
             }
         });
-        hexaPlayer3.init_();
-        hexaPlayer3.video_.play();
-        hexaPlayer3.video_.muted=true
+        hplayer3.init_();
+        hplayer3.video_.play();
+        hplayer3.video_.muted=true
         /**
          * END HexaPlayer initialisation
          */

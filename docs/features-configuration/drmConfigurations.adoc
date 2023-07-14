@@ -14,7 +14,7 @@ DRM configuration are important and obligatory to set up if your video is DRM pr
 [source,javascript]
 ----
 const video = document.querySelector('#video');
-const hexaPlayer = new HexaglobePlayer(video, {
+const hplayer = new HPlayer(video, {
       basic: {
         source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
       },
@@ -33,7 +33,7 @@ const hexaPlayer = new HexaglobePlayer(video, {
     }
 });
 
-hexaPlayer.init_()
+hplayer.init_()
 ----
 
 * OR we can set up it by using a basic option, where you have to just add the drm license url and other things it does automatically for you.

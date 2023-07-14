@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <title>Hexa Player: <%= title %></title>
+    <title>HPlayer: <%= title %></title>
 
     <!-- START HexaPlayer css -->
     <link rel="stylesheet" href="css/index.css">
@@ -99,24 +99,24 @@
     <!-- For hls support -->
     <script defer src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
     <script type="text/javascript" src="<%= options %>"></script>
-    <script type="text/javascript" src="js/HexaglobePlayer.bundle.js"></script>
+    <script type="text/javascript" src="js/HPlayer.bundle.js"></script>
     <script>
         /**
          * START HexaPlayer initialisation
          */
         const video = document.querySelector('.video');
         const videoContainer = document.querySelector('.video-container');
-        const hexaPlayer = new HexaglobePlayer(video, videoContainer, options);
-        hexaPlayer.init_();
+        const hplayer = new HPlayer(video, videoContainer, options);
+        hplayer.init_();
         /**
          * END HexaPlayer initialisation
          */
 
         <% if(title === 'dvr-mode-button'){ %>
             setTimeout(() => {
-                const dvrButton = hexaPlayer.getControlPanelButtons('hexa-dvr-mode-button');
+                const dvrButton = hplayer.getControlPanelButtons('hexa-dvr-mode-button');
                 dvrButton.disabled = true;
-                hexaPlayer.changeButtonTooltipContext('hexa-dvr-mode-button', 'The DVR mode is not usable for demo at the moment.');
+                hplayer.changeButtonTooltipContext('hexa-dvr-mode-button', 'The DVR mode is not usable for demo at the moment.');
             }, 400);
         <% } %>
     </script>
