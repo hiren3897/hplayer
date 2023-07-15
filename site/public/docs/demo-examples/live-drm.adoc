@@ -1,0 +1,130 @@
+== Demo Live player setup with DRM configuration
+
+This demo includes how to set up a live player with different ways of drm configurations.
+
+Choose any one method for drm configuration, do not use both at same time.
+
+In first method, of drm configuration does an auto job for you that configure you drm licence in the player according to the platform support. For example, if you are playing your content on Chrome browser, and you want to configure *dashwidevine* drm licence then you just have to paste the url, and it will do the configuration for you.
+
+In second method, you manually have to configure the server licence and the provider name of the drm licence in the *player_configurations* section.
+
+index.html
+
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPlayer</title>
+<!-- HPlayer compiled CSS library: -->
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<!-- Container for the UI overlay-->
+<div class="hexa-container">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
+    <video class="hexa-player" style="width:100%;height:100%"></video>
+</div>
+<!-- HPlayer compiled JS library: -->
+<script src="js/HPlayer.bundle.js"></script>
+<script>
+const videoContainer = document.querySelector('.hexa-container')
+const video = document.querySelector('.hexa-player');
+
+const hplayer = new HPlayer(video,videoContainer, {
+    basic: {
+    source: 'https://livesim.dashif.org/livesim/testpic_2s/Manifest.mpd'
+    //drm_licence: "http:/drm/license" // First method <1>
+  },
+  player_configurations: {
+    drm: {// Second method <2>
+        servers: {
+            // provider name       // drm license url
+            'com.widevine.alpha': 'http:/drm/license'
+        }
+    }
+  },
+});
+hplayer.init_();
+</script>
+</body>
+
+</html>
+
+----
+
+1. This demo takes the drm license server url, detects the client side drm support type and accordingly sets up the drm server in the player configurations.
+For Example, if client drm support type is dashwidevine then it auto sets *"com.widevine.alpha":"http:/drm/license"* in player configuration.
+
+2. This approach directly allows the client to set up the drm in player configuration.
+
+[NOTE]
+It is recommended that a robustness level be specified. Not specifying the robustness level could result in unexpected behavior.
+
+=== Robustness
+
+Robustness refers to how securely the content is handled by the key system. This is a key-system-specific string that specifies the requirements for a successful playback. Passing in a higher security level than can be supported will cause player.load() to fail with *REQUESTED_KEY_SYSTEM_CONFIG_UNAVAILABLE*. The default is the empty string, which is the lowest security level supported by the key system.
+
+Each key system has their own values for robustness.
+
+==== How to configure?
+
+[source, json]
+----
+{
+"player_configurations": {
+    "drm": {
+      "advanced": {
+        "com.widevine.alpha": {
+          "audioRobustness": "SW_SECURE_CRYPTO",
+          "videoRobustness": "SW_SECURE_CRYPTO"
+        }
+      }
+    }
+}
+----
+
+==== Widevine
+Chromium sources: https://cs.chromium.org/chromium/src/components/cdm/renderer/widevine_key_system_properties.h?q=SW_SECURE_CRYPTO&l=22
+
+* SW_SECURE_CRYPTO
+* SW_SECURE_DECODE
+* HW_SECURE_CRYPTO
+* HW_SECURE_DECODE
+* HW_SECURE_ALL
+
+==== PlayReady
+Microsoft Documentation: https://docs.microsoft.com/en-us/playready/overview/security-level
+
+* 3000
+* 2000
+* 150
+
+*com.microsoft.playready* key system ignores given robustness and stays at a 2000 decryption level.
+
+[NOTE]
+Audio Hardware DRM is not supported (PlayReady limitation)
+
+==== HLS Live Stream
+- To handle the pre-flight requests errors while loading the HLS live streams. Don't forget to add the configuration declared below in the option's configuration of *player_configurations*.
+- To display a seekbar timeline on Chrome and Firefox browser.
+
+===== options config
+[source,json]
+----
+{
+  "basic": {
+    "source": "https://youhls.server/playlist.m3u8"
+  },
+  "player_configurations": {
+    "manifest": {
+      "hls": {
+        "useFullSegmentsForStartTime": true
+      },
+      "availabilityWindowOverride": 30
+    }
+  }
+}
+----

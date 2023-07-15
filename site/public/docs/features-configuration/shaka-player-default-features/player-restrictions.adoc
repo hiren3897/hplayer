@@ -1,0 +1,62 @@
+= Player - Restrictions Configuration
+
+An object describing application restrictions on what tracks can play. All restrictions must be fulfilled for a track to be playable/selectable. The restriction's system behaves somewhat differently at the ABR level and the player level, so please refer to the documentation for those specific settings.
+
+== Restriction's properties
+----
+*   minWidth: number, The minimum width of a video track, in pixels.
+*   maxWidth: number,The maximum width of a video track, in pixels.
+
+*   minHeight: number, The minimum height of a video track, in pixels.
+*   maxHeight: number, The maximum height of a video track, in pixels.
+
+*   minPixels: number, The minimum number of total pixels in a video track (i.e. width * height).
+*   maxPixels: number, The maximum number of total pixels in a video track (i.e. width * height).
+
+*   minFrameRate: number, The minimum framerate of a variant track.
+*   maxFrameRate: number, The maximum framerate of a variant track.
+
+*   minBandwidth: number, The minimum bandwidth of a variant track, in bit/sec.
+*   maxBandwidth: number The maximum bandwidth of a variant track, in bit/sec.
+
+----
+
+=== How to configure on the player level
+[source,js]
+----
+const options = {
+    player_configurations: {
+        restrictions: {
+            maxBandwidth: Infinity,
+            maxFrameRate: Infinity,
+            maxHeight: Infinity,
+            maxPixels: Infinity,
+            maxWidth: Infinity,
+            minBandwidth: 0,
+            minFrameRate: 0,
+            minHeight: 0,
+            minPixels: 0,
+            minWidth: 0
+        }
+    }
+}
+----
+
+==== Fact's
+If you set the *maxBandwidth* and *minBandwidth* it will only display the option's in resolution that lies between the range you have declared.
+
+===== How to change the player resolution range on fly?
+- You have to provide accurate bitrate as min and max bandwidth to set the ABR(Auto Resolution) range.
+
+[source,js]
+----
+  /**
+   * Set the minBandwidth and maxBandwidth in ABR (Adaptive Bitrate Streaming).
+   * Auto Resolution Management.
+   * @param minBandwidth
+   * @param maxBandwidth
+   */
+hplayer.setPlayerResolutionRange(minBandwidth, maxBandwidth)
+----
+
+include::../../demo-examples/player-restriction-tutorial.adoc[]

@@ -1,0 +1,169 @@
+== Basic Integration of HPlayer
+
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPlayer</title>
+<!-- HPlayer compiled CSS library: -->
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<!-- Container for the UI overlay-->
+<div class="hexa-container">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
+    <video class="hexa-player" style="width:100%;height:100%"></video>
+</div>
+<!-- HPlayer compiled JS library: -->
+<script src="js/HPlayer.bundle.js"></script>
+<script>
+const videoContainer = document.querySelector('.hexa-container')
+const video = document.querySelector('.hexa-player');
+const options = {
+                  basic: {
+                    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                  },
+                };
+
+const hplayer = new HPlayer(video,videoContainer, options);
+hplayer.init_();
+</script>
+</body>
+
+</html>
+
+----
+
+=== Source type / Scheme
+
+==== 1. Classic http url. (DASH & HLS)
+----
+    source : "https://my-first-video.mp4"
+    source : "https://my-first-video.m3u8" // HLS
+    source : "https://my-first-video.mpd" // DASH
+----
+
+===== WARNING
+If your "*source*" url doesn't have an extension like "*.m3u8*", "*.mpd*" or "*.mp4*" then you have to configure the property below
+
+[source, javascript]
+----
+const options = {
+    basic: {
+// example: source: http://example.m3u8 => noUrlExtension = false // DEFAULT
+// example: source: http://example/stream => noUrlExtension = true
+        noUrlExtension: true // default: false
+    }
+}
+----
+
+[NOTE]
+If your HLS content uses MPEG2-TS, you may need to enable transmuxing. The only browsers capable of playing TS natively are Edge and Chromecast. You will get a CONTENT_UNSUPPORTED_BY_BROWSER error on other browsers due to their lack of TS support.
+You can enable transmuxing by including mux.js v5.6.3+ in your application. If Shaka Player detects that mux.js has been loaded, we will use it to transmux TS content into MP4 on-the-fly, so that the content can be played by the browser.
+
+===== Link the mux.js in your application
+[source,html]
+----
+<script type="application/javascript" src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
+----
+
+==== 2. PlayerPlatform.
+- Add a prefix to source url for custom protocol(PlayerPlatform).
+
+[source,javascript]
+----
+  const options = {
+  basic: {
+    source: 'player-platform:VIDEO_ID', // Player platform video id
+  },
+  hexa_configurations: {
+    player_platform: { // Player platform backend description/configuration
+      endpoint: 'https://client-service-p-api.hexaglobe.net/video/info',
+      publicKey: 'xxx',
+      hash: 'yyy',
+      expiresAt: 'zzz',
+    },
+  },
+}
+----
+
+By adding the configuration `hexa_configurations.player_platform`, it is possible to load other video dynamically using
+[source,javascript]
+----
+// This will use the hexa_configurations.player_platform configuration given when doing new HPlayer()
+hplayer.loadAssets_({
+  basic: {
+      source : 'player-platform:MY_VIDEO_ID'
+  }
+});
+----
+
+==== 3. Live stream (from live event).
+- DASH and HLS Live streams support.
+
+===== 3.1 With DRM
+- Standard *stream_info.php* url as source.
+- Set *"livePlugin: true"* in basic configuration.
+- Set *"drmProtected: true"* in basic configuration.
+- Declare *availableFormats* of the configured live stream.
+
+====== Example Snippet
+[source,json]
+----
+{
+    "basic": {
+        "source": "https://live2/stream_info.php",
+        "livePlugin": true,
+        "drmProtected": true,
+        "availableFormats": ["dashwidevine", "hlsfairplay", "dashplayready", "hls"]
+  }
+}
+----
+
+===== 3.1 Without DRM
+- Standard *stream_info.php* url as source.
+- Set *"livePlugin: true"* in basic configuration.
+- Set *"drmProtected: false"* in basic configuration.
+- Declare *availableFormats* of the configured live stream.
+
+====== Example Snippet
+[source,json]
+----
+{
+    "basic": {
+        "source": "https://live2/stream_info.php",
+        "livePlugin": true,
+        "drmProtected": false,
+        "availableFormats": ["dash", "hls"]
+  }
+}
+----
+
+=== How to reconfigure feature's on LoadAsset.
+- On LoadAsset you can reconfigure the player with all the latest configuration.
+- It will auto discard all the old features and configure the new features configured during loadAsset call.
+- If no new advanced features are configured it will auto discard the advanced feature that have a linked source with the old video.
+
+==== Snippet
+[source,js]
+----
+const options = {
+    basic: {
+
+    },
+    ui_configuration: {
+
+    },
+    player_configurations: {
+
+    },
+    advanced_features: [
+
+    ]
+}; // put your all configurations here
+
+hplayer.loadAssets_(options);
+----

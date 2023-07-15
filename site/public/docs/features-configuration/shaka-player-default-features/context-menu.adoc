@@ -1,0 +1,26 @@
+= Custom Context Menu
+
+- Now you can add a custom context menu on the player.
+- For now, you can add only 3 features inside the context menu i.e. Loop, PictureInPicture, and Stats
+
+== How to configure the context menu
+- Configure the given settings in *ui_configuration*.
+- Set true/false  to enable/disable the context menu.
+
+[source,js]
+----
+const options = {
+  basic: {
+    source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    poster: 'https://alchetron.com/cdn/big-buck-bunny-6636a6ca-0538-4211-a422-2b82ba76d7e-resize-750.jpeg'
+  },
+  ui_configuration: {
+    contextMenuElements: [
+      'loop',
+      'picture_in_picture',
+      'statistics'
+    ],
+    customContextMenu: true
+  }
+};
+----

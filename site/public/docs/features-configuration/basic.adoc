@@ -1,0 +1,35 @@
+= Hplayer Basic Usage
+
+- For basic usage of the player or testing use *option.basic* to load & play contents in the player.
+- Using basic property in hplayer options, you can set video_url, drm license, poster, json_url?, server certificate.
+
+== Basic Configuration
+.hplayer basic config
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|source   |string     | any video url, or live stream manifest links.
+|drm_license   |string    | if the video is DRM protected then it is important to configure the DRM license of the video.
+|serverCertificate   |string    | if the video content requires server certificate to play the content.
+|poster   |string    | url of the thumbnail to be set at the start of the video
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video')
+const videoContainer = document.querySelector('#videoContainer')
+const hplayer = new HPlayer(video, videoContainer, {
+        basic: {
+          source: "",
+          drm_licence: "",
+          serverCertificate: "",
+          poster: "",
+        }
+})
+
+hplayer.init_()
+----
+

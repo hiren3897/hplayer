@@ -1,0 +1,88 @@
+= Auto Picture-In-Picture Feature
+
+- It auto activates and deactivate the PIP when scroll event is triggered by the user
+
+- You can configure the threshold position to inform the player on when to auto activate the PIP video.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+    {
+      "name": "auto_pip",
+      "visible": true,
+      "data": {
+        "threshold": "30%"
+      }
+    }
+  ]
+  }
+
+----
+
+
+=== Data property
+.auto picture-in-picture data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|threshold   |Percentage    | A percent relates to the scrollY position of the screen used to activate the auto PIP when scrolled below the configured threshold point.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hplayer = new HPlayer(video,videoContainer, {
+  basic: {
+    video_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+    "advanced_features": [
+    {
+      "name": "auto_pip",
+      "visible": true,
+      "data": {
+        "threshold": "30%"
+      }
+    }
+  ]
+})
+hplayer.init_();
+----
+
+[NOTE]
+Don't forget to disable the default picture-in-picture under the *ui_configurations* (options) of hplayer configuration while enabling this feature.
+
+=== CSS Customization
+
+- If you want to customise the piped video container and its position then you can edit the following properties of the following SCSS class.
+
+[source,scss]
+----
+.shaka-video-container.hexa-fixed-piped-video {
+  position: fixed;
+  width: 300px !important;
+  height: 200px !important;
+  bottom: 15px;
+  top: auto;
+  right: 15px;
+  left: unset !important;
+  z-index: 666;
+}
+----
+
+- If you want to show or hide a feature element from the piped video container then you have to add or remove the feature parent class name respectively from the *$features* variable in CSS file.
+
+==== Snippet
+[source,scss]
+----
+$features: forward-button,
+shaka-current-time,
+shaka-volume-bar-container,
+shaka-fullscreen-button;
+----

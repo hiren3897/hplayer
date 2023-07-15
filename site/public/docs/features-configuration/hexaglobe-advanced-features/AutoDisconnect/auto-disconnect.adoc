@@ -1,0 +1,35 @@
+= Auto Disconnect Feature
+
+- This feature is used to prompt a user to confirm if the user is still watching the live stream after hours that are configured by the integrator of the player.
+- The integrator can configure the session token time out as *sessionTimeout* to prompt the user to confirm the presence of watching the live stream by informing him to click "*yes*".
+- The integrator can also configure the prompt time as *promptTime* to get the confirmation of the user's presence. If no response within the configured time the player will get disconnected.
+
+== How to configure this feature?
+[source, json]
+----
+{
+  "advanced_features": [
+    {
+      "name": "auto_disconnect",
+      "visible": true,
+      "data": {
+        "sessionTimeout": 10,
+        "promptTime": 5,
+        "promptMessage": "Are you still watching stream?",
+        "promptBtnName": "Yes"
+      }
+    }
+  ]
+}
+----
+
+=== Data property
+.Backward button data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|sessionTimeout   |number    | The session timeout limit of the live stream.
+|promptTime   |number   | The notification prompt time limit.
+|promptMessage   |string   | A message to be displayed in the notification.
+|promptBtnName   |string   | A name of the button. Example: "Yes" to get confirmation from the user.
+|=======================

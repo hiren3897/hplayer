@@ -1,0 +1,62 @@
+= Loop Feature
+
+- Put a video on a continuous loop.
+
+- Adds a button that controls if the currently selected video is played in a loop.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+{
+  "ui_configuration": {
+    "controlPanelElements": [
+      "loop"
+    ]
+  }
+}
+----
+
+=== Example
+
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPlayer</title>
+<!-- HPlayer compiled CSS library: -->
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<!-- Container for the UI overlay-->
+<div class="hexa-container">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
+    <video class="hexa-player" style="width:100%;height:100%"></video>
+</div>
+<!-- HPlayer compiled JS library: -->
+<script src="js/HPlayer.bundle.js"></script>
+<script>
+const videoContainer = document.querySelector('.hexa-container')
+const video = document.querySelector('.hexa-player');
+const options = {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  ui_configuration: {
+        "controlPanelElements": [
+          "loop"
+        ]
+    }
+};
+
+const hplayer = new HPlayer(video,videoContainer, options);
+hplayer.init_();
+</script>
+</body>
+
+</html>
+
+----

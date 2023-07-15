@@ -1,0 +1,43 @@
+= HPlayer Error Events
+
+== HPlayer Error Event
+
+=== Properties
+[options="header,footer"]
+|=======================
+|Name |Type     |Description
+|type   |string    | 'hexa_player_error'
+|code   |number    | Error Code
+|message   |string    | Error Message.
+|=======================
+
+==== Snippet
+[source, json]
+----
+{
+  "code": 1001,
+  "message": "BAD_HTTP_STATUS"
+}
+----
+
+== HPlayer Geo-Blocking Error Event
+
+=== Properties
+[options="header,footer"]
+|=======================
+|Name |Type     |Description
+|type   |string    | 'hexa_player_geo_blocking_error'
+|code   |number    | HTTPs code
+|message   |string    | Geo-blocking Message.
+|ipAddress   |string    | name of country and ipAddress.
+|=======================
+
+==== Snippet
+[source, json]
+----
+{
+  "code": 405,
+  "message": "Erreur de blocage géographique. Erreur HTTP! Statut: 405",
+  "ipAddress": "geoblocking error country: FR ip: 193.248.54.17"
+}
+----

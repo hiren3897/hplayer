@@ -1,0 +1,57 @@
+= Tags Feature
+
+- Now mark the tags on the video player timeline with an RFC standard WebVTT.
+
+== How to configure?
+
+
+[source, javascript]
+----
+const hplayer = new HPlayer(video, videoContainer, {
+  basic: {
+    source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
+  ui_configuration: {
+    enableTooltips: true // important to activate the tooltips for tags in the video.
+  },
+  advanced_features: [
+    {
+      name: 'tags',
+      visible: true,
+      data: {
+        tagWebVtt: 'https://demoplayer.hexaglobe.net/demo/hexa-player-demo/tags2.vtt'
+      }
+    }
+  ]
+});
+----
+
+=== link:https://demoplayer.hexaglobe.net/demo/hexa-player-demo/tags2.vtt[Sample Tags WebVTT File]
+
+=== Data property
+.tags feature data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|tagWebVtt   |String    | a WebVTT file url.
+|=======================
+
+=== Style.css
+
+[source, css]
+----
+/* The Tag*/
+.hexa-tag-marker {
+
+}
+/* The Tag ::before (pseudo element)*/
+.hexa-tag-marker::before {
+
+}
+/* The Tag ::after (pseudo element) => tooltips on hover*/
+.hexa-tag-marker::after {
+
+}
+----
+
+

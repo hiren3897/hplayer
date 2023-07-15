@@ -1,0 +1,65 @@
+== ABR (Adaptive Bitrate Streaming) Tutorial
+
+- You have to configure the required abr properties explained above in the player configuration.
+
+- To set the player ABR to not upgrade more than *xxxp*, set the *maxBandwidth* upto the appropriate bitrate.
+- To set the player ABR to not downgrade more than *xxxp*, set the *minBandwidth* upto the appropriate bitrate.
+
+== Example
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPlayer</title>
+    <!-- HPlayer compiled CSS library: -->
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<!-- Container for the UI overlay-->
+<div class="hexa-container" style="max-width:50em;">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
+    <video class="hexa-player" style="width:100%;height:100%"></video>
+</div>
+<!-- HPlayer compiled JS library: -->
+    <script src="js/HPlayer.bundle.js"></script>
+    <!-- For hls support -->
+<script>
+const videoContainer = document.querySelector('.hexa-container')
+const video = document.querySelector('.hexa-player');
+const options = {
+  basic: {
+    source: 'hexaglobe:http://client/stream_info.php',
+  },
+  player_configurations: {
+    abr: {
+      restrictions: {
+        maxBandwidth: 2997507,
+        minBandwidth: 700000
+      },
+    },
+  },
+}
+
+
+const hplayer = new HPlayer(video,videoContainer, options);
+hplayer.init_();
+
+setTimeout(() => {
+  const tracks = hplayer.player_.getVariantTracks();
+  const fullScreenButton = hplayer.getControlPanelButtons('shaka-fullscreen-button');
+  fullScreenButton.addEventListener('click', () => {
+    if (hplayer.isFullScreenEnabled()) {
+      hplayer.setPlayerAbrResolutionRange(tracks[tracks.length - 1].bandwidth);
+    } else {
+      hplayer.setPlayerAbrResolutionRange(tracks[tracks.length - 1].bandwidth, tracks[1].bandwidth);
+    }
+  });
+}, 400);
+</script>
+</body>
+
+</html>
+----

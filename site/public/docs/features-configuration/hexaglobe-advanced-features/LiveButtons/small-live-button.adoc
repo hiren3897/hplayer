@@ -1,0 +1,80 @@
+= Small Live Button Feature
+
+- It is used to go back to live video. it is placed in the controls of video player above the timeline.
+
+
+== How to configure and enable this feature
+
+[source,json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "small_live_button",
+        "visible": true
+      }]
+  }
+
+----
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hplayer = new HPlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        "name": "small_live_button",
+        "visible": true
+      }]
+})
+hplayer.init_();
+----
+
+=== CSS Customization
+
+- To customise small live button dot indication you can directly edit the css class named "*.player-live-button::before*".
+
+==== Snippet
+[source,scss]
+----
+.player-live-button::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  vertical-align: 4%;
+  margin-right: 5px;
+  background: #757575;
+  content: "";
+  border-radius: 6px;
+}
+
+
+.player-live-button-red::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  vertical-align: 4%;
+  margin-right: 5px;
+  content: "";
+  border-radius: 6px;
+  background: #ed0808;
+}
+
+----
+
+- To customise the text indication of live button you can edit the CSS class named "*.player-live-button*"
+
+==== Snippet
+[source,scss]
+----
+.player-live-button {
+  font-weight: bold;
+}
+----

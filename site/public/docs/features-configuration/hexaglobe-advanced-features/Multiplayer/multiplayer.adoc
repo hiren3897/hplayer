@@ -1,0 +1,437 @@
+= Multiplayer
+
+- A multi-player UI that manages maximum 4 live or vod video's together with switch video functionality.
+- You can manage only four videos at a time in multiplayer.
+- You can set up 2,3 and 4 layer multiplayer.
+
+== How to set up a multiplayer
+- Copy and Paste the required layer code from the following html,css and js.
+
+=== Multiplayer4.html
+- EXAMPLE of 4 layered multiplayer.
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>HPlayer: multiplayer</title>
+
+    <!-- START hplayer css -->
+    <link rel="stylesheet" href="index.css">
+    <!-- END hplayer css -->
+
+    <!-- START MULTIPLAYER css -->
+    <link rel="stylesheet" href="multiplayer.css">
+    <!-- END MULTIPLAYER css -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+          rel="stylesheet">
+<body>
+<!-- START Multiplayer HTML -->
+<div id="parent-multiplayer" class="parent-multiplayer-container">
+    <div id="multiplayer-container" class="multiplayer-container">
+        <div class="video-container bottomFlux4 flux0" id="video-container">
+            <video autoplay class="video" style="width: 100%; height: 100%;"></video>
+        </div>
+        <div class="small-video-container bottomFlux4 flux1" id="video-container1"> <!--Some Features are using id -->
+            <video autoplay class="video1" playsinline style="width: 100%; height: 100%;"></video>
+        </div>
+        <div class="small-video-container bottomFlux4 flux2" id="video-container2"> <!--Some Features are using id -->
+            <video autoplay class="video2" playsinline style="width: 100%; height: 100%;"></video>
+        </div>
+        <div class="small-video-container bottomFlux4 flux3" id="video-container3"> <!--Some Features are using id -->
+            <video autoplay class="video3" playsinline style="width: 100%; height: 100%;"></video>
+        </div>
+    </div>
+</div>
+<!-- START Multiplayer HTML -->
+    <!-- START hplayer javascript -->
+    <!-- For hls support -->
+    <script defer src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
+    <script type="text/javascript" src="HPlayer.bundle.js"></script>
+    <script>
+        /**
+         * START hplayer initialisation
+         */
+        const video = document.querySelector('.video');
+        const video1 = document.querySelector('.video1');
+        const video2 = document.querySelector('.video2');
+        const video3 = document.querySelector('.video3');
+        const videoContainer = document.querySelector('.video-container');
+        const videoContainer1 = document.getElementById('video-container1');
+        const videoContainer2 = document.getElementById('video-container2');
+        const videoContainer3 = document.getElementById('video-container3');
+
+        const hplayer = new HPlayer(video, videoContainer, {
+            basic: {
+                source: 'hexaglobe:https://stream_info.php'
+            }
+        });
+        hplayer.init_();
+
+        const hplayer1 = new HPlayer(video1, videoContainer1, {
+            basic: {
+                source: 'hexaglobe:https://stream_info.php'
+            }
+        });
+        hplayer1.init_();
+        hplayer1.video_.play();
+        hplayer1.video_.muted=true
+
+
+        const hplayer2 = new HPlayer(video2, videoContainer2, {
+            basic: {
+                source: 'hexaglobe:https://stream_info.php'
+            }
+        });
+        hplayer2.init_();
+        hplayer2.video_.play();
+        hplayer2.video_.muted=true
+
+        const hplayer3 = new HPlayer(video3, videoContainer3, {
+            basic: {
+                source: 'hexaglobe:https://stream_info.php'
+            }
+        });
+        hplayer3.init_();
+        hplayer3.video_.play();
+        hplayer3.video_.muted=true
+        /**
+         * END hplayer initialisation
+         */
+    </script>
+    <!-- END hplayer javascript -->
+
+    <!-- For multiplayer javascript -->
+    <script type="text/javascript" src="multiplayer.js"></script>
+</body>
+</html>
+----
+
+==== How to configure 3 and 2 layered multiplayer.
+===== For 3 layered multiplayer
+- Configure only 3 video container in *multiplayer-container* and their initialization JS *<script>* accordingly in *Multiplayer4.html*
+- From the *Multiplayer4.js* remove *hplayer3* references from *players* and *hplayer3.setLowQualityResolution();*.
+
+===== For 2 layered multiplayer
+- Configure only 2 video container in *multiplayer-container* and their initialization JS *<script>* accordingly in *Multiplayer4.html*
+- From the *Multiplayer4.js* remove *hplayer3* & *hplayer2* references from *players* and *hplayer3.setLowQualityResolution();* & *hplayer2.setLowQualityResolution();*.
+
+=== Multiplayer4.js
+- Link *multiplayer.js* script in your index.html page.
+[source,js]
+----
+const fullscreenButton = document.createElement('button');
+fullscreenButton.classList.add('btn');
+fullscreenButton.classList.add('hexa-fullscreen-btn');
+const fullscreenIcon = document.createElement('span');
+fullscreenIcon.classList.add('material-icons');
+fullscreenIcon.textContent = 'fullscreen';
+fullscreenIcon.style.color = '#131413';
+fullscreenButton.appendChild(fullscreenIcon);
+
+document.addEventListener('fullscreenchange', () => {
+  const parentVideoContainer = document.querySelector('#parent-multiplayer');
+  if (document.fullscreenElement) {
+    parentVideoContainer.classList.add('hexa-onfullscreen');
+    fullscreenIcon.textContent = 'fullscreen_exit';
+  } else {
+    parentVideoContainer.classList.remove('hexa-onfullscreen');
+    fullscreenIcon.textContent = 'fullscreen';
+  }
+});
+
+const tokens = ['flux1', 'flux2', 'flux3'];
+// awaits for the player to be loaded
+setTimeout(() => {
+  const players = {
+      // replace all hplayer with your player instance name
+    video: hplayer,
+    video1: hplayer1,
+    video2: hplayer2,
+    video3: hplayer3
+  };
+
+  // replace all hplayer with your player instance name
+  // pre-set the resolution for small video containers
+  hplayer1.setLowQualityResolution();
+  hplayer2.setLowQualityResolution();
+  hplayer3.setLowQualityResolution();
+
+  const allVideoContainer = document.querySelectorAll('.shaka-video-container');
+  for (const container of allVideoContainer) {
+    container.addEventListener('click', (e) => {
+      const mainDiv = document.querySelector('.flux0');
+      // on click switch the video container
+      onClickSwitchVideo(container);
+      // Manage the resolution for main and small container's
+      for (const [key, videoCard] of Object.entries(players)) {
+        if (container.getElementsByTagName('video')[0].classList[0] === key) {
+          if (players[key].video_.currentTime <= players[key].player_.seekRange().end - 9) {
+            players[key].player_.goToLive();
+          }
+          players[key].setHighQualityResolution();
+        }
+        // if again it clicked on the main video maintain the resolution same.
+        if (container.getElementsByTagName('video')[0].classList[0] === mainDiv.getElementsByTagName('video')[0].classList[0]) {
+          break;
+        }
+        if (mainDiv.getElementsByTagName('video')[0].classList[0] === key) {
+          players[key].setLowQualityResolution();
+        }
+      }
+    });
+  }
+});
+
+const multiPlayerContainer = document.querySelector('#parent-multiplayer');
+multiPlayerContainer.appendChild(fullscreenButton);
+
+fullscreenButton.onclick = () => {
+  if (document.fullscreenElement) {
+    unsetFullscreen();
+  } else {
+    setFullscreen();
+  }
+};
+
+const onClickSwitchVideo = (container) => {
+  let fluxClassName;
+  if (container.classList.contains('flux0')) return;
+  for (const token of tokens) {
+    if (container.classList.contains(token)) {
+      fluxClassName = token;
+    }
+  }
+  container.classList.remove(`${fluxClassName}`);
+  const mainDiv = document.querySelector('.flux0');
+  mainDiv.classList.remove('flux0');
+  mainDiv.getElementsByTagName('video')[0].muted = true;
+  // if video is paused play
+  if (mainDiv.getElementsByTagName('video')[0].paused) {
+    mainDiv.getElementsByTagName('video')[0].play();
+  }
+  mainDiv.classList.add(`${fluxClassName}`);
+  manageControlsOfPlayer(mainDiv, 'none', 'none');
+  container.classList.add('flux0');
+  manageControlsOfPlayer(container, 'all', 'block');
+  container.getElementsByTagName('video')[0].muted = false;
+};
+
+const manageControlsOfPlayer = (element, pointerEvents, display) => {
+  const shakaControlsContainer = element.querySelector('.shaka-controls-container');
+  const shakaBottomControl = element.querySelector('.shaka-bottom-controls');
+  shakaControlsContainer.style.pointerEvents = `${pointerEvents}`;
+  shakaBottomControl.style.display = `${display}`;
+};
+
+function setFullscreen() {
+  const fullscreenElement = document.getElementById('parent-multiplayer');
+  if (fullscreenElement.requestFullscreen) {
+    fullscreenElement.requestFullscreen();
+  } else if (fullscreenElement.webkitRequestFullscreen) {
+    fullscreenElement.webkitRequestFullscreen();
+  } else if (fullscreenElement.mozRequestFullScreen) {
+    fullscreenElement.mozRequestFullScreen();
+  } else if (fullscreenElement.msRequestFullscreen) {
+    fullscreenElement.msRequestFullscreen();
+  }
+}
+
+function unsetFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+
+----
+
+=== Multiplayer.css
+- Add multiplayer.css in the header section of your multiplayer.html page.
+
+[NOTE]
+To apply the css according to your preferred selected layer you have to change the CSS class on all *video-container*.
+
+==== For 4 layered multiplayer
+CSS class is *bottomFlux4*
+
+==== For 3 layered multiplayer
+CSS class is *bottomFlux3*
+
+==== For 2 layered multiplayer
+CSS class is *bottomFlux2*
+
+==== Example
+[source, html]
+----
+<div class="small-video-container {YOUR-SELECTED-LAYER-CSS-CLASS-NAME} flux1" id="video-container1">
+            <video autoplay class="video1" playsinline style="width: 100%; height: 100%;"></video>
+</div>
+----
+
+[source,css]
+----
+/**
+ * Multiplayer Example
+ */
+.parent-multiplayer-container {
+    width: 700px;
+    height: 650px;
+    max-height: 700px;
+    margin: 30px auto;
+}
+
+.parent-multiplayer-container .hexa-fullscreen-btn {
+    position: absolute;
+    right: 0;
+    left: 350px;
+    top: -30px;
+    margin: auto;
+    line-height: 0px;
+    background: #ffffff;
+    border: none;
+}
+
+.parent-multiplayer-container .multiplayer-container {
+    height: 394px;
+    width: 100%;
+    display: inline-flex;
+    position: relative;
+    vertical-align: top;
+}
+
+/**
+ * bottom UI for 4 player
+ */
+.parent-multiplayer-container .bottomFlux4 {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 233px;
+    height: 131px;
+}
+
+.parent-multiplayer-container .bottomFlux4.flux0 {
+    cursor: auto !important;
+    left: 0 !important;
+    width: 100%;
+    height: 100% !important;
+}
+.parent-multiplayer-container .bottomFlux4.flux1 {
+    top: 100%;
+}
+.parent-multiplayer-container .bottomFlux4.flux2 {
+    top: 100%;
+    left: 233px;
+}
+.parent-multiplayer-container .bottomFlux4.flux3 {
+    top: 100%;
+    left: 467px;
+}
+
+.hexa-onfullscreen .multiplayer-container {
+    height: 620px !important;
+}
+
+.hexa-onfullscreen .bottomFlux4 {
+    width: 425px;
+    height: 240px;
+}
+
+.hexa-onfullscreen .bottomFlux4.flux1 {
+    left: 50px;
+}
+
+.hexa-onfullscreen .bottomFlux4.flux2 {
+    left: 550px;
+}
+.hexa-onfullscreen .bottomFlux4.flux3 {
+    left: 1050px;
+}
+
+/**
+ * For 3 players
+ */
+.parent-multiplayer-container .bottomFlux3 {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 350px;
+    height: 197px;
+}
+
+.parent-multiplayer-container .bottomFlux3.flux0 {
+    cursor: auto !important;
+    left: 0 !important;
+    width: 100%;
+    height: 100% !important;
+}
+.parent-multiplayer-container .bottomFlux3.flux1 {
+    top: 100%;
+}
+.parent-multiplayer-container .bottomFlux3.flux2 {
+    top: 100%;
+    left: 349px;
+}
+
+.hexa-onfullscreen .multiplayer-container {
+    height: 620px !important;
+}
+
+.hexa-onfullscreen .bottomFlux3 {
+    width: 425px;
+    height: 240px;
+}
+
+.hexa-onfullscreen .bottomFlux3.flux1 {
+    left: 260px;
+}
+
+.hexa-onfullscreen .bottomFlux3.flux2 {
+    left: 850px;
+}
+
+
+/**
+ * For 2 players
+ */
+.parent-multiplayer-container .bottomFlux2 {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 350px;
+    height: 197px;
+}
+
+.parent-multiplayer-container .bottomFlux2.flux0 {
+    cursor: auto !important;
+    left: 0 !important;
+    width: 100%;
+    height: 100% !important;
+}
+.parent-multiplayer-container .bottomFlux2.flux1 {
+    top: 100%;
+    left: 160px;
+}
+
+.hexa-onfullscreen .multiplayer-container {
+    height: 620px !important;
+}
+
+.hexa-onfullscreen .bottomFlux2 {
+    width: 425px;
+    height: 240px;
+}
+
+.hexa-onfullscreen .bottomFlux2.flux1 {
+    left: 540px;
+}
+----

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>HPlayer: context-menu-demo</title>
+
+    <!-- START HPlayer css -->
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- END HPlayer css -->
+
+    <!-- START Documentation for demo css and javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/asciidoctor.js/1.5.5-5/asciidoctor.min.js"
+            integrity="sha512-J7IXHi6LD/94IioL/slk1hNk85wBBH7x8zpyaAiqBd801N/zcSDXWQknUtgriVuwNeG3rjqWdvcHoYhMaRE4Ew=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/asciidoctor.js/1.5.5-5/css/asciidoctor.min.css"
+          integrity="sha512-kI7tn5cuEg16kMeXnYmg8rEJPxbxzEM7Gsr191iQdLDevFBLXPCSU9aZWSVuP61tMZWU3nBAR1cJ7SmXnOGLZw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github-dark-dimmed.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+          rel="stylesheet">
+    <!-- END Documentation for demo css and javascript -->
+
+
+<script defer src="index.js"></script></head>
+<body>
+
+<nav class="navbar navbar-light bg-light fixed-top ">
+    <div class="container">
+        <h1 class="h1">HPlayer</h1>
+        <h2 class="h2">context-menu-demo</h2>
+        <a class="fixed-button" href="./index.html">Back</a>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            
+            <div class="sticky-top" style="top : 70px;">
+            
+                    <!-- START HPlayer need a html video element inside a div behaving as a container -->
+                    <div class="video-container" id="video-container"> <!--Some Features are using id -->
+                        <video autoplay playsinline class="video" style="width: 100%; height: 100%;">
+                        </video>
+                    </div>
+                    <!-- END HPlayer need a html video element inside a div behaving as a container -->
+                </div>
+            </div>
+            <div class="col">
+                <div class="guide"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- START Documentation container for demo -->
+
+    <script>
+        const documentation = "include::./docs/features-configuration/shaka-player-default-features/context-menu.adoc[]";
+        const asciidoctor = Asciidoctor();
+
+        /**
+         * It reads the adoc from the path and return a text in html format to be insert in the target div.
+         * @param doc AsciiDoc document .adoc
+         * @param divClass - Target Div tag
+         */
+        function renderAsciiDocToHtml(doc, divClass) {
+            const html = asciidoctor.convert(doc, {safe: 'safe', header_footer: false});
+            divClass.insertAdjacentHTML('afterbegin', html);
+            hljs.highlightAll();
+        }
+
+        /**
+         * START DEMO DOCUMENTATION STYLING
+         * */
+
+        const div = document.querySelector('.guide');
+        renderAsciiDocToHtml(documentation, div);
+        /**
+         * END DEMO DOCUMENTATION STYLING
+         * */
+    </script>
+    <!-- END Documentation container for demo -->
+
+    <!-- START HPlayer javascript -->
+    <!-- Chromecast SDK (if you want Chromecast support for your app): -->
+    <script defer src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+
+    <!-- For hls support -->
+    <script defer src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
+    <script type="text/javascript" src="js/context-menu-demo/index.js"></script>
+    <script type="text/javascript" src="js/HPlayer.bundle.js"></script>
+    <script>
+        /**
+         * START HPlayer initialisation
+         */
+        const video = document.querySelector('.video');
+        const videoContainer = document.querySelector('.video-container');
+        const hplayer = new HPlayer(video, videoContainer, options);
+        hplayer.init_();
+        /**
+         * END HPlayer initialisation
+         */
+
+        
+    </script>
+    <!-- END HPlayer javascript -->
+</body>
+</html>

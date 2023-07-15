@@ -312,6 +312,6 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'dist/demo')
+    path: path.resolve(__dirname, 'site/public')
   }
 };

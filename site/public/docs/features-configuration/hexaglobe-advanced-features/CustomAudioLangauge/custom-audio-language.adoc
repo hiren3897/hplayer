@@ -1,0 +1,50 @@
+= Custom Audio language feature
+
+- Now you can configure your "n" mp4 files in the player with different audio languages.
+
+== How to configure?
+
+[source, javascript]
+----
+const hplayer = new HPlayer(video, videoContainer, {
+  basic: {
+    source: 'https://path/to/videos/info/en_lang_video.mp4?v=0',
+  },
+  advanced_features: [
+    {
+      name: 'custom_audio_languages',
+      visible: true,
+      data: [
+        {
+          code: 'en',
+          url: 'https://path/to/videos/info/en_lang_video.mp4?v=0',
+          default: true
+        },
+        {
+          code: 'fr',
+          url: 'https://path/to/videos/info/fr_lang_video.mp4?v=0',
+          default: false
+        },
+        {
+          code: 'de',
+          url: 'https://path/to/videos/info/de_lang_video.mp4?v=0',
+          default: false
+        }
+      ]
+    }
+  ]
+});
+----
+
+=== Data property
+.Custom audio language data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|code   |String    | accepts only ISO 639-1
+|url   |String   | your video url.
+|default   |Boolean    | default track configured in source.
+|=======================
+
+[NOTE]
+Always set the *"default:true"* to the track configured in the *"basic.source"*. See example above.

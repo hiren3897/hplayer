@@ -1,0 +1,148 @@
+= Shaka Player Default
+
+This section includes how to configure shaka player default configuration in *HPlayer*.
+
+It includes all shaka-player default features to be configured using *options.ui_configuration* in HPlayer.
+
+== Snippet
+[source,json]
+----
+{
+      "controlPanelElements": [
+        "play_pause",
+        "time_and_duration",
+        "spacer",
+        "mute",
+        "volume",
+        "fullscreen",
+        "overflow_menu",
+      ],
+      "overflowMenuButtons": [
+        "captions",
+        "quality",
+        "language",
+        "picture_in_picture",
+        "cast",
+        "playback_rate",
+      ],
+      "statisticsList": [
+        "width",
+        "height",
+        "corruptedFrames",
+        "decodedFrames",
+        "droppedFrames",
+        "drmTimeSeconds",
+        "licenseTime",
+        "liveLatency",
+        "loadLatency",
+        "bufferingTime",
+        "manifestTimeSeconds",
+        "estimatedBandwidth",
+        "streamBandwidth",
+        "maxSegmentDuration",
+        "pauseTime",
+        "playTime",
+        "completionPercent",
+      ],
+      "contextMenuElements": [
+        "loop",
+        "picture_in_picture",
+        "statistics",
+      ],
+      "playbackRates": [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
+      "fastForwardRates": [2, 4, 8, 1],
+      "rewindRates": [-1, -2, -4, -8],
+      "addSeekBar": true,
+      "addBigPlayButton": false,
+      "customContextMenu": false,
+      "castReceiverAppId": '',
+      "castAndroidReceiverCompatible": false,
+      "clearBufferOnQualityChange": true,
+      "showUnbufferedStart": false,
+      "seekBarColors": {
+        "base": 'rgba(255, 255, 255, 0.3)',
+        "buffered": 'rgba(255, 255, 255, 0.54)',
+        "played": 'rgb(255, 255, 255)',
+        "adBreaks": 'rgb(255, 204, 0)',
+      },
+      "volumeBarColors": {
+        "base": 'rgba(255, 255, 255, 0.54)',
+        "level": 'rgb(255, 255, 255)',
+      },
+      "trackLabelFormat": "shaka.ui.Overlay.TrackLabelFormat.LANGUAGE",
+      "fadeDelay": 0,
+      "doubleClickForFullscreen": true,
+      "singleClickForPlayAndPause": true,
+      "enableKeyboardPlaybackControls": true,
+      "enableFullscreenOnRotation": true,
+      "forceLandscapeOnFullscreen": true,
+      "enableTooltips": false,
+      "keyboardSeekDistance": 5,
+    }
+----
+
+
+=== Example
+
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPlayer</title>
+<!-- HPlayer compiled CSS library: -->
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<!-- Container for the UI overlay-->
+<div class="hexa-container">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
+    <video class="hexa-player" style="width:100%;height:100%"></video>
+</div>
+<!-- HPlayer compiled JS library: -->
+<script src="js/HPlayer.bundle.js"></script>
+<script>
+const videoContainer = document.querySelector('.hexa-container')
+const video = document.querySelector('.hexa-player');
+const options = {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+    "ui_configuration": {
+        "addBigPlayButton": false,
+        "controlPanelElements": [
+          "play_pause",
+          "time_and_duration",
+          "spacer",
+          "mute",
+          "volume",
+          "fullscreen"
+        ],
+        "doubleClickForFullscreen": true,
+        "overflowMenuButtons": [
+            "captions",
+            "quality",
+            "language",
+            "picture_in_picture",
+            "cast",
+            "playback_rate"
+        ],
+        "seekBarColors": {
+          "adBreaks": "rgb(255, 204, 0)",
+          "base": "rgba(255, 255, 255, 0.3)",
+          "buffered": "rgba(255, 255, 255, 0.54)",
+          "played": "rgb(255, 255, 255)"
+        },
+    }
+};
+
+const hplayer = new HPlayer(video,videoContainer, options);
+hplayer.init_();
+</script>
+</body>
+
+</html>
+
+----

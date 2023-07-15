@@ -1,0 +1,76 @@
+= Custom Buttons Feature
+
+- Now, add your own custom buttons in the player.
+- You can also decide the behavior of custom button by configuring the onEventType and a onEventTypeHandler function.
+
+== How to configure this feature?
+[source, javascript]
+----
+const options = {
+      advanced_features: [
+        {
+          name: 'custom_buttons',
+          visible: true,
+          data: [
+            {
+              buttonInfo: {
+                name: 'MyCustomButton',
+                // Material Symbols reference
+                // https://fonts.google.com/icons?icon.set=Material+Symbols&icon.platform=web
+                // Material Icons reference
+                // https://fonts.google.com/icons?icon.set=Material+Icons&icon.platform=web
+                materialSymbols: false,  // default false
+                iconName: 'favorite',
+                color: 'white',
+                // should be inherited in like
+                // .shaka-video-container .my-custom-button"
+                cssClass: 'my-custom-button'
+              },
+              onEventType: 'click',
+              onEventTypeHandler: () => {
+                console.log('Hello! From custom button');
+                // your code here
+                }
+            },
+            {
+              buttonInfo: {
+                name: 'MyCustomButton2',
+                // Material Symbols reference
+                // https://fonts.google.com/icons?icon.set=Material+Symbols&icon.platform=web
+                // Material Icons reference
+                // https://fonts.google.com/icons?icon.set=Material+Icons&icon.platform=web
+                materialSymbols: false, // default false
+                iconName: 'download',
+                color: 'green',
+                // should be inherited in like:
+                // "shaka-video-container .my-custom-button2"
+                cssClass: 'my-custom-button2'
+              },
+              onEventType: 'click',
+              onEventTypeHandler: () => {
+                console.log('Hello! From custom button 2');
+                // your code here
+              }
+            }
+         ]
+        }
+      ]
+}
+----
+
+[NOTE]
+You can add maximum 5 buttons.
+
+=== Data property
+.Custom Buttons Feature
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|buttonInfo   | {name, iconName, cssClass, color}    | Add button properties like "name", "color","materialSymbols", "iconName", "cssClass" for the button
+|onEventType   |string   | Button event type that you want to bind on button.
+|onEventTypeHandler   |function   | a handler for the event.
+|=======================
+
+[NOTE]
+If you use link:https://fonts.google.com/icons?icon.set=Material+Symbols&icon.platform=web["Material Symbols"] then
+*"materialSymbols"* property in *"buttonInfo"* should be set to *"true"*

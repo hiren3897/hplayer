@@ -1,0 +1,30 @@
+= Features Testing Links
+
+link:https://test-drm.hexaglobe.net/hrathod/autoplay[Autoplay]
+
+link:https://test-drm.hexaglobe.net/hrathod/backward-button[Backward]
+
+link:https://test-drm.hexaglobe.net/hrathod/biglivebutton[Big Live Button]
+
+link:https://test-drm.hexaglobe.net/hrathod/expressmode[Express mode]
+
+link:https://test-drm.hexaglobe.net/hrathod/fast-back[Forward]
+
+link:https://test-drm.hexaglobe.net/hrathod/smallLiveButton[Small Live Button]
+
+link:https://test-drm.hexaglobe.net/hrathod/next-chapter[Next Chapter]
+
+link:https://test-drm.hexaglobe.net/hrathod/playbackspeed[Playback Speed]
+
+link:https://test-drm.hexaglobe.net/hrathod/playbutton[Big transparent play button]
+
+link:https://test-drm.hexaglobe.net/hrathod/previous-chapter[Previous Chapter]
+
+link:https://test-drm.hexaglobe.net/hrathod/snapshot[ScreenShot]
+
+link:https://test-drm.hexaglobe.net/hrathod/zapping[Zapping -  Switch channel.]
+
+link:https://test-drm.hexaglobe.net/hrathod/shaka-notification[Video List Template.]
+
+link:https://test-drm.hexaglobe.net/hrathod/popuplist-players[Player's List - popup feature]
+
