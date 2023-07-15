@@ -169,7 +169,7 @@ const featureList = [
     js: 'multiplayer.js'
   },
   {
-    name: 'hexaPlayer-api',
+    name: 'hplayer-api',
     html: 'demo/html/hexaPlayerApi/hexaplayer-api.ejs',
     adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/AdvancedFunctions/hexaplayer-api.adoc[]"'
   },
