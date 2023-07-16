@@ -1,29 +1,28 @@
-
-const getMp4Urls = async() => {
-  const responsePhp = await fetch('https://demoplayer.hexaglobe.net/demo/hexa-player-demo/custom-multilang-demo/get-ovp-url.php');
-  const data = await responsePhp.json();
-  const files = [];
-  for (const lang of Object.entries(data.files_by_lang)) {
-    files.push({
-      code: lang[0],
-      url: lang[1].mp4['1080'],
-      default: lang[0] === 'en'
-    });
-  }
-  return files;
+const options = {
+  basic: {
+    source: 'https://mirror.netcologne.de/CCC/congress/2019/h264-hd/36c3-10561-eng-The_Eye_on_the_Nile.mp4',
+  },
+  advanced_features: [
+    {
+      name: 'custom_audio_languages',
+      visible: true,
+      data: [
+        {
+          code: 'en',
+          url: 'https://mirror.netcologne.de/CCC/congress/2019/h264-hd/36c3-10561-eng-The_Eye_on_the_Nile.mp4',
+          default: true
+        },
+        {
+          code: 'fr',
+          url: 'https://berlin-ak.ftp.media.ccc.de/congress/2019/h264-hd/36c3-10561-fra-The_Eye_on_the_Nile.mp4',
+          default: false
+        },
+        {
+          code: 'de',
+          url: 'https://dortmund.media.ccc.de/congress/2019/h264-hd/36c3-10561-deu-The_Eye_on_the_Nile.mp4',
+          default: false
+        }
+      ]
+    }
+  ]
 };
-let options = {};
-getMp4Urls().then(data => {
-  options = {
-    basic: {
-      source: data[1].url,
-    },
-    advanced_features: [
-      {
-        name: 'custom_audio_languages',
-        visible: true,
-        data: data
-      }
-    ]
-  };
-});

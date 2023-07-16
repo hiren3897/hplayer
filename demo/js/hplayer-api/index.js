@@ -21,16 +21,17 @@ const options = {
       'picture_in_picture',
       'cast',
       'playback_rate'
-    ]
+    ],
+    enableTooltips: true
   },
   advanced_features: [
     {
       name: 'backward_button',
       visible: true,
-      data: [{
+      data: {
         backwardSeconds: 20,
         color: '#f0ea20'
-      }]
+      }
     }
   ]
 };
