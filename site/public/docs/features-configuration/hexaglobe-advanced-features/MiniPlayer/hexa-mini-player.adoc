@@ -27,7 +27,7 @@ Make sure you configure the correct controls UI feature for the Mini Player to h
 const minimizeButton = document.createElement('button');
 minimizeButton.classList.add('hexa-minimize-button');
 const minimizeIcon = document.createElement('span');
-minimizeIcon.classList.add('hexa-player-icons');
+minimizeIcon.classList.add('h-player-icons');
 minimizeIcon.classList.add('md-25');
 minimizeIcon.textContent = 'minimize';
 minimizeButton.appendChild(minimizeIcon);
@@ -36,7 +36,7 @@ minimizeButton.appendChild(minimizeIcon);
 const openMiniPlayerButton = document.createElement('button');
 openMiniPlayerButton.classList.add('hexa-open-mini-player-button');
 const openIcon = document.createElement('span');
-openIcon.classList.add('hexa-player-icons');
+openIcon.classList.add('h-player-icons');
 openIcon.classList.add('md-25');
 openIcon.textContent = 'open_in_full';
 openMiniPlayerButton.appendChild(openIcon);

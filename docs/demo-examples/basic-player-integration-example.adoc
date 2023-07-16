@@ -13,15 +13,15 @@
 </head>
 <body>
 <!-- Container for the UI overlay-->
-<div class="hexa-container">
-    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
-    <video class="hexa-player" style="width:100%;height:100%"></video>
+<div class="player-container">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the player-container -->
+    <video class="h-player" style="width:100%;height:100%"></video>
 </div>
 <!-- HPlayer compiled JS library: -->
 <script src="js/HPlayer.bundle.js"></script>
 <script>
-const videoContainer = document.querySelector('.hexa-container')
-const video = document.querySelector('.hexa-player');
+const videoContainer = document.querySelector('.player-container')
+const video = document.querySelector('.h-player');
 const options = {
                   basic: {
                     source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
@@ -68,78 +68,6 @@ You can enable transmuxing by including mux.js v5.6.3+ in your application. If S
 [source,html]
 ----
 <script type="application/javascript" src="https://github.com/videojs/mux.js/releases/download/v5.13.0/mux.min.js"></script>
-----
-
-==== 2. PlayerPlatform.
-- Add a prefix to source url for custom protocol(PlayerPlatform).
-
-[source,javascript]
-----
-  const options = {
-  basic: {
-    source: 'player-platform:VIDEO_ID', // Player platform video id
-  },
-  hexa_configurations: {
-    player_platform: { // Player platform backend description/configuration
-      endpoint: 'https://client-service-p-api.hexaglobe.net/video/info',
-      publicKey: 'xxx',
-      hash: 'yyy',
-      expiresAt: 'zzz',
-    },
-  },
-}
-----
-
-By adding the configuration `hexa_configurations.player_platform`, it is possible to load other video dynamically using
-[source,javascript]
-----
-// This will use the hexa_configurations.player_platform configuration given when doing new HPlayer()
-hplayer.loadAssets_({
-  basic: {
-      source : 'player-platform:MY_VIDEO_ID'
-  }
-});
-----
-
-==== 3. Live stream (from live event).
-- DASH and HLS Live streams support.
-
-===== 3.1 With DRM
-- Standard *stream_info.php* url as source.
-- Set *"livePlugin: true"* in basic configuration.
-- Set *"drmProtected: true"* in basic configuration.
-- Declare *availableFormats* of the configured live stream.
-
-====== Example Snippet
-[source,json]
-----
-{
-    "basic": {
-        "source": "https://live2/stream_info.php",
-        "livePlugin": true,
-        "drmProtected": true,
-        "availableFormats": ["dashwidevine", "hlsfairplay", "dashplayready", "hls"]
-  }
-}
-----
-
-===== 3.1 Without DRM
-- Standard *stream_info.php* url as source.
-- Set *"livePlugin: true"* in basic configuration.
-- Set *"drmProtected: false"* in basic configuration.
-- Declare *availableFormats* of the configured live stream.
-
-====== Example Snippet
-[source,json]
-----
-{
-    "basic": {
-        "source": "https://live2/stream_info.php",
-        "livePlugin": true,
-        "drmProtected": false,
-        "availableFormats": ["dash", "hls"]
-  }
-}
 ----
 
 === How to reconfigure feature's on LoadAsset.

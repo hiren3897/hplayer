@@ -1,0 +1,93 @@
+= Image Overlay Feature.
+
+- Overlay multiple image's on the video player.
+- Acceptable formats jpeg, png, etc. Also, you can provide a transparent image to the video player.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "image_overlay",
+        "visible": true,
+        "data": {
+         "imageUrls": [
+            "https//path.to/your/image.jpg",
+            "https//path.to/your/image.jpg",
+            "..."
+         ]
+        }
+      }
+    ]
+  }
+----
+
+=== Data property
+.Forward button data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|imageUrls   |Array | URL of image's to be overlay on the video player.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hplayer = new HPlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+    "advanced_features": [
+      {
+        "name": "image_overlay",
+        "visible": true,
+        "data": {
+         "imageUrls": [
+            "https//path.to/your/image.jpg",
+            "https//path.to/your/image.jpg"
+         ]
+        }
+      }]
+})
+hplayer.init_();
+----
+
+==== Dynamically update the overlay image.
+To update the overlay image.
+
+=== Example
+[source,javascript]
+----
+ const newImages = [
+    'assets/transparent_image2.png',
+    'assets/transparent_image3.png',
+    '...'
+  ];
+  hplayer.updateOverlayImage(newImages);
+----
+
+==== Remove overlay image.
+To clear the overlay image.
+
+=== Example
+[source,javascript]
+----
+hplayer.clearOverlayImage();
+----
+
+==== CSS Customisation
+You can change the position and repetition of the overlay image's by manually editing the CSS class provided in the snipped below
+
+[source,scss]
+----
+.hexa-image-overlay {
+  background-position: top center, right center; // default for two images
+  background-repeat: no-repeat no-repeat; // default for two images
+}
+----

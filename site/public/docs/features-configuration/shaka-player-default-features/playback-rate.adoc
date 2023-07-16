@@ -40,15 +40,15 @@
 </head>
 <body>
 <!-- Container for the UI overlay-->
-<div class="hexa-container">
-    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
-    <video class="hexa-player" style="width:100%;height:100%"></video>
+<div class="player-container">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the player-container -->
+    <video class="h-player" style="width:100%;height:100%"></video>
 </div>
 <!-- HPlayer compiled JS library: -->
 <script src="js/HPlayer.bundle.js"></script>
 <script>
-const videoContainer = document.querySelector('.hexa-container')
-const video = document.querySelector('.hexa-player');
+const videoContainer = document.querySelector('.player-container')
+const video = document.querySelector('.h-player');
 const options = {
   basic: {
     source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",

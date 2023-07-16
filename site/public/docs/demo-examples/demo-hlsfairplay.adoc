@@ -6,8 +6,8 @@
 
 [source, javascript]
 ----
-const videoContainer = document.querySelector('.hexa-container')
-const video = document.querySelector('.hexa-player');
+const videoContainer = document.querySelector('.player-container')
+const video = document.querySelector('.h-player');
 const options = {
                   basic: {
                     source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
@@ -28,8 +28,8 @@ As soon as the player recognise the serverCertificate it will convert the server
 
 [source, javascript]
 ----
-const videoContainer = document.querySelector('.hexa-container')
-const video = document.querySelector('.hexa-player');
+const videoContainer = document.querySelector('.player-container')
+const video = document.querySelector('.h-player');
 const options = {
                   basic: {
                     source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",

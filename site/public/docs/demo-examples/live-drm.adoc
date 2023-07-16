@@ -23,15 +23,15 @@ index.html
 </head>
 <body>
 <!-- Container for the UI overlay-->
-<div class="hexa-container">
-    <!-- HTMLVideoElement, width and height to 100% required to fill the hexa-container -->
-    <video class="hexa-player" style="width:100%;height:100%"></video>
+<div class="player-container">
+    <!-- HTMLVideoElement, width and height to 100% required to fill the player-container -->
+    <video class="h-player" style="width:100%;height:100%"></video>
 </div>
 <!-- HPlayer compiled JS library: -->
 <script src="js/HPlayer.bundle.js"></script>
 <script>
-const videoContainer = document.querySelector('.hexa-container')
-const video = document.querySelector('.hexa-player');
+const videoContainer = document.querySelector('.player-container')
+const video = document.querySelector('.h-player');
 
 const hplayer = new HPlayer(video,videoContainer, {
     basic: {
@@ -107,24 +107,3 @@ Microsoft Documentation: https://docs.microsoft.com/en-us/playready/overview/sec
 [NOTE]
 Audio Hardware DRM is not supported (PlayReady limitation)
 
-==== HLS Live Stream
-- To handle the pre-flight requests errors while loading the HLS live streams. Don't forget to add the configuration declared below in the option's configuration of *player_configurations*.
-- To display a seekbar timeline on Chrome and Firefox browser.
-
-===== options config
-[source,json]
-----
-{
-  "basic": {
-    "source": "https://youhls.server/playlist.m3u8"
-  },
-  "player_configurations": {
-    "manifest": {
-      "hls": {
-        "useFullSegmentsForStartTime": true
-      },
-      "availabilityWindowOverride": 30
-    }
-  }
-}
-----

@@ -1,0 +1,109 @@
+= Player List - Popup List Dialog Feature
+
+- Popup List Dialog Feature is used to display a list of data inside the video player. This feature is specially designed to display a list of players or intervenes in the video.
+- For example if we have a sport channel then it can be used to display the list of players playing in the current event.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "popup_list",
+        "visible": true,
+        "data": {
+        "popup_title": "Table Name",
+        "popup_desc": "Enter your description",
+        "list": [
+          {
+            "avatar_url": "https://your.avatar./photo.png",
+            "title": "Enter your title",
+            "description": "Description"
+          }
+        ]
+        }
+      }]
+  }
+----
+
+=== Data property
+.Player List data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|popup_title   | string    | title for the popup list.
+|popup_desc   | string    | description for the popup list.
+|list   |Array<JSON> OR JSON url    | requires an array of data with a pre-defined specific format described in the table below.
+|=======================
+
+=== Player Data Format
+.player data json format
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|avatar_url   |string   | url of the icon
+|title   |string   | Name of player.
+|description   |string   | description of the player.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hplayer = new HPlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  "advanced_features": [
+      {
+        "name": "popup_list",
+        "visible": true,
+        "data": {
+        "popup_title": "Table Name",
+        "popup_desc": "Enter your description",
+        "list": [
+          {
+            "avatar_url": "https://your.avatar./photo.png",
+            "title": "Enter your title",
+            "description": "Description"
+          }
+        ]
+        }
+      }]
+})
+hplayer.init_();
+----
+
+=== How to dynamically Update the popup list data
+
+- Create an array of list of data and trigger *yourPlayer.refreshPopupList(newData);*
+
+==== Example
+[source,js]
+----
+const newData = [
+  {
+    avatar_url: 'https://api/yourAvatar.jpg',
+    title: 'Your Title',
+    description: 'Your Description...'
+  },
+  {
+    avatar_url: 'https://api/yourAvatar.jpg',
+    title: 'Your Title',
+    description: 'Your Description...'
+  },
+  {
+    avatar_url: 'https://api/yourAvatar.jpg',
+    title: 'Your Title',
+    description: 'Your Description...'
+  }
+];
+
+button.onclick = () => {
+    hplayer.refreshPopupList(newData);
+};
+----

@@ -21,7 +21,7 @@ before_script:
 # on the ftp server $SFTP_ADDR:$SFTP_PORT (configured in Gitlab-> settings ->CI/CD)
 deploy_demo_develop: # Sync to FTP
   tags:
-    - hexaplayer
+    - hplayer
   stage: deploy
   # CI only done when pushing on branch listed below
   only:
@@ -35,7 +35,7 @@ deploy_demo_develop: # Sync to FTP
 
 deploy_demo_prod:
   tags:
-    - hexaplayer
+    - hplayer
   stage: deploy
   only:
     - player-demo.hexaglobe-net

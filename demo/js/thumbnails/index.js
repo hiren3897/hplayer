@@ -17,23 +17,26 @@ const options = {
     {
       name: 'thumbnails',
       visible: true,
-      data: [
+      data:
         {
           debounced_delay: 100,
         }
-      ]
     },
     {
       name: 'playlist',
       visible: true,
-      data: [{
+      data: {
         auto_second: 3,
+        withPlaylist: true,
+        withNextVideoPopup: false,
+        loop: true,
         videos: [
           {
             title: 'Big Buck bunny',
             description: 'The first Blender Open Movie from 2006',
             source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-            thumbnail: 'https://picsum.photos/640/360'
+            thumbnail: 'https://picsum.photos/640/360',
+            thumbnailOnHover: 'https://i.imgur.com/7V1qHS1.gif'
           },
           {
             title: 'For Bigger Blazes',
@@ -50,7 +53,7 @@ const options = {
             thumbnailOnHover: 'https://i.imgur.com/nlqurbU.gif'
           },
         ]
-      }]
+      }
     }
   ]
 };

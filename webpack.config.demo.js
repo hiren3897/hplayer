@@ -9,31 +9,31 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const featureList = [
   {
     name: 'backward-button', // maybe rename to jump-backward
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/BackwardButton/backward-button.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/BackwardButton/backward-button.adoc[]"'
   },
   {
     name: 'small-live-button',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/LiveButtons/small-live-button.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/LiveButtons/small-live-button.adoc[]"'
   },
   {
     name: 'big-live-button',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/LiveButtons/big-live-button.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/LiveButtons/big-live-button.adoc[]"'
   },
   {
     name: 'forward-button', // maybe rename to jump-forward
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/ForwardButton/forward-button.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/ForwardButton/forward-button.adoc[]"'
   },
   {
     name: 'screenshot',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Screenshot/screenshot.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Screenshot/screenshot.adoc[]"'
   },
   {
     name: 'express-mode',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/ExpressMode/express-mode.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/ExpressMode/express-mode.adoc[]"'
   },
   {
     name: 'poster',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Poster/poster-feature.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Poster/poster-feature.adoc[]"'
   },
   {
     name: 'big-play-button',
@@ -53,41 +53,41 @@ const featureList = [
   },
   {
     name: 'playlist',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Playlist/playlist.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Playlist/playlist.adoc[]"'
   },
   {
     name: 'switch-channel',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/SwitchChannel/switch-channel-feature.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/SwitchChannel/switch-channel-feature.adoc[]"'
   },
   {
     name: 'share-button',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Share/share.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Share/share.adoc[]"'
   },
   {
     name: 'redirect',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Redirect/redirect.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Redirect/redirect.adoc[]"'
   },
   {
     name: 'redirect2',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Redirect/redirect.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Redirect/redirect.adoc[]"'
   },
   {
     name: 'thumbnails-track',
     html: 'demo/html/thumbnailTrack/thumbnails-track.ejs',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Thumbnails/thumbnails-track.adoc[]"',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Thumbnails/thumbnails-track.adoc[]"',
     js: 'thumbnails-track.js'
   },
   {
     name: 'thumbnails',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Thumbnails/thumbnails.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Thumbnails/thumbnails.adoc[]"'
   },
   {
     name: 'chapters-vod',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Chapters/chapters-vod.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Chapters/chapters-vod.adoc[]"'
   },
   {
     name: 'live-chapters',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Chapters/chapters-live.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Chapters/chapters-live.adoc[]"'
   },
   {
     name: 'basic-usage',
@@ -105,7 +105,7 @@ const featureList = [
   // },
   {
     name: 'subtitles',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Subtitles/subtitles.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Subtitles/subtitles.adoc[]"'
   },
   {
     name: 'vod-fully-featured',
@@ -117,11 +117,11 @@ const featureList = [
   },
   {
     name: 'auto-pip',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/AutoPictureInPicture/autoPictureInPicture.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/AutoPictureInPicture/autoPictureInPicture.adoc[]"'
   },
   {
     name: 'popup-list',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/PopupList/popup-list.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/PopupList/popup-list.adoc[]"'
   },
   {
     name: 'rewind',
@@ -150,33 +150,33 @@ const featureList = [
   {
     name: 'image-overlay',
     html: 'demo/html/imageOverlay/image-overlay.ejs',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/ImageOverlay/imageOverlay.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/ImageOverlay/imageOverlay.adoc[]"'
   },
   {
     name: 'manage-alerts',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/ManageAlerts/manage-alerts.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/ManageAlerts/manage-alerts.adoc[]"'
   },
   {
     name: 'mini-player',
     html: 'demo/html/miniPlayer/mini-player.ejs',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/MiniPlayer/hexa-mini-player.adoc[]"',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/MiniPlayer/hexa-mini-player.adoc[]"',
     js: 'miniPlayer.js'
   },
   {
     name: 'multiplayer',
     html: 'demo/html/multiPlayer/multiplayer.ejs',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Multiplayer/multiplayer.adoc[]"',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Multiplayer/multiplayer.adoc[]"',
     js: 'multiplayer.js'
   },
   {
     name: 'hplayer-api',
-    html: 'demo/html/hexaPlayerApi/hexaplayer-api.ejs',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/AdvancedFunctions/hexaplayer-api.adoc[]"'
+    html: 'demo/html/hPlayerApi/hplayer-api.ejs',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/AdvancedFunctions/hplayer-api.adoc[]"'
   },
   {
     name: 'iOS-fullscreen',
     html: 'demo/html/iOS-fullscreen/iso-fullscreen.ejs',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/iOSFullscreen/ios-fullscreen.adoc[]"',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/iOSFullscreen/ios-fullscreen.adoc[]"',
   },
   {
     name: 'notification',
@@ -187,17 +187,17 @@ const featureList = [
     name: 'abr',
     adoc: '"include::./docs/features-configuration/shaka-player-default-features/abr.adoc[]"',
   },
-  {
-    name: 'player-restrictions',
-    adoc: '"include::./docs/features-configuration/shaka-player-default-features/player-restrictions.adoc[]"',
-  },
+  // {
+  //   name: 'player-restrictions',
+  //   adoc: '"include::./docs/features-configuration/shaka-player-default-features/player-restrictions.adoc[]"',
+  // },
   {
     name: 'dvr-mode-button',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/DvrModeButton/dvr-mode-button.adoc[]"',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/DvrModeButton/dvr-mode-button.adoc[]"',
   },
   {
     name: 'volume-vertical',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/VolumeBarVertical/volume-vertical.adoc[]"',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/VolumeBarVertical/volume-vertical.adoc[]"',
   },
   {
     name: 'keyboard-control-demo',
@@ -213,24 +213,24 @@ const featureList = [
   },
   {
     name: 'auto-disconnect',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/AutoDisconnect/auto-disconnect.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/AutoDisconnect/auto-disconnect.adoc[]"'
   },
   {
     name: 'time-tooltip-demo',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/TimeTooltip/timeTooltip.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/TimeTooltip/timeTooltip.adoc[]"'
   },
   {
     name: 'custom-buttons',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/CustomButtons/custom-buttons.adoc[]"'
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/CustomButtons/custom-buttons.adoc[]"'
   },
   {
     name: 'custom-audio-languages',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/CustomAudioLangauge/custom-audio-language.adoc[]"',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/CustomAudioLangauge/custom-audio-language.adoc[]"',
     html: 'demo/html/customAudioLanguage/custom-audio-langauge.ejs',
   },
   {
     name: 'tags',
-    adoc: '"include::./docs/features-configuration/hexaglobe-advanced-features/Tags/tags.adoc[]"',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/Tags/tags.adoc[]"',
   }
 ];
 

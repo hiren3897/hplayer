@@ -18,7 +18,7 @@ const options = {
         channels: [
           {
             name: 'C1 hgfdsasdfghjkl',
-            url: 'https://hexaglobe-preprod2-p-cdn.hexaglobe.net/4482a3c9b73372fbe9684fbe6137c393/6113f19d/hexaglobe/preprod-website-web-1/hxgpreprod_fre.smil/playlist.m3u8',
+            url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
             drmUrl: 'https://drmUrltothisvideo.com/csdkslsd',
             logo: 'https://picsum.photos/640/360'
           },

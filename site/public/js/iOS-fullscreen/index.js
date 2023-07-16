@@ -1,6 +1,6 @@
 const options = {
   basic: {
-    source: 'https://hexaglobe-preprod2-p-cdn.hexaglobe.net/4482a3c9b73372fbe9684fbe6137c393/6113f19d/hexaglobe/preprod-website-web-1/hxgpreprod_fre.smil/playlist.m3u8'
+    source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
   },
   // Below is an example, everything is optional
   ui_configuration: {

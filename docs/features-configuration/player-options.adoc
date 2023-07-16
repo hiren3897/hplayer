@@ -6,5 +6,5 @@ This json is divided into *four* parts
 
 - First part includes *player_configurations* that is the default shaka-player configurations. link:https://shaka-player-demo.appspot.com/docs/api/tutorial-config.html[Shaka Player Config]
 - Second part includes *ui_configurations.* that is the default shaka-player UI configurations. link:shaka-player-default-features/shaka-default.adoc[shaka default UI]
-- Third part includes *advanced_features.* that holds all the advanced features of Hplayer. link:hexaglobe-advanced-features[hexaglobe advanced features]
+- Third part includes *advanced_features.* that holds all the advanced features of Hplayer. link:hplayer-advanced-features[hexaglobe advanced features]
 - Fourth part includes *basic* that is a obligatory to set up a player to configure the contents to be played in the video see @link:basic.adoc[basic doc]

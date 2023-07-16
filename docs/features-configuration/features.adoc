@@ -8,7 +8,7 @@ There are two types of features in the HPlayer features.
 - link:https://shaka-player-demo.appspot.com/docs/api/tutorial-ui-customization.html[Take a look at shaka-player default config and feature list!]
 
 === Hplayer advanced features.
-link:hexaglobe-advanced-features[How to configure advanced features?]
+link:hplayer-advanced-features[How to configure advanced features?]
 
 Advanced features are developed with the same methodology but with unique functionalities other than shaka player default features.
 
@@ -47,19 +47,19 @@ Add configuration in player options inside `advanced_features []` array.
 
 ==== Advanced Features List
 
-- link:hexaglobe-advanced-features/Playlist/playlist.adoc[Playlist]
-- link:hexaglobe-advanced-features/BackwardButton/backward-button.adoc[Backward Button]
-- link:hexaglobe-advanced-features/ForwardButton/forward-button.adoc[Forward Skip]
-- link:hexaglobe-advanced-features/LiveButtons/big-live-button.adoc[Big Live Button]
-- link:hexaglobe-advanced-features/SwitchChannel/switch-channel-feature.adoc[Channel Switch] *Live Player*
-- link:hexaglobe-advanced-features/Chapters/chapters-live.adoc[Chapter Live]
-- link:hexaglobe-advanced-features/Chapters/chapters-vod.adoc[Chapter VOD]
-- link:hexaglobe-advanced-features/CustomCallback/custom-callback.adoc[Custom Call back]
+- link:hplayer-advanced-features/Playlist/playlist.adoc[Playlist]
+- link:hplayer-advanced-features/BackwardButton/backward-button.adoc[Backward Button]
+- link:hplayer-advanced-features/ForwardButton/forward-button.adoc[Forward Skip]
+- link:hplayer-advanced-features/LiveButtons/big-live-button.adoc[Big Live Button]
+- link:hplayer-advanced-features/SwitchChannel/switch-channel-feature.adoc[Channel Switch] *Live Player*
+- link:hplayer-advanced-features/Chapters/chapters-live.adoc[Chapter Live]
+- link:hplayer-advanced-features/Chapters/chapters-vod.adoc[Chapter VOD]
+- link:hplayer-advanced-features/CustomCallback/custom-callback.adoc[Custom Call back]
 - link:shaka-player-default-features/playback-rate.adoc[Playback Speed]
-- link:hexaglobe-advanced-features/ExpressMode/express-mode.adoc[Express Mode]
-- link:hexaglobe-advanced-features/PopupList/popup-list.adoc[Popup List]
-- link:hexaglobe-advanced-features/Screenshot/screenshot.adoc[Screenshot] *VOD*
-- link:hexaglobe-advanced-features/LiveButtons/small-live-button.adoc[Small Live Button]
-- link:hexaglobe-advanced-features/Thumbnails/thumbnails-track.adoc[Thumbnail Track]
-- link:hexaglobe-advanced-features/Poster/poster-feature.adoc[Poster Feature]
+- link:hplayer-advanced-features/ExpressMode/express-mode.adoc[Express Mode]
+- link:hplayer-advanced-features/PopupList/popup-list.adoc[Popup List]
+- link:hplayer-advanced-features/Screenshot/screenshot.adoc[Screenshot] *VOD*
+- link:hplayer-advanced-features/LiveButtons/small-live-button.adoc[Small Live Button]
+- link:hplayer-advanced-features/Thumbnails/thumbnails-track.adoc[Thumbnail Track]
+- link:hplayer-advanced-features/Poster/poster-feature.adoc[Poster Feature]
 

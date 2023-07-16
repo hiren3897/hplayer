@@ -1,0 +1,17 @@
+= Duration Management
+
+- To manage the duration of the live streams of the client to navigate back to seek past video.
+- Currently, in the shaka-player a user is able to navigate for 15 mins in past to see the races as it depends mainly on the segments kept on hold inside the stream manifest.
+- To increase the duration we have to increase the capacity of the manifest to hold the segments, so once we have the available segments in the manifest we can increase the seekable duration on the timeline.
+[NOTE]
+For DASH, this is controlled with the *timeShiftBufferDepth* attribute in the manifest
+- Follow the discussion with shaka player dev team link:https://github.com/google/shaka-player/issues/3444[here.]
+- once we have this thinks we can manage the timeline seek range with or config of the client. for example if a client want for 3 or 2 hours or default one.
+
+[NOTE]
+We can override this with the manifest.availabilityWindowOverride configuration, but this can cause playback errors depending on your server or manifest. For example, if the segments no longer exist, we'll get 404 errors trying to play too far in the past. Also, if the manifest doesn't list those segments, we won't be able to seek back that far since we don't know the segment URLs.
+
+[source,javascript]
+----
+player.configure('manifest.availabilityWindowOverride', 10800); // 10800 is seconds ~ to 3 hours
+----

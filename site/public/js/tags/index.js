@@ -10,7 +10,7 @@ const options = {
       name: 'tags',
       visible: true,
       data: {
-        tagWebVtt: 'https://demoplayer.hexaglobe.net/demo/hexa-player-demo/tags2.vtt'
+        tagWebVtt: 'assets/text-track-tags.vtt'
       }
     }
   ]

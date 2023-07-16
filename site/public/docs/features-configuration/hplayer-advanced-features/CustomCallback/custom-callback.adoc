@@ -1,0 +1,53 @@
+= Custom Call Back Feature
+
+- This feature will be used to trigger an AJAX callback on the url configured by the client in the player options.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "custom_callback",
+        "visible": true,
+        "data": [{
+          "url": "your/callback/url/here"
+        }]
+      }]
+  }
+
+----
+
+=== Data property
+.Custom Callback Feature data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|url   |string  | any url for callback
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video')
+const hplayer = new HPlayer(video, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        "name": "custom_callback",
+        "visible": true,
+        "data": [{
+          "url": "your/callback/url/here"
+        }]
+      }]
+})
+
+document.addEventListener('shaka-ui-loaded', () => hplayer.init_());
+
+document.addEventListener('shaka-ui-load-failed', () => hplayer.initFailed());
+----

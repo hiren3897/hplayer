@@ -1,0 +1,102 @@
+= Redirect Feature
+
+The redirect feature redirect the user to a url (configured) after the countdown at the end of the video.
+
+For example:
+
+*  Supposedly the url is another page with a video played in a hplayer.
+
+== How to configure and enable this feature
+
+[source, json]
+----
+{
+  "advanced_features": [
+    {
+      "name": "redirect",
+      "visible": true,
+      "data": {
+        "auto_second": 10,
+        "title": "Next video name",
+        "url": "https://nextVideoRedirectUrl.com",
+        "thumbnail": "https://url-of-thumbnail-to-display-on-countdown"
+      }
+    }]
+}
+----
+
+=== Data property
+.Redirect Feature data property
+[options="header,footer"]
+|=======================
+|Property |Value     |Description
+|auto_second   |number  | seconds to keep the redirect on wait.
+
+(if set to "-1" it stops the redirect and display a popup to play the next video, if "0" it will instantly redirect, and "> > 0" holds the redirect. )
+|title   |string  | Title of the next video name or page name.
+|url   |string   | next video URL or page URL of next video.
+|thumbnail   |string   | URL of thumbnail of next video to be display while holding the redirect.
+|=======================
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video')
+const videoContainer = document.querySelector('#videoContainer')
+const hplayer = new HPlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+    {
+      "name": "redirect",
+      "visible": true,
+      "data": {
+        "auto_second": 10,
+        "title": "Next video name",
+        "url": "https://nextVideoRedirectUrl.com",
+        "thumbnail": "https://url-of-thumbnail-to-display-on-countdown"
+      }
+    }]
+})
+
+hplayer.init_();
+----
+
+=== CSS Customization
+
+- To customise the redirect popup container you can directly edit the css class showed in the following snippet.
+
+==== Snippet
+[source,scss]
+----
+#hexa-redirect-seconds {
+ // add your css customization here.
+}
+
+.redirect-video-card {
+  // add your css customization here.
+}
+
+.redirect-video-title {
+  // add your css customization here.
+}
+
+.redirect-play-button {
+  // add your css customization here.
+}
+
+.redirect-stop-button {
+  // add your css customization here.
+}
+
+#hexa-redirect-seconds {
+  // add your css customization here.
+}
+
+.hexa-redirect-message {
+  // add your css customization here.
+}
+----

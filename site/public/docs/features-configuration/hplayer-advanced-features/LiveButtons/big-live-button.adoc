@@ -1,0 +1,57 @@
+= Big Live Button Feature
+
+- This feature has the same functionality as small live button but with a different appearance. It is placed beside the big play button in the center of the video player.
+- It is used to go back to live video.
+
+
+== How to configure and enable this feature
+
+[source, json]
+----
+  {
+    "advanced_features": [
+      {
+        "name": "big_live_button",
+        "visible": true
+      }]
+  }
+
+----
+
+=== Example
+
+[source,javascript]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#videoContainer')
+const hplayer = new HPlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  advanced_features: [
+      {
+        "name": "big_live_button",
+        "visible": true
+      }]
+})
+hplayer.init_();
+----
+
+
+=== CSS Customization
+
+- To customise big live button UI you can directly edit the css class named "*.big-player-live-button*" and don't forget to customise the class "*.big-player-live-button-fullscreen*"
+
+==== Snippet
+[source,scss]
+----
+.big-player-live-button {
+ // add your css properties
+}
+
+.big-player-live-button-fullscreen {
+ // add your css properties
+}
+
+----

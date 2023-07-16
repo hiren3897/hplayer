@@ -1,0 +1,30 @@
+= Filter Duplicate Resolution
+
+*add filterDuplicateResolutions to keep the duplicate resolutions with the HQ marker on the highest stream bandwidth
+
+== Snippet
+To add in control panel
+[source,json]
+----
+"ui_configuration": {
+    "filterDuplicateResolutions": false, // default true
+}
+----
+
+=== Example
+
+[source,javascript]
+----
+
+const video = document.querySelector('#video')
+const videoContainer = document.querySelector('#videoContainer')
+const hplayer = new HPlayer(video, videoContainer, {
+  basic: {
+    source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
+  "ui_configuration": {
+      "filterDuplicateResolutions": false, // default true
+    }
+})
+hplayer.init_();
+----

@@ -1,0 +1,114 @@
+= Hexaglobe Mini Player
+
+- This feature set up a mini player on the bottom right of the screen that remains fixed on the page like Picture-In-Picture.
+
+[NOTE]
+Make sure you configure the correct controls UI feature for the Mini Player to have the best appearance.
+
+== How to configure and enable this feature
+- Add *hexa-mini-player* CSS class to the video container.
+
+=== HTML
+[source,html]
+----
+<div id="video-container" class="hexa-mini-player" style="max-width:50em;">
+    <video autoplay playsinline id="video" style="width:100%;height:100%">
+        <track default srclang="en">
+    </video>
+</div>
+----
+
+- Link *miniPlayer.js* script in the html script.
+
+=== MiniPlayer.js
+[source,js]
+----
+// Minimize button in the player.
+const minimizeButton = document.createElement('button');
+minimizeButton.classList.add('hexa-minimize-button');
+const minimizeIcon = document.createElement('span');
+minimizeIcon.classList.add('h-player-icons');
+minimizeIcon.classList.add('md-25');
+minimizeIcon.textContent = 'minimize';
+minimizeButton.appendChild(minimizeIcon);
+
+// Open Mini player when minimized
+const openMiniPlayerButton = document.createElement('button');
+openMiniPlayerButton.classList.add('hexa-open-mini-player-button');
+const openIcon = document.createElement('span');
+openIcon.classList.add('h-player-icons');
+openIcon.classList.add('md-25');
+openIcon.textContent = 'open_in_full';
+openMiniPlayerButton.appendChild(openIcon);
+
+// awaits for the player to get setup
+setTimeout(() => {
+// Append minimize button in shaka controls button panel
+  const controlButtonPanel = hplayer.controls_.getControlsContainer().children[2].children[1];
+  controlButtonPanel.appendChild(minimizeButton);
+
+  // On minimize hide the video, should we pause or mute the player??
+  minimizeButton.onclick = () => {
+    hplayer.controls_.getVideoContainer().style.display = 'none';
+    document.body.appendChild(openMiniPlayerButton);
+  };
+
+  // On open display the mini player and remove the open button.
+  openMiniPlayerButton.onclick = () => {
+    hplayer.controls_.getVideoContainer().style.display = 'block';
+    document.body.removeChild(openMiniPlayerButton);
+  };
+});
+----
+
+=== Miniplayer.css
+- Link stylesheet *miniplayer.css* on your index.html page.
+[source,css]
+----
+.shaka-video-container.hexa-mini-player {
+    position: fixed;
+    width: 300px;
+    height: auto;
+    bottom: 15px;
+    top: auto;
+    right: 15px;
+    left: auto;
+    z-index: 1000;
+}
+
+.hexa-open-mini-player-button {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    right: 0;
+    left: auto;
+    z-index: 1000;
+    line-height: 0;
+}
+
+.shaka-video-container.hexa-mini-player .shaka-controls-button-panel>*.hexa-minimize-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+----
+
+=== Example
+[source,js]
+----
+// How to implement the player
+const video = document.querySelector('#video');
+const videoContainer = document.querySelector('#video-container')
+const hplayer = new HPlayer(video,videoContainer, {
+  basic: {
+    source: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  ui_configuration: { // recommended
+    controlPanelElements: [
+      'play_pause',
+      'mute'
+    ]
+  }
+})
+hplayer.init_();
+----

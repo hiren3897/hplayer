@@ -1,0 +1,58 @@
+= Time Tooltips
+
+Display time tooltip on seek.
+
+== How to configure and enable this feature
+
+[source,javascript]
+----
+  const options = {
+  basic: {
+    source: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
+  advanced_features: [
+    {
+      name: 'time_tooltip',
+      visible: true
+    }
+  ]
+};
+
+----
+
+== Styling
+
+=== style.css
+
+[source,scss]
+----
+  .hexa-time-tooltip {
+    /* Override .material-icons-round text styling */
+    font-family: Roboto-Regular, Roboto, sans-serif;
+    line-height: calc(32px / 2);
+    white-space: nowrap;
+    font-size: 13px;
+
+    /* Styling */
+    background: rgba(35 35 35 / 90%);
+    color: white;
+    border-radius: 3px;
+    padding: 5px 10px;
+
+    /* Positioning */
+    position: relative;
+    bottom: calc(32px + 5px);
+
+    /* Left attribute is set to half of the width of the parent button */
+    left: calc(32px / 2);
+
+    /* The tooltip is also translated 50% to appear centered */
+    -webkit-transform: translateX(0.5%);
+    -moz-transform: translateX(0.5%);
+    -ms-transform: translateX(0.5%);
+    -o-transform: translateX(0.5%);
+    transform: translateX(0.5%);
+
+    z-index: 999;
+  }
+----

@@ -19,14 +19,14 @@ const hplayer = new HPlayer(video, videoContainer, {
       name: 'tags',
       visible: true,
       data: {
-        tagWebVtt: 'https://demoplayer.hexaglobe.net/demo/hexa-player-demo/tags2.vtt'
+        tagWebVtt: 'https://demoplayer.hexaglobe.net/demo/h-player-demo/tags2.vtt'
       }
     }
   ]
 });
 ----
 
-=== link:https://demoplayer.hexaglobe.net/demo/hexa-player-demo/tags2.vtt[Sample Tags WebVTT File]
+=== link:https://demoplayer.hexaglobe.net/demo/h-player-demo/tags2.vtt[Sample Tags WebVTT File]
 
 === Data property
 .tags feature data property
