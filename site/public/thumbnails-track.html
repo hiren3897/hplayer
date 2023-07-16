@@ -123,5 +123,11 @@
 
   <script type="text/javascript" src="js/thumbnails-track/thumbnails-track.js"></script>
 </body>
+<script>
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+  });
+</script>
 
 </html>
