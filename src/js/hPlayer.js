@@ -24,7 +24,6 @@ import {
     regexTest,
     setTooltipsDisplay
 } from "./util/sharedUtils";
-import {getPlayerPlatformThumbnailsConfig, loadPlayerPlatformPlugin} from "./plugins/playerPlatformPlugin";
 import {NotificationService} from "./notification/notificationService";
 import {ChapterService} from "./features/services/chapterService";
 import {checkAdvanceFeatureConfig, getSourceInfo} from "./hPlayerService";
@@ -198,13 +197,6 @@ export default class HPlayer {
             ...this.ui_.getConfiguration(),
             ...this.options_.ui_configuration
         };
-
-        if (this.options_?.hexa_configurations?.player_platform) {
-            const thumbnailsConfig =  await getPlayerPlatformThumbnailsConfig(this.options_.basic, this.options_?.hexa_configurations?.player_platform);
-            if (typeof (thumbnailsConfig.data.webVttInfo.url) !== 'undefined') {
-                this.options_.advanced_features.push(thumbnailsConfig)
-            }
-        }
 
         if (this.options_?.advanced_features) {
             // Chapter's VOD base seekBar configuration.

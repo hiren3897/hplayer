@@ -25,7 +25,6 @@ link:https://nightly-dot-shaka-player-demo.appspot.com/docs/api/shaka.extern.htm
 [NOTE]
 The link:https://www.w3.org/TR/webvtt1/[RFC] implementation of WebVTT thumbnails is very strict.
 
-** link:https://test-drm.hexaglobe.net/hrathod/thumbtest/webvtt/thumbs.vtt[WEVTT SAMPLE]
 [source,json]
 ----
   {
@@ -166,7 +165,6 @@ https://livesim.dashif.org/livesim/testpic_2s/Manifest_thumbs.mpd
 
 === HLS Manifest Content
 ==== VOD
-https://test-drm.hexaglobe.net/hrathod/playlist/test.m3u8
 
 - Example of thumbnails per 10 seconds one image frame.
 [source]

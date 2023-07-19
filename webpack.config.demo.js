@@ -159,7 +159,7 @@ const featureList = [
   {
     name: 'mini-player',
     html: 'demo/html/miniPlayer/mini-player.ejs',
-    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/MiniPlayer/hexa-mini-player.adoc[]"',
+    adoc: '"include::./docs/features-configuration/hplayer-advanced-features/MiniPlayer/h-mini-player.adoc[]"',
     js: 'miniPlayer.js'
   },
   {
