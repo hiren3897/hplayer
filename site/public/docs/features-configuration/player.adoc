@@ -4,7 +4,7 @@ link:../../src/assets/player-options.json[Global JSON]
 
 == Configuration
 The Configurations include all property types that will be used to set up the player like
-DRM configurations, Customised UI config and advanced hexaglobe features.
+DRM configurations, Customised UI config and advanced features.
 
 == Player Config
 link:https://shaka-player-demo.appspot.com/docs/api/tutorial-config.html[Shaka Player Config]: It will be the part of our first parameter in *options.player_configurations*  that is basically the object of shaka-player configurations.

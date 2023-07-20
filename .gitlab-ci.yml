@@ -1,4 +1,3 @@
-# For given branch ( as of now develop, player-demo.hexaglobe-net)
 # 1. Will run build-prod command to generate a dist folder(minified version of code) up to date with source code.
 # 2. Will run build-demo to generate the demo site in folder dist/demo
 # 2. Will upload the demo site to webserver configured in gitlab settings.
@@ -38,6 +37,6 @@ deploy_demo_prod:
     - hplayer
   stage: deploy
   only:
-    - player-demo.hexaglobe-net
+    - main
   script:
     - lftp -e "debug 5; set sftp:use-full-path no; set sftp:auto-confirm yes; set sftp:connect-program \"ssh -a -x -o 'StrictHostKeyChecking accept-new'\"; open sftp://$SFTP_ADDR:$SFTP_PORT; user $SFTP_USERNAME $SFTP_PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete ./dist/demo $TARGET_DIRECTORY ; bye"
