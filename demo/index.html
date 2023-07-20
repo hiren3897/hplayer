@@ -1,773 +1,769 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <title>HPlayer</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HPlayer - Video Player</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f5f5f5;
+        }
+    </style>
 </head>
-<body class="bg-light">
-<nav class="navbar navbar-dark fixed-top bg-secondary">
-    <div class="container">
-        <h1>HPlayer Demo</h1>
-    </div>
-</nav>
-<div class="container">
-    <h2>Example's usage</h2>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <h3 class="border-bottom mb-4">VOD</h3>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">VOD basic</h5>
-                        <p class="card-text text-muted"> Play a video: mp4,hls, dash</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./basic-usage.html" class="btn btn-primary">Show</a>
-                    </div>
 
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">VOD fully featured</h5>
-                        <p class="card-text text-muted"> mp4, hls, dash</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./vod-fully-featured.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top animated fadeInDown">
+        <div class="container">
+            <a class="navbar-brand font-weight-bolder" href="#">HPlayer Demo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#examples">Examples <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Features
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#presentation">Presentation</a>
+                            <a class="dropdown-item" href="#live">Live</a>
+                            <a class="dropdown-item" href="#manageplayback">Manage Playback</a>
+                            <a class="dropdown-item" href="#miscellaneous">Miscellaneous</a>
+                            <a class="dropdown-item" href="#managesources">Manage Sources</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#client">Explicit Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#api">HPlayer API</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#notifications">Hplayer Notifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#progress">Work in progress</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <h3 class="border-bottom mb-4">Live</h3>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">Basic Live (with DRM)</h5>
-                        <p class="card-text text-muted">hls, dash</p>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Examples Section -->
+        <section id="examples" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 mb-4">Example's Usage</h2>
+                </div>
+                <div class="row">
+
+                    <!-- VOD -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary">VOD</h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0">
+                                        <h6 class="mb-0">Basic VOD</h6>
+                                        <p class="small text-muted">Play a video: mp4, hls, dash</p>
+                                        <a href="./basic-usage.html" class="btn btn-primary btn-sm">Demo</a>
+                                    </li>
+                                    <li class="list-group-item border-0">
+                                        <h6 class="mb-0">Featured VOD</h6>
+                                        <p class="small text-muted">mp4, hls, dash</p>
+                                        <a href="./vod-fully-featured.html" class="btn btn-primary btn-sm">Demo</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer text-center">
-                        <a href="./live-drm.html" class="btn btn-primary">Show</a>
+
+                    <!-- Live -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary">Live</h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0">
+                                        <h6 class="mb-0">Basic Live</h6>
+                                        <p class="small text-muted">hls, dash</p>
+                                        <a href="./live-drm.html" class="btn btn-primary btn-sm">Demo</a>
+                                    </li>
+                                    <li class="list-group-item border-0">
+                                        <h6 class="mb-0">Featured Live</h6>
+                                        <p class="small text-muted">hls, dash</p>
+                                        <a href="./live-fully-featured.html" class="btn btn-primary btn-sm">Demo</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">Live fully featured</h5>
-                        <p class="card-text text-muted">hls, dash</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./live-fully-featured.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h2>Available Feature's</h2>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <h3 class="border-bottom mb-4">Presentation</h3>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
+        </section>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Poster</h5>
-                        <p class="card-text text-muted">Show a poster before the video plays.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./poster.html" class="btn btn-primary">Show</a>
-                    </div>
+        <!-- Features Section -->
+        <section id="features" class="py-5 bg-light">
+            <div id="presentation" class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 mb-4">Available Features</h2>
+                    <h3 class="border-bottom mb-4">Presentation</h3>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">Big Play Button</h5>
-                        <p class="card-text text-muted"> Play button</p>
+                <div class="row">
+                    <!-- Poster -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Poster</h5>
+                                <p class="card-text text-muted">Demo a poster before the video plays.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./poster.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer text-center">
-                        <a href="./big-play-button.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
 
-                    <div class="card-body">
-                        <h5 class="card-title">Thumbnail Track
-                            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
-                            New Update
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Show thumbnail on timeline hover.</p>
-                        <p class="card-text text-muted">Thumbnails fetched from backend(list in manifest)</p>
-                        <p class="card-text text-muted">HLS, DASH</p>
+                    <!-- Big Play Button -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Big Play Button</h5>
+                                <p class="card-text text-muted"> Play button.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./big-play-button.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer text-center">
-                        <a href="./thumbnails-track.html" class="btn btn-primary">Show</a>
+
+                    <!-- Thumbnail Track -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Thumbnail Track</h5>
+                                <p class="card-text text-muted">Demo thumbnail on timeline hover.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./thumbnails-track.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Chapters VOD -->
+                     <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Chapters VOD</h5>
+                                <p class="card-text text-muted">Adds a chapters display. </p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./chapters-vod.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Chapters Live
+                                    <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                                    New Update
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Now display live chapters on your live stream. </p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./live-chapters.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Tags
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Now display tags on the video timeline.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./tags.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Subtitles</h5>
+                                <p class="card-text text-muted"></p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./subtitles.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Picture In Picture</h5>
+                                <p class="card-text text-muted"> Enable the feature picture in picture. Native browser
+                                    feature</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./picture-in-picture.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Auto Picture-In-Picture</h5>
+                                <p class="card-text text-muted">Auto picture-in-picture mode on scrolling page. Css trick to
+                                    have the player fixed on page while scrolling.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./auto-pip.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Popup List</h5>
+                                <p class="card-text text-muted">Add a list of data to the player. A list will be displayed with a specific appearance.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./popup-list.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Image Overlay</h5>
+                                <p class="card-text text-muted">Overlay an image on the video player.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./image-overlay.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Manage Alerts</h5>
+                                <p class="card-text text-muted">Send notification to the player.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./manage-alerts.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Volume Vertical
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Customise volume bar to vertical from horizontal.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./volume-vertical.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Context Menu
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Create your own custom context menu.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./context-menu-demo.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Time Tooltip
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Display time tooltip on seek.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./time-tooltip-demo.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="live" class="text-center mb-5">
+                    <h3 class="border-bottom mb-4">Live</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Small live Button</h5>
+                                <p class="card-text text-muted"> Live status indicator. Go back to live on click.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./small-live-button.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Big live Button</h5>
+                                <p class="card-text text-muted">Live status indicator. Go back to live on click.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./big-live-button.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">DVR Mode Button
+                                    <span class="position-absolute top-0 badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Start-Over - DVR Mode Button Now manage the Start-Over (DVR) timeline with one click.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./dvr-mode-button.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="manageplayback" class="text-center mb-5">
+                    <h3 class="border-bottom mb-4">Manage Playback</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Backward Button</h5>
+                                <p class="card-text text-muted"> Jump backward X seconds</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./backward-button.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Forward Button</h5>
+                                <p class="card-text text-muted">Jump forward X seconds</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./forward-button.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Playback Speed
+                                    <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                                    New Update
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Customize your own playback rates in the player.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./playback.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Express Mode
+                                    <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                                    New Update
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted"> Play video at a very fast playback speed but the start and the
+                                    end. Speed,
+                                    start and end are customizable.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./express-mode.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Rewind
+                                    <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                                    New Update
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Adds a button that rewinds the presentation on a click; that is, it starts playing the presentation backwards.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./rewind.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Fast Forward
+                                    <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                                    New Update
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Adds a button that fast forwards the presentation on click; that is, it starts playing the presentation at an increased speed.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./fast-forward.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Loop</h5>
+                                <p class="card-text text-muted">Adds a button that controls if the currently selected video is played in a loop.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./loop.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Keyboard Support
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Now manage player with your keyboard</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./keyboard-control-demo.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="miscellaneous" class="text-center mb-5">
+                    <h3 class="border-bottom mb-4">Miscellaneous</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">ChromeCast</h5>
+                                <p class="card-text text-muted">Enable ChromeCast</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./chromecast.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">AirPlay</h5>
+                                <p class="card-text text-muted">Enable AirPlay</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./airplay.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Share Button</h5>
+                                <p class="card-text text-muted"> Share page url to social network.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./share-button.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Screenshot</h5>
+                                <p class="card-text text-muted">Take a screenshot from video</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./screenshot.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Auto Disconnect
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Auto disconnect the player with an alert prompt</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./auto-disconnect.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Custom Buttons
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Now, add your own custom buttons in the player.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./custom-buttons.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Custom Audio Languages
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Now, add your different multi audio mp4's in the player.</p>
+                                <p class="card-text text-muted">only MP4 video's</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./custom-audio-languages.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="managesources" class="text-center mb-5">
+                    <h3 class="border-bottom mb-4">Manage Sources</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Playlist</h5>
+                                <p class="card-text text-muted"> Add a playlist to the player. Video will play in order.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./playlist.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Switch Channel</h5>
+                                <p class="card-text text-muted"> Select a new channel(live stream) from given list.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./switch-channel.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Redirect</h5>
+                                <p class="card-text text-muted">Redirect to another url after the video has ended.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./redirect.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Language</h5>
+                                <p class="card-text text-muted">Adds a button that controls audio language selection</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./language.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Quality</h5>
+                                <p class="card-text text-muted">Adds a button that controls enabling/disabling of abr and video resolution selection.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./quality.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Statistics
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Create your own custom player statistics.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./player-statistics-demo.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="col">
-                <div class="card h-100 shadow">
+        <!-- Explicit Features-->
+        <section id="client" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 mb-4">Explicit Features</h2>
+                </div>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Chapters VOD
-                            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
-                            New Update
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted"></p>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Mini-Player</h5>
+                                <p class="card-text text-muted">Launch mini player on page.</p>
+                                <p class="card-text text-muted">Add next video channels in the mini player.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./mini-player.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer text-center">
-                        <a href="./chapters-vod.html" class="btn btn-primary">Show</a>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Multiplayer</h5>
+                                <p class="card-text text-muted">Live multi-player example</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./multiplayer.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100 shadow">
+        </section>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Live Chapters
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Now display live chapters on your live stream</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./live-chapters.html" class="btn btn-primary">Show</a>
+        <!-- HPlayer API-->
+        <section id="api" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 mb-4">HPlayer API</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Advanced Method's</h5>
+                                <p class="card-text text-muted">Manage video quality, controls UI, mute/unmute player on fly.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./hplayer-api.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100 shadow">
+        </section>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Tags
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Now display tags on the video timeline.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./tags.html" class="btn btn-primary">Show</a>
+        <!-- HPlayer Notification's-->
+        <section id="notifications" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 mb-4">HPlayer Notification's</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Notification's
+                                    <span class="position-absolute top-0 start-100 badge rounded-pill bg-danger">
+                                    New
+                                    </span>
+                                </h5>
+                                <p class="card-text text-muted">Send Notification to the player.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./notification.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100 shadow">
+        </section>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Subtitles</h5>
-                        <p class="card-text text-muted"></p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./subtitles.html" class="btn btn-primary">Show</a>
+        <!-- Work in Progress Section -->
+        <section id="progress" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 mb-4">Work in Progress</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow rounded border-0 animated fadeInUp">
+                            <div class="card-body">
+                                <h5 class="card-title">Thumbnails</h5>
+                                <p class="card-text text-muted">Demo thumbnail on timeline hover.</p>
+                                <p class="card-text text-muted">Thumbnails generated from client browser.</p>
+                            </div>
+                            <div class="card-footer border-0">
+                                <a href="./thumbnails.html" class="btn btn-primary">Demo</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100 shadow">
+        </section>
+    </main>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Picture In Picture</h5>
-                        <p class="card-text text-muted"> Enable the feature picture in picture. Native browser
-                            feature</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./picture-in-picture.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Auto Picture-In-Picture</h5>
-                        <p class="card-text text-muted">Auto picture-in-picture mode on scrolling page. Css trick to
-                            have the player fixed on page while scrolling.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./auto-pip.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Popup List</h5>
-                        <p class="card-text text-muted">Add a list of data to the player. A list will be displayed with a specific appearance.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./popup-list.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Image Overlay</h5>
-                        <p class="card-text text-muted">Overlay an image on the video player.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./image-overlay.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Manage Alerts</h5>
-                        <p class="card-text text-muted">Send notification to the player.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./manage-alerts.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Volume Vertical
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Customise volume bar to vertical from horizontal.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./volume-vertical.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Context Menu
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Create your own custom context menu.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./context-menu-demo.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Time Tooltip
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Display time tooltip on seek.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./time-tooltip-demo.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <h3 class="border-bottom mb-4">Live</h3>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Small live Button</h5>
-                        <p class="card-text text-muted"> Live status indicator. Go back to live on click.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./small-live-button.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Big live Button</h5>
-                        <p class="card-text text-muted">Live status indicator. Go back to live on click.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./big-live-button.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">DVR Mode Button
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Start-Over - DVR Mode Button Now manage the Start-Over (DVR) timeline with one click.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./dvr-mode-button.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <h3 class="border-bottom mb-4">Manage Playback</h3>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Backward Button</h5>
-                        <p class="card-text text-muted"> Jump backward X seconds</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./backward-button.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Forward Button</h5>
-                        <p class="card-text text-muted">Jump forward X seconds</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./forward-button.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Playback Speed
-                            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
-                            New Update
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Customize your own playback rates in the player.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./playback.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Express Mode
-                            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
-                            New Update
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted"> Play video at a very fast playback speed but the start and the
-                            end. Speed,
-                            start and end are customizable.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./express-mode.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Rewind
-                            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
-                            New Update
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Adds a button that rewinds the presentation on a click; that is, it starts playing the presentation backwards.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./rewind.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Fast Forward
-                            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
-                            New Update
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Adds a button that fast forwards the presentation on click; that is, it starts playing the presentation at an increased speed.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./fast-forward.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Loop</h5>
-                        <p class="card-text text-muted">Adds a button that controls if the currently selected video is played in a loop.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./loop.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Keyboard Support
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Now manage player with your keyboard</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./keyboard-control-demo.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <h3 class="border-bottom mb-4">Miscellaneous</h3>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">ChromeCast</h5>
-                        <p class="card-text text-muted">Enable ChromeCast</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./chromecast.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">AirPlay</h5>
-                        <p class="card-text text-muted">Enable AirPlay</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./airplay.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Share Button</h5>
-                        <p class="card-text text-muted"> Share page url to social network.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./share-button.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Screenshot</h5>
-                        <p class="card-text text-muted">Take a screenshot from video</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./screenshot.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Auto Disconnect
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Auto disconnect the player with an alert prompt</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./auto-disconnect.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Custom Buttons
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Now, add your own custom buttons in the player.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./custom-buttons.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Custom Audio Languages
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Now, add your different multi audio mp4's in the player.</p>
-                        <p class="card-text text-muted">only MP4 video's</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./custom-audio-languages.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <h3 class="border-bottom mb-4">Manage Sources</h3>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Playlist</h5>
-                        <p class="card-text text-muted"> Add a playlist to the player. Video will play in order.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./playlist.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Switch Channel</h5>
-                        <p class="card-text text-muted"> Select a new channel(live stream) from given list.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./switch-channel.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Redirect</h5>
-                        <p class="card-text text-muted">Redirect to another url after the video has ended.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./redirect.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Language</h5>
-                        <p class="card-text text-muted">Adds a button that controls audio language selection</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./language.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Quality</h5>
-                        <p class="card-text text-muted">Adds a button that controls enabling/disabling of abr and video resolution selection.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./quality.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Statistics
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Create your own custom player statistics.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./player-statistics-demo.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h2>Client Explicit Features</h2>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Mini-Player</h5>
-                        <p class="card-text text-muted">Launch mini player on page.</p>
-                        <p class="card-text text-muted">Add next video channels in the mini player.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./mini-player.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Multiplayer</h5>
-                        <p class="card-text text-muted">Live multi-player example</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./multiplayer.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">iOS Player</h5>
-                        <p class="card-text text-muted">Only For iOS</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./iOS-fullscreen.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h2>HPlayer API</h2>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">Advanced Method's</h5>
-                        <p class="card-text text-muted">Manage video quality, controls UI, mute/unmute player on fly.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./hplayer-api.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h2>HPlayer Notification's</h2>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">Notification's
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            New
-                            </span>
-                        </h5>
-                        <p class="card-text text-muted">Send Notification to the player.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./notification.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- <h2>HPlayer Configuration's</h2>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">ABR (Adaptive Bitrate Streaming) </h5>
-                        <p class="card-text text-muted">Manage resolution on ABR (Adaptive Bitrate Streaming) Level</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./abr.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">Player Restrictions</h5>
-                        <p class="card-text text-muted">Manage Display resolutions on player level</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./player-restrictions.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <h2>Work in progress</h2>
-    <div class="bg-white p-5 mb-5 shadow-sm">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-
-            <div class="col">
-                <div class="card h-100 shadow">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Thumbnails</h5>
-                        <p class="card-text text-muted">Show thumbnail on timeline hover.</p>
-                        <p class="card-text text-muted">Thumbnails generated from client browser.</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="./thumbnails.html" class="btn btn-primary">Show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
