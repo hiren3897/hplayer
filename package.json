@@ -12,7 +12,8 @@
     "build-dev": "webpack --config=webpack.config.dev.js",
     "demo": "webpack serve --config=webpack.config.demo.js --open",
     "build-demo": "webpack --config=webpack.config.demo.js",
-    "prepublishOnly": "npm run build-prod"
+    "prepublishOnly": "npm run build-prod",
+    "lint": "eslint . --fix"
   },
   "author": "Hiren Rathod",
   "license": "proprietary",
@@ -32,7 +33,7 @@
     "ilyabirman-likely": "^2.6.0",
     "json-loader": "^0.5.7",
     "mini-css-extract-plugin": "^2.1.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.3",
     "raw-loader": "^4.0.2",
     "sass": "^1.42.0",
     "sass-loader": "^12.1.0",

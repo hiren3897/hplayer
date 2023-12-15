@@ -15,14 +15,9 @@ const hPlayer = new HPlayer(video, videoContainer, {
     enableTooltips: true
   },
   player_configurations: {
-    drm: {
-      advanced: {
-        'com.widevine.alpha': {
-          audioRobustness: 'SW_SECURE_CRYPTO',
-          videoRobustness: 'SW_SECURE_CRYPTO'
-        }
-      }
-    },
+    streaming: {
+      lowLatencyMode: true
+    }
   },
   advanced_features: [
     {

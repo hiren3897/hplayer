@@ -10,4 +10,4 @@ curl -sS https://raw.githubusercontent.com/shaka-project/shaka-player/main/build
 cd packages/shaka-player
 
 # Run the build script
-python build/all.py
+python3 build/all.py

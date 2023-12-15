@@ -65,7 +65,7 @@
       }
   
       .video-container {
-        height: 95%;
+        height: 100%;
         width: 70%;
         float: left;
       }
@@ -80,6 +80,11 @@
   </style>
 </head>
 
+<% if (title === 'auto-pip') { %>
+<body style="height: 200vh">
+<%} else { %>
+<body>
+<% } %>
 <body>
 <script src="https://darshandsoni.com/asciidoctor-skins/switcher.js" type="text/javascript"></script>
 
@@ -90,7 +95,7 @@
     </a>
   </nav>
 
-  <div class="fullscreen-container">
+  <div class="fullscreen-container" style="height: 95vh">
 
     <div id="video-container" class="video-container">
       <video autoplay playsinline class="video" style="height: auto; width: 100%; object-fit: cover;"></video>

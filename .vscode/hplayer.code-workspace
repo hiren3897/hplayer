@@ -6,7 +6,7 @@
       },
       {
         "name": "shaka-player",
-        "path": "packages/shaka-player"
+        "path": "../packages/shaka-player"
       },
     ],
     "settings": {
