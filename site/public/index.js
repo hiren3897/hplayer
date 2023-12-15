@@ -1,6 +1,6 @@
 /******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-/*!**********************!*\
+  const __webpack_exports__ = {};
+  /*! **********************!*\
   !*** ./demo/demo.js ***!
   \**********************/
 /**
@@ -8,4 +8,4 @@ var __webpack_exports__ = {};
  */
 /******/ })()
 ;
-//# sourceMappingURL=index.js.map
+// # sourceMappingURL=index.js.map
