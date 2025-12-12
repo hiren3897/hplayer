@@ -14,13 +14,13 @@ cd hplayer
 
 - ### Install Global Dependencies
 ```bash
-npm install
+pnpm install
 ```
 
 - ### Run the project 
 It will start the development environment using `webpack.config.dev.js`
 ```bash
-npm start
+pnpm start
 ```
 
 ### With Docker

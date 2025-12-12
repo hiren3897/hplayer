@@ -2,8 +2,8 @@
 FROM node:alpine AS builder
 WORKDIR /usr/src/app
 COPY . .
-RUN npm install
-RUN  npm run build-demo
+RUN pnpm install
+RUN pnpm run build-demo
 
 # Stage 2 : Run
 FROM nginx:alpine

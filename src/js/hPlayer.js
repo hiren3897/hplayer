@@ -29,6 +29,7 @@ import {NotificationService} from "./notification/notificationService";
 import {ChapterService} from "./features/services/chapterService";
 import {checkAdvanceFeatureConfig, getSourceInfo} from "./hPlayerService";
 import {Localization} from "./localization";
+import { P1203DataCollector } from './qoePredictor/P1203DataCollector';
 
 /**
  * HPlayer Main Class.
@@ -185,6 +186,9 @@ export default class HPlayer {
         if (this.controls_.getConfig().enableTooltips) {
             this.onOverflowMenuOpenHandler()
         }
+
+        const collector = new P1203DataCollector(this.player_, this.video_);
+        window.collector = collector 
     }
 
     /**
